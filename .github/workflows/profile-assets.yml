@@ -59,14 +59,16 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_USER: ${{ github.repository_owner }}
-        run: node tools/render-stats.mjs dist/profile-stats.svg
+        # Written outside dist/: the snake step runs in a container as root
+        # and leaves dist/ root-owned, so the runner cannot write into it.
+        run: node tools/render-stats.mjs stats/profile-stats.svg
 
       - name: Publish to the output branch
         run: |
           set -euo pipefail
 
           staged="$(mktemp -d)"
-          cp dist/*.svg "$staged/"
+          cp dist/*.svg stats/*.svg "$staged/"
 
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -88,7 +90,7 @@ jobs:
             echo
             echo "| Asset | Size |"
             echo "| --- | --- |"
-            for f in dist/*.svg; do
+            for f in dist/*.svg stats/*.svg; do
               echo "| \`$(basename "$f")\` | $(du -h "$f" | cut -f1) |"
             done
             echo
