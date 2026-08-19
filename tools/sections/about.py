@@ -45,8 +45,8 @@ def _rich(x, y, runs, size, tracking=0.3):
 
 
 def wide():
-    W, H = 1200, 500
-    px, py, pw, ph = 22, 40, W - 44, 436
+    W, H = 1200, 530
+    px, py, pw, ph = 22, 40, W - 44, 466
 
     o = D.tab(px + 26, py - 26, '~/about', color=D.CYAN, size=16)
     o += D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
@@ -61,7 +61,7 @@ def wide():
     o += D.hline(cx + 156, 243, pw - 196, D.LINE_2)
 
     cw, gap = 213, 12
-    ky, kh = 274, 172
+    ky, kh = 274, 202
     for i, (icon, col, name, lines) in enumerate(PRINCIPLES):
         ox = cx + i * (cw + gap)
         o += D.panel(ox, ky, cw, kh, fill=D.SURFACE_2, stroke=D.LINE_2)
@@ -123,7 +123,7 @@ def narrow():
     o += D.hline(cx + 108, hy - 5, inner - 108, D.LINE_2)
 
     ky = hy + 16
-    rowh = 76
+    rowh = 86
     for i, (icon, col, name, body) in enumerate(PRINCIPLES):
         ry = ky + i * rowh
         o += D.panel(cx, ry, inner, rowh - 8, fill=D.SURFACE_2, stroke=D.LINE_2)

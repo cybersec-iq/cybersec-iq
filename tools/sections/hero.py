@@ -20,9 +20,12 @@ CAPS = [
     ('ARCHITECTURE',  D.CYAN,   D.i_layers, ['Clean design', 'built to last']),
 ]
 
-NODES = [(0.10, 0.62), (0.30, 0.24), (0.52, 0.46), (0.44, 0.80),
-         (0.72, 0.20), (0.86, 0.58), (0.66, 0.86)]
-LINKS = [(0, 1), (1, 2), (2, 3), (3, 0), (2, 4), (4, 5), (5, 6), (6, 3)]
+# Geographic nodes: San Francisco, Brazil, London, Muscat, Singapore, Tokyo,
+# Sydney. Six connections keep the map legible instead of turning it into a
+# network-line thicket.
+NODES = [(0.16, 0.31), (0.37, 0.69), (0.50, 0.20), (0.66, 0.41),
+         (0.79, 0.57), (0.89, 0.32), (0.92, 0.84)]
+LINKS = [(0, 2), (1, 3), (2, 3), (3, 4), (3, 5), (4, 6)]
 
 DESC = ('Command-center banner. SYSTEM // OPERATOR. ARYAN IQ. '
         'Full-stack developer, cybersecurity engineer, AI systems builder. '
@@ -67,7 +70,8 @@ def wide():
     cx = px + 42
 
     o += D.world_map(806, 86, 346, 176, dot=1.7, step=7.4, color=D.GREEN_DIM, opacity=0.95)
-    o += D.node_web(806, 86, 346, 176, NODES, LINKS)
+    o += D.node_web(806, 86, 346, 176, NODES, LINKS,
+                    colors=(D.GREEN, D.CYAN, D.YELLOW, D.GREEN, D.CYAN))
 
     o += D.label(cx, 116, EYEBROW, size=13.5, fill=D.CYAN, tracking=5.5)
     o += D.i_shield_check(cx, 148, 72, D.GREEN)

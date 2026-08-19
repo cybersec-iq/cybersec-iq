@@ -79,6 +79,56 @@
     mark('whoami');
   }
 
+  /* ---------------- identity terminal typewriter ---------------- */
+
+  var whoTyped = document.getElementById('who-typed');
+  var whoResult = document.getElementById('who-result');
+  var WHO_SEQUENCE = [
+    { command: 'whoami', result: '→ ARYAN IQ' },
+    { command: 'mission --status', result: '→ NOTHING IS IMPOSSIBLE.' }
+  ];
+
+  function typeWho(text, done) {
+    if (!whoTyped) { return; }
+    if (REDUCED) {
+      whoTyped.textContent = text;
+      if (done) { done(); }
+      return;
+    }
+    whoTyped.textContent = '';
+    var i = 0;
+    function step() {
+      i += 1;
+      whoTyped.textContent = text.slice(0, i);
+      if (i < text.length) { window.setTimeout(step, 82); }
+      else if (done) { done(); }
+    }
+    window.setTimeout(step, 180);
+  }
+
+  function playWho(index) {
+    if (!whoTyped || !whoResult) { return; }
+    var item = WHO_SEQUENCE[index];
+    whoResult.textContent = '';
+    typeWho(item.command, function () {
+      window.setTimeout(function () {
+        whoResult.textContent = item.result;
+        window.setTimeout(function () {
+          playWho((index + 1) % WHO_SEQUENCE.length);
+        }, index === WHO_SEQUENCE.length - 1 ? 2800 : 1500);
+      }, 520);
+    });
+  }
+
+  if (whoTyped && whoResult) {
+    if (REDUCED) {
+      whoTyped.textContent = WHO_SEQUENCE[0].command;
+      whoResult.textContent = WHO_SEQUENCE[0].result;
+    } else {
+      playWho(0);
+    }
+  }
+
   /* ---------------- console ---------------- */
 
   var log = document.getElementById('log');

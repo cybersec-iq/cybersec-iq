@@ -68,8 +68,8 @@ def _board(x, y, w, h, cols=16, rows=11):
 
 
 def wide():
-    W, H = 1200, 396
-    px, py, pw, ph = 22, 20, W - 44, 356
+    W, H = 1200, 442
+    px, py, pw, ph = 22, 20, W - 44, 402
 
     o = D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
     o += D.brackets(px, py, pw, ph, color=D.YELLOW, arm=20, sw=2.2, corners='tl,tr')
@@ -129,7 +129,7 @@ def wide():
         o += D.text(rx + 24, ry, k, size=12, fill=D.MUTED, tracking=1.4)
         o += D.text(rx + 210, ry, v, size=12, fill=D.LIME, tracking=1.2)
 
-    o += _board(rx + 340, py + 96, rw - 372, 216)
+    o += _board(rx + 340, py + 96, rw - 372, 224)
     return D.doc(W, H, TITLE, DESC, o)
 
 
@@ -163,11 +163,18 @@ def narrow():
         o += D.text(cx, ry, keys, size=12, fill=col)
         o += D.text(cx + 190, ry, act, size=12, fill=D.TEXT, tracking=1.2)
 
-    ny = ky + 22 + len(CONTROLS) * 22 + 12
+    fy = ky + 22 + len(CONTROLS) * 22 + 14
+    o += D.label(cx, fy, '// PROPERTIES', size=11, fill=D.CYAN, tracking=2.2)
+    for i, (k, v) in enumerate(FACTS):
+        ry = fy + 22 + i * 21
+        o += D.text(cx, ry, k, size=10.8, fill=D.MUTED, tracking=.8)
+        o += D.text(cx + 190, ry, v, size=10.8, fill=D.LIME, tracking=.5)
+
+    ny = fy + 22 + len(FACTS) * 21 + 14
     o += D.text(cx, ny, 'Original build — no framework,', size=11, fill=D.MUTED)
     o += D.text(cx, ny + 15, 'no trackers, no dependencies.', size=11, fill=D.MUTED)
 
-    ph = ny + 28 - py
+    ph = ny + 46 - py
     H = py + ph + 12
     frame = (D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
              + D.brackets(px, py, pw, ph, color=D.YELLOW, arm=15, sw=2, corners='tl,tr'))

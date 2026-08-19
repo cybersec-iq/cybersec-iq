@@ -109,22 +109,13 @@ def defs(extra='', reduce_classes=()):
       .live  {{ animation: live 2.8s ease-in-out infinite; }}
       .flow  {{ stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }}
       .rise  {{ animation: rise .55s ease-out both; }}
-      .globe-rotate {{ transform-box: fill-box; transform-origin: center;
-                       animation: globeTurn 24s linear infinite; }}
       @keyframes blink {{ 0%,49% {{ opacity: 1; }} 50%,100% {{ opacity: 0; }} }}
       @keyframes live  {{ 0%,100% {{ opacity: .38; }} 50% {{ opacity: 1; }} }}
       @keyframes flow  {{ to {{ stroke-dashoffset: -24; }} }}
       @keyframes rise  {{ from {{ opacity: 0; transform: translateY(7px); }}
                           to {{ opacity: 1; transform: translateY(0); }} }}
-      @keyframes globeTurn {{
-        0%   {{ transform: scaleX(1); }}
-        25%  {{ transform: scaleX(.18); }}
-        50%  {{ transform: scaleX(-1); }}
-        75%  {{ transform: scaleX(-.18); }}
-        100% {{ transform: scaleX(1); }}
-      }}
       @media (prefers-reduced-motion: reduce) {{
-        .blink, .live, .flow, .rise, .globe-rotate{', ' + rm if reduce_classes else ''} {{ animation: none; }}
+        .blink, .live, .flow, .rise{', ' + rm if reduce_classes else ''} {{ animation: none; }}
       }}
     </style>
   </defs>
@@ -414,33 +405,54 @@ def quote_strip(x, y, w, h, parts):
 # decorative motifs
 # --------------------------------------------------------------------------
 
-# Coarse land boxes in (lon_min, lon_max, lat_min, lat_max), projected
-# equirectangularly for the dotted world map (ref 01). Enough boxes to read as
-# Earth at a glance without shipping a geometry dependency.
+# Simplified continent outlines in longitude/latitude pairs. These deliberate
+# silhouettes replace the old rectangular land boxes, so the Americas,
+# Europe/Africa, Asia and Australia remain recognizable even at README scale.
 _LAND = [
     # North America
-    (-168, -140, 55, 71), (-141, -104, 49, 70), (-105, -58, 50, 71),
-    (-128, -96, 32, 50), (-96, -68, 29, 48), (-117, -96, 23, 33),
-    (-105, -84, 15, 25), (-92, -77, 8, 18), (-84, -74, 18, 24),
+    [(-168, 70), (-145, 72), (-126, 61), (-110, 58), (-98, 50), (-82, 48),
+     (-60, 53), (-52, 46), (-67, 40), (-80, 26), (-97, 17), (-110, 22),
+     (-117, 32), (-128, 48), (-151, 58)],
+    # Central America
+    [(-101, 22), (-86, 22), (-77, 8), (-88, 8)],
     # Greenland
-    (-54, -20, 60, 82),
+    [(-55, 82), (-23, 80), (-19, 63), (-43, 59), (-62, 69)],
     # South America
-    (-80, -50, -4, 12), (-78, -35, -20, -3), (-73, -42, -34, -19),
-    (-73, -61, -50, -33), (-72, -66, -55, -49),
+    [(-81, 12), (-66, 10), (-50, 2), (-35, -8), (-45, -23), (-52, -35),
+     (-66, -55), (-73, -42), (-76, -20)],
     # Europe
-    (-9, 3, 36, 44), (-6, 30, 40, 56), (4, 31, 55, 70), (20, 40, 44, 60),
-    (-10, -5, 51, 58),
+    [(-11, 36), (-10, 52), (1, 59), (18, 70), (32, 67), (40, 53),
+     (29, 42), (13, 36)],
     # Africa
-    (-17, 35, 12, 34), (-12, 42, -4, 13), (11, 41, -27, -3), (43, 50, -25, -12),
+    [(-18, 35), (9, 37), (34, 31), (51, 12), (42, -12), (31, -34),
+     (16, -35), (2, -18), (-10, 4)],
     # Asia
-    (30, 60, 28, 44), (35, 89, 45, 70), (90, 140, 50, 72), (140, 179, 60, 71),
-    (60, 89, 21, 37), (90, 124, 21, 46), (99, 120, 5, 21), (126, 145, 31, 46),
-    (45, 60, 12, 30),
-    # Maritime SE Asia
-    (95, 141, -10, 7),
-    # Australia / NZ
-    (113, 154, -39, -11), (166, 179, -47, -34),
+    [(28, 41), (38, 55), (61, 72), (103, 76), (145, 70), (179, 63),
+     (170, 49), (143, 39), (130, 23), (109, 19), (103, 5), (91, 9),
+     (79, 23), (63, 26), (50, 40)],
+    # Arabian peninsula / India / SE Asia
+    [(35, 31), (59, 29), (57, 12), (46, 12)],
+    [(67, 29), (90, 28), (79, 7), (72, 8)],
+    [(92, 23), (122, 20), (142, 2), (123, -10), (101, 1)],
+    # Japan
+    [(130, 45), (145, 43), (142, 30), (132, 32)],
+    # Australia and New Zealand
+    [(112, -11), (132, -10), (154, -22), (150, -39), (127, -43), (114, -31)],
+    [(165, -34), (179, -38), (176, -48), (168, -45)],
 ]
+
+
+def _inside_polygon(lon, lat, polygon):
+    inside = False
+    j = len(polygon) - 1
+    for i, (xi, yi) in enumerate(polygon):
+        xj, yj = polygon[j]
+        if ((yi > lat) != (yj > lat)):
+            cross = (xj - xi) * (lat - yi) / ((yj - yi) or 1e-9) + xi
+            if lon < cross:
+                inside = not inside
+        j = i
+    return inside
 
 
 def world_map(x, y, w, h, dot=1.7, step=9, color=GREEN, opacity=0.5):
@@ -452,8 +464,8 @@ def world_map(x, y, w, h, dot=1.7, step=9, color=GREEN, opacity=0.5):
         lat = 78 - (r / rows) * 134          # 78N .. 56S
         for c in range(cols + 1):
             lon = -180 + (c / cols) * 360
-            for (lo0, lo1, la0, la1) in _LAND:
-                if lo0 <= lon <= lo1 and la0 <= lat <= la1:
+            for polygon in _LAND:
+                if _inside_polygon(lon, lat, polygon):
                     # deterministic thinning gives a ragged coastline
                     if ((c * 7 + r * 13) % 12) < 9:
                         out.append(f'<circle cx="{x + c * step:.0f}" cy="{y + r * step:.0f}" r="{dot}"/>')
@@ -476,39 +488,6 @@ def node_web(x, y, w, h, nodes, links, colors=(GREEN, CYAN, LIME)):
                 f'style="animation-delay:{-0.4 * i:.1f}s"/>')
     out += '</g>\n'
     return out
-
-
-def globe(x, y, r, color=GREEN, opacity=0.55):
-    """Restrained rotating cyber globe with a static outer silhouette.
-
-    The inner mesh flips smoothly around its vertical axis. CSS animation is
-    self-contained for GitHub's SVG renderer; the reduced-motion rule above
-    leaves a complete, readable static globe.
-    """
-    out = [f'    <circle cx="{x}" cy="{y}" r="{r}" fill="#020A0E" fill-opacity=".45" '
-           f'stroke="{color}" stroke-width="1.1" opacity="{opacity}"/>']
-    out.append(f'    <g class="globe-rotate" fill="none" stroke="{color}" stroke-width="1" opacity="{opacity}">')
-    for k in (0.34, 0.68):
-        out.append(f'<ellipse cx="{x}" cy="{y}" rx="{r * k:.1f}" ry="{r}"/>')
-    for dy in (-0.62, -0.28, 0.28, 0.62):
-        rr = r * (1 - dy * dy) ** 0.5
-        out.append(f'<path d="M{x - rr:.1f} {y + r * dy:.1f} A {rr:.1f} {rr * 0.28:.1f} 0 0 0 {x + rr:.1f} {y + r * dy:.1f}"/>')
-    # restrained network arcs contained inside the sphere
-    pts = [(-.58, -.18), (-.22, -.52), (.18, -.24), (.56, -.46),
-           (.62, .20), (.18, .48), (-.42, .34)]
-    for a, b in zip(pts, pts[1:]):
-        x1, y1 = x + a[0] * r, y + a[1] * r
-        x2, y2 = x + b[0] * r, y + b[1] * r
-        out.append(f'<path d="M{x1:.1f} {y1:.1f} Q{x:.1f} {y - r * .12:.1f} {x2:.1f} {y2:.1f}" '
-                   f'stroke="{CYAN_DIM}" stroke-opacity=".72"/>')
-    out.append('</g>')
-    marks = [(-0.35, -0.30), (0.22, -0.12), (0.40, 0.28), (-0.18, 0.42), (0.05, -0.55)]
-    out.append(f'    <g class="globe-rotate" fill="{CYAN}">')
-    for i, (u, v) in enumerate(marks):
-        out.append(f'<circle cx="{x + u * r:.0f}" cy="{y + v * r:.0f}" r="2.6" class="live" '
-                   f'style="animation-delay:{-0.5 * i:.1f}s"/>')
-    out.append('</g>')
-    return ''.join(out) + '\n'
 
 
 def signal_bars(x, y, color=CYAN, n=4, opacity=0.7):

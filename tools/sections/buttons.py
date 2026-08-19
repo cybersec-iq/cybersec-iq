@@ -19,17 +19,20 @@ BUTTONS = [
 
 
 def button(title, sub, color, icon):
-    W, H = 268, 78
+    # Four 198px assets plus Markdown whitespace fit GitHub's ~831px desktop
+    # README column in one row. At phone widths two cannot fit side by side,
+    # so normal inline wrapping produces a readable single column.
+    W, H = 198, 70
     o = D.panel(1, 1, W - 2, H - 2, fill=D.SURFACE_2, stroke=color, sw=1.5)
     o += ('    <rect x="1" y="1" width="4" height="%d" fill="%s" opacity="0.9"/>\n'
           % (H - 2, color))
     o += D.brackets(1, 1, W - 2, H - 2, color=color, arm=11, sw=1.6,
                     corners='tl,br', opacity=0.5)
-    o += icon(20, H / 2 - 13, 26, color)
-    o += D.text(58, H / 2 - 3, title, size=14.5, fill=color, weight='700', tracking=1.7)
-    o += D.text(58, H / 2 + 17, sub, size=11.5, fill=D.MUTED, tracking=0.3)
+    o += icon(15, H / 2 - 10, 20, color)
+    o += D.text(43, H / 2 - 3, title, size=10.8, fill=color, weight='700', tracking=.65)
+    o += D.text(43, H / 2 + 15, sub, size=9.2, fill=D.MUTED, tracking=0)
     o += ('    <path d="M%d %d l7 7 l-7 7" fill="none" stroke="%s" stroke-width="2.2" '
-          'stroke-linecap="square" opacity="0.85"/>\n' % (W - 26, H / 2 - 7, color))
+          'stroke-linecap="square" opacity="0.85"/>\n' % (W - 18, H / 2 - 7, color))
     return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
 
 

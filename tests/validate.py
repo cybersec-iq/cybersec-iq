@@ -59,6 +59,52 @@ for path in svgs:
         bad(rel, str(exc))
 
 
+# ----------------------------------------------- 1b. final UI regressions
+
+print("\n== Final profile UI regressions ==")
+
+
+def read_text(rel):
+    with open(os.path.join(ROOT, rel), encoding="utf-8") as handle:
+        return handle.read()
+
+
+who_wide = read_text("assets/sections/whoami.svg")
+who_narrow = read_text("assets/sections/whoami-narrow.svg")
+who_source = read_text("tools/sections/whoami.py")
+pages_html = read_text("docs/index.html")
+pages_css = read_text("docs/styles.css")
+pages_js = read_text("docs/app.js")
+readme_text = read_text("README.md")
+snake_wide = read_text("assets/sections/snake-cta.svg")
+
+if "globe-rotate" not in who_wide + who_narrow + who_source + pages_html + pages_css:
+    ok("WHOAMI has no rotating-globe implementation")
+else:
+    bad("WHOAMI has no rotating-globe implementation", "legacy globe-rotate code remains")
+
+if all(token in who_wide for token in ("<clipPath", "attributeName=\"width\"", "repeatCount=\"indefinite\"")):
+    ok("README WHOAMI includes an SVG typewriter loop")
+else:
+    bad("README WHOAMI includes an SVG typewriter loop", "missing clip/reveal animation")
+
+if all(token in pages_js for token in ("whoTyped", "prefers-reduced-motion", "mission --status")):
+    ok("Pages WHOAMI includes typewriter and reduced-motion handling")
+else:
+    bad("Pages WHOAMI includes typewriter and reduced-motion handling", "expected JS hooks missing")
+
+cta_tags = re.findall(r'<img src="assets/sections/btn-[^"]+\.svg"[^>]*>', readme_text)
+if len(cta_tags) == 4 and all("width=" not in tag for tag in cta_tags):
+    ok("README CTA row uses four intrinsic compact buttons")
+else:
+    bad("README CTA row uses four intrinsic compact buttons", "expected four buttons without forced widths")
+
+if 'viewBox="0 0 1200 442"' in snake_wide and all(label in snake_wide for label in ("DEPENDENCIES", "TRACKERS", "STORED LOCALLY")):
+    ok("wide Snake CTA contains its complete properties panel")
+else:
+    bad("wide Snake CTA contains its complete properties panel", "wide layout or property rows missing")
+
+
 # ------------------------------------------------------- 2 + 3. local links
 
 def is_external(url):
