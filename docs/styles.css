@@ -436,3 +436,41 @@ body::after {
 .is-muted { color: var(--muted); }
 .noshrink { flex: none; }
 .mt       { margin-top: 18px; }
+
+/* ---------------- narrow-viewport overflow guards ----------------
+   Found at 320px: the session panel shows an IANA timezone
+   ("America/Los_Angeles"), which has no break opportunity and forced the
+   rail — and therefore the whole grid — wider than the viewport. Because
+   body sets overflow-x:hidden, the excess was clipped rather than
+   scrollable, silently cutting content off the right edge.
+
+   Grid and flex items default to min-width:auto, so a single unbreakable
+   string can push a track past its share. These pin the floor to 0 and let
+   long values wrap. */
+
+.shell > *, .rail, .main, .sec, .panel, .body { min-width: 0; }
+
+.session__row { gap: 8px; align-items: baseline; }
+.session__k { flex: none; }
+.session__v { text-align: right; overflow-wrap: anywhere; word-break: break-word; }
+
+.topbar { flex-wrap: wrap; row-gap: 6px; }
+.topbar__path, .topbar__state { overflow-wrap: anywhere; }
+
+.ident__role, .fact, .sys__body, .card__body, .tile__value, .tile__body,
+.prose, .summary, .foot { overflow-wrap: anywhere; }
+
+.chips { min-width: 0; }
+.chip { max-width: 100%; overflow-wrap: anywhere; }
+
+.who__name { overflow-wrap: anywhere; }
+
+@media (max-width: 420px) {
+  .fact { grid-template-columns: 18px 1fr; row-gap: 2px; }
+  .fact__v { grid-column: 2; }
+  .summary { gap: 8px 18px; }
+}
+
+/* The activity and contribution-grid SVGs already carry their own framed
+   panel, so they sit directly in the section rather than inside a second one. */
+.figures { display: grid; gap: 18px; }
