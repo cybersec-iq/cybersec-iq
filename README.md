@@ -106,7 +106,7 @@ map — architecture and implementation details stay closed.
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=cybersec-iq&show_icons=true&hide_border=true&bg_color=0A0E13&title_color=00E5FF&text_color=D7E3EC&icon_color=39FF14&ring_color=C6FF00&border_radius=2&card_width=460" alt="GitHub statistics for cybersec-iq" width="460">
+<img src="https://raw.githubusercontent.com/cybersec-iq/cybersec-iq/output/profile-stats.svg" alt="Public GitHub activity for cybersec-iq: contributions, commits, pull requests, issues, public repositories, stars earned, followers and repositories touched over the last twelve months." width="100%">
 
 </div>
 
@@ -120,7 +120,7 @@ map — architecture and implementation details stay closed.
   <img src="https://raw.githubusercontent.com/cybersec-iq/cybersec-iq/output/github-contribution-grid-snake-dark.svg" alt="A snake animation eating the GitHub contribution grid for cybersec-iq" width="100%">
 </picture>
 
-<sub>Regenerated daily by <a href="https://github.com/cybersec-iq/cybersec-iq/actions/workflows/snake.yml">.github/workflows/snake.yml</a></sub>
+<sub>Both assets are regenerated daily by <a href="https://github.com/cybersec-iq/cybersec-iq/actions/workflows/profile-assets.yml">.github/workflows/profile-assets.yml</a> &#183; rendered from the GitHub API, never hand-edited</sub>
 
 </div>
 

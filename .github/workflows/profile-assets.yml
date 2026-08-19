@@ -1,7 +1,14 @@
-name: Contribution Snake
+name: Profile Assets
 
-# Regenerates the animated contribution-grid snake and publishes it to the
+# Regenerates the two live README assets and publishes them together to the
 # dedicated `output` branch, so `main` stays free of daily bot commits.
+#
+#   github-contribution-grid-snake*.svg  the animated contribution grid
+#   profile-stats.svg                    public activity, rendered from the API
+#
+# Both are produced by one job on purpose: they share a single force-push to an
+# orphan branch, and two workflows pushing the same branch would clobber each
+# other.
 
 on:
   schedule:
@@ -12,14 +19,15 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/snake.yml"
+      - ".github/workflows/profile-assets.yml"
+      - "tools/render-stats.mjs"
 
-# Only the contents scope, and only because we push the generated SVGs.
+# Only the contents scope, and only because we publish the generated SVGs.
 permissions:
   contents: write
 
 concurrency:
-  group: contribution-snake
+  group: profile-assets
   cancel-in-progress: true
 
 jobs:
@@ -32,15 +40,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Render contribution snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          # Palettes follow the cybersec-iq system: neon green snake over a
+          # Palettes follow the cybersec-iq system: a neon green snake over a
           # near-black grid for dark mode, and a legible green ramp for light.
           outputs: |
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%2339FF14&color_dots=%230A0E13,%230E3B1A,%23177A2C,%2325C23F,%23C6FF00
             dist/github-contribution-grid-snake.svg?color_snake=%231F7A2E&color_dots=%23EAF2EC,%23BFE4C7,%237ACF92,%233FB463,%231F7A2E
+
+      - name: Render public activity card
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_USER: ${{ github.repository_owner }}
+        run: node tools/render-stats.mjs dist/profile-stats.svg
 
       - name: Publish to the output branch
         run: |
@@ -52,18 +71,20 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # An orphan branch keeps exactly one generated commit at a time,
-          # so the repository never accumulates a year of snake history.
+          # An orphan branch keeps exactly one generated commit at a time, so
+          # the repository never accumulates a year of bot history. The push
+          # reuses the checkout credentials, so no token is ever placed on a
+          # command line.
           git switch --orphan output
           cp "$staged"/*.svg .
           git add -- ./*.svg
-          git commit -m "chore(snake): regenerate contribution grid"
+          git commit -m "chore(assets): regenerate profile assets"
           git push --force origin output
 
       - name: Summary
         run: |
           {
-            echo "### Contribution snake regenerated"
+            echo "### Profile assets regenerated"
             echo
             echo "| Asset | Size |"
             echo "| --- | --- |"

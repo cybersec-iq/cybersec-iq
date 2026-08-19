@@ -36,6 +36,7 @@ jobs:
         run: |
           node --check docs/terminal.js
           node --check docs/snake/game.js
+          node --check tools/render-stats.mjs
 
       - name: Snake game logic
         run: node tests/snake.test.js
