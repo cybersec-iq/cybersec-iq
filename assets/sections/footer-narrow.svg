@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 292" width="440" height="292" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">footer - nothing is impossible</title>
+  <desc id="d">Closing strip. Code is my craft. Security is my mindset. Impact is the goal. Time zone Asia/Muscat UTC+4. UI theme cybersec-iq. Licence MIT. Source cybersec-iq/cybersec-iq. Nothing is impossible.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="440" height="292" fill="#03070A"/>
+    <rect width="440" height="292" fill="url(#grid)" opacity="0.5"/>
+    <rect width="440" height="292" fill="url(#scan)"/>
+    <rect x="10" y="14" width="420" height="96" rx="3" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g fill="#1B7A10" opacity="0.6" font-size="34" font-weight="700"><text x="26" y="52">&#8220;</text></g>
+    <text x="56" y="42" font-size="13" fill="#39FF14" font-weight="600">Code</text>
+    <text x="87.2" y="42" font-size="13" fill="#C3CDD6"> is my craft.</text>
+    <text x="56" y="64" font-size="13" fill="#00E5FF" font-weight="600">Security</text>
+    <text x="118.4" y="64" font-size="13" fill="#C3CDD6"> is my mindset.</text>
+    <text x="56" y="86" font-size="13" fill="#FFE600" font-weight="600">Impact</text>
+    <text x="102.8" y="86" font-size="13" fill="#C3CDD6"> is the goal.</text>
+    <rect x="10" y="122" width="420" height="132" rx="3" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g transform="translate(26 136) scale(0.6667)" fill="none" stroke="#0A6C7C" stroke-width="2.85" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><path d="M12 6.6 V12 l4 2.4"/></g>
+    <text x="50" y="148" font-size="10" fill="#6E828F" letter-spacing="1.6">TIME ZONE</text>
+    <text x="160" y="148" font-size="11" fill="#C3CDD6">Asia/Muscat (UTC+4)</text>
+    <g transform="translate(26 166) scale(0.6667)" fill="none" stroke="#0A6C7C" stroke-width="2.85" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><rect x="3.5" y="3.5" width="6.5" height="6.5"/><rect x="14" y="3.5" width="6.5" height="6.5"/><rect x="3.5" y="14" width="6.5" height="6.5"/><rect x="14" y="14" width="6.5" height="6.5"/></g>
+    <text x="50" y="178" font-size="10" fill="#6E828F" letter-spacing="1.6">UI THEME</text>
+    <text x="160" y="178" font-size="11" fill="#00E5FF">CYBERSEC-IQ</text>
+    <g transform="translate(26 196) scale(0.6667)" fill="none" stroke="#0A6C7C" stroke-width="2.85" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><rect x="4.5" y="10.5" width="15" height="10.5" rx="1"/><path d="M8 10.5 V7.6 a4 4 0 0 1 8 0 v2.9"/></g>
+    <text x="50" y="208" font-size="10" fill="#6E828F" letter-spacing="1.6">LICENCE</text>
+    <text x="160" y="208" font-size="11" fill="#39FF14">MIT</text>
+    <g transform="translate(26 226) scale(0.6667)" fill="none" stroke="#0A6C7C" stroke-width="2.85" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M4 3.5 h13.5 v17 H6 a2 2 0 0 1-2-2 Z"/><path d="M4 17 h13.5"/><path d="M7.5 7 h6"/></g>
+    <text x="50" y="238" font-size="10" fill="#6E828F" letter-spacing="1.6">SOURCE</text>
+    <text x="160" y="238" font-size="11" fill="#C3CDD6">cybersec-iq</text>
+    <text x="110.2" y="276" font-size="12.5" fill="#39FF14" font-weight="700" letter-spacing="2.6" filter="url(#glowSm)">NOTHING IS IMPOSSIBLE.</text>
+  </g>
+</svg>

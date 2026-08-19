@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 656" width="440" height="656" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">stack - technology system map</title>
+  <desc id="d">Technology stack. Frontend: React, Next.js, TypeScript, JavaScript. Backend: Node.js, Python, REST APIs. Data: PostgreSQL. Infrastructure: Docker, Linux, Git, GitHub Actions. Security practice: secure SDLC, threat modelling, dependency hygiene, hardening. Tools and automation: GitHub Actions, CI/CD pipelines, automation bots.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="440" height="656" fill="#03070A"/>
+    <rect width="440" height="656" fill="url(#grid)" opacity="0.5"/>
+    <rect width="440" height="656" fill="url(#scan)"/>
+    <rect x="10" y="58" width="420" height="586" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#39FF14" stroke-width="1.8" fill="none" opacity="0.55"><path d="M10 72 V58 H24"/><path d="M416 58 H430 V72"/><path d="M10 630 V644 H24"/><path d="M416 644 H430 V630"/></g>
+    <rect x="18" y="12" width="34" height="30" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1.2" stroke-opacity="0.5"/>
+    <g stroke="#39FF14" stroke-width="2" fill="none" stroke-linecap="square"><path d="M27 19 l6 6 l-6 6"/><path d="M36 35 h8"/></g>
+    <text x="66" y="38" font-size="27" fill="#FFE600" font-weight="700" letter-spacing="0.6">~/stack</text>
+    <text x="67" y="60" font-size="11.5" fill="#6E828F" letter-spacing="3">TECHNOLOGY STACK &amp; TOOLING</text>
+    <g transform="translate(26 80) scale(0.9167)" fill="none" stroke="#00E5FF" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></g>
+    <text x="58" y="91" font-size="12.5" fill="#00E5FF" font-weight="700" letter-spacing="1.6">FRONTEND</text>
+    <text x="58" y="107" font-size="10.5" fill="#6E828F">Modern UI/UX</text>
+    <rect x="26" y="118" width="57.4" height="22" rx="2" fill="#08141C" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="132.96" font-size="11" fill="#00E5FF" letter-spacing="0.6">React</text>
+    <rect x="91.4" y="118" width="71.8" height="22" rx="2" fill="#08141C" stroke="#C3CDD6" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="102.4" y="132.96" font-size="11" fill="#C3CDD6" letter-spacing="0.6">Next.js</text>
+    <rect x="171.2" y="118" width="93.4" height="22" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="182.2" y="132.96" font-size="11" fill="#2979FF" letter-spacing="0.6">TypeScript</text>
+    <rect x="272.6" y="118" width="93.4" height="22" rx="2" fill="#08141C" stroke="#FFE600" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="283.6" y="132.96" font-size="11" fill="#FFE600" letter-spacing="0.6">JavaScript</text>
+    <g transform="translate(26 156) scale(0.9167)" fill="none" stroke="#39FF14" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M3 6 l6 6 l-6 6"/><path d="M13 18 h8"/></g>
+    <text x="58" y="167" font-size="12.5" fill="#39FF14" font-weight="700" letter-spacing="1.6">BACKEND</text>
+    <text x="58" y="183" font-size="10.5" fill="#6E828F">Robust APIs</text>
+    <rect x="26" y="194" width="71.8" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="208.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Node.js</text>
+    <rect x="105.8" y="194" width="64.6" height="22" rx="2" fill="#08141C" stroke="#C3CDD6" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="116.8" y="208.96" font-size="11" fill="#C3CDD6" letter-spacing="0.6">Python</text>
+    <rect x="178.39999999999998" y="194" width="86.2" height="22" rx="2" fill="#08141C" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="189.39999999999998" y="208.96" font-size="11" fill="#00E5FF" letter-spacing="0.6">REST APIs</text>
+    <g transform="translate(26 232) scale(0.9167)" fill="none" stroke="#00E5FF" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6 v12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2 V6"/><path d="M4 12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2"/></g>
+    <text x="58" y="243" font-size="12.5" fill="#00E5FF" font-weight="700" letter-spacing="1.6">DATA</text>
+    <text x="58" y="259" font-size="10.5" fill="#6E828F">Data &amp; storage</text>
+    <rect x="26" y="270" width="93.4" height="22" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="284.96" font-size="11" fill="#2979FF" letter-spacing="0.6">PostgreSQL</text>
+    <g transform="translate(26 308) scale(0.9167)" fill="none" stroke="#FFE600" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></g>
+    <text x="58" y="319" font-size="12.5" fill="#FFE600" font-weight="700" letter-spacing="1.6">INFRASTRUCTURE</text>
+    <text x="58" y="335" font-size="10.5" fill="#6E828F">Deploy &amp; scale</text>
+    <rect x="26" y="346" width="64.6" height="22" rx="2" fill="#08141C" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="360.96" font-size="11" fill="#00E5FF" letter-spacing="0.6">Docker</text>
+    <rect x="98.6" y="346" width="57.4" height="22" rx="2" fill="#08141C" stroke="#FFE600" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="109.6" y="360.96" font-size="11" fill="#FFE600" letter-spacing="0.6">Linux</text>
+    <rect x="164.0" y="346" width="43.0" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="175.0" y="360.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Git</text>
+    <rect x="215.0" y="346" width="122.2" height="22" rx="2" fill="#08141C" stroke="#C3CDD6" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="226.0" y="360.96" font-size="11" fill="#C3CDD6" letter-spacing="0.6">GitHub Actions</text>
+    <g transform="translate(26 384) scale(0.9167)" fill="none" stroke="#39FF14" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></g>
+    <text x="58" y="395" font-size="12.5" fill="#39FF14" font-weight="700" letter-spacing="1.6">SECURITY PRACTICE</text>
+    <text x="58" y="411" font-size="10.5" fill="#6E828F">Secure by design</text>
+    <rect x="26" y="422" width="100.6" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="436.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Secure SDLC</text>
+    <rect x="134.6" y="422" width="136.6" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="145.6" y="436.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Threat Modelling</text>
+    <rect x="26" y="450" width="151.0" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="464.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Dependency Hygiene</text>
+    <rect x="185.0" y="450" width="86.2" height="22" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="196.0" y="464.96" font-size="11" fill="#39FF14" letter-spacing="0.6">Hardening</text>
+    <g transform="translate(26 488) scale(0.9167)" fill="none" stroke="#FFE600" stroke-width="2.07" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></g>
+    <text x="58" y="499" font-size="12.5" fill="#FFE600" font-weight="700" letter-spacing="1.6">TOOLS &amp; AUTOMATION</text>
+    <text x="58" y="515" font-size="10.5" fill="#6E828F">Productivity &amp; automation</text>
+    <rect x="26" y="526" width="122.2" height="22" rx="2" fill="#08141C" stroke="#FFE600" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="540.96" font-size="11" fill="#FFE600" letter-spacing="0.6">GitHub Actions</text>
+    <rect x="156.2" y="526" width="129.4" height="22" rx="2" fill="#08141C" stroke="#FFE600" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="167.2" y="540.96" font-size="11" fill="#FFE600" letter-spacing="0.6">CI/CD Pipelines</text>
+    <rect x="26" y="554" width="129.4" height="22" rx="2" fill="#08141C" stroke="#FFE600" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="37" y="568.96" font-size="11" fill="#FFE600" letter-spacing="0.6">Automation Bots</text>
+    <rect x="26" y="594" width="388" height="34" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#12242E" stroke-width="1.2"/>
+    <text x="40.0" y="615" font-size="10" fill="#6E828F" letter-spacing="1.4">TECH</text>
+    <text x="78.2" y="615" font-size="13" fill="#39FF14" font-weight="700">12</text>
+    <text x="169.33333333333334" y="615" font-size="10" fill="#6E828F" letter-spacing="1.4">CATEGORIES</text>
+    <text x="251.93333333333334" y="615" font-size="13" fill="#00E5FF" font-weight="700">6</text>
+    <text x="298.6666666666667" y="615" font-size="10" fill="#6E828F" letter-spacing="1.4">TOOLING</text>
+    <text x="359.06666666666666" y="615" font-size="13" fill="#FFE600" font-weight="700">7</text>
+  </g>
+</svg>

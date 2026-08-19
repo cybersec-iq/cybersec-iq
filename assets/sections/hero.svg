@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 566" width="1200" height="566" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">Aryan IQ - developer command center</title>
+  <desc id="d">Command-center banner. SYSTEM // OPERATOR. ARYAN IQ. Full-stack developer, cybersecurity engineer, AI systems builder. I build systems. I break assumptions. I secure what matters. Current status: building. Nothing is impossible. Capabilities: full-stack, cybersecurity, AI systems, automation, architecture.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="1200" height="566" fill="#03070A"/>
+    <rect width="1200" height="566" fill="url(#grid)" opacity="0.5"/>
+    <rect width="1200" height="566" fill="url(#scan)"/>
+    <rect x="0" y="46" width="1200" height="1" fill="#12242E"/>
+    <rect x="24" y="12" width="30" height="26" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1.1" stroke-opacity="0.5"/>
+    <g stroke="#39FF14" stroke-width="1.8" fill="none" stroke-linecap="square"><path d="M32 20 l5 5 l-5 5"/><path d="M40 30 h7"/></g>
+    <text x="66" y="30" font-size="14" fill="#39FF14" font-weight="600" letter-spacing="0.6">~/cybersec-iq</text>
+    <g transform="translate(212 13) scale(0.7083)" fill="none" stroke="#6E828F" stroke-width="2.68" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="6.5" cy="5.5" r="2.6"/><circle cx="6.5" cy="18.5" r="2.6"/><circle cx="17.5" cy="9" r="2.6"/><path d="M6.5 8.1 v7.8M17.5 11.6 c0 3.4-4 3.2-6.6 4.2"/></g>
+    <text x="236" y="30" font-size="13.5" fill="#6E828F" letter-spacing="0.6">main</text>
+    <rect x="448" y="10" width="305" height="29" rx="14.5" fill="#08141C" stroke="#00E5FF" stroke-width="1.2" stroke-opacity="0.65"/>
+    <text x="469.6" y="30" font-size="13" fill="#00E5FF" font-weight="600" letter-spacing="3.2">DEVELOPER COMMAND CENTER</text>
+    <circle cx="1004" cy="25" r="4.5" fill="#39FF14" class="live"/>
+    <text x="1018" y="30" font-size="12.5" fill="#39FF14" letter-spacing="2.4">SYSTEM ONLINE</text>
+    <g fill="#0A6C7C" opacity="0.7"><rect x="1154" y="29" width="3" height="4"/><rect x="1159" y="25" width="3" height="8"/><rect x="1164" y="21" width="3" height="12"/><rect x="1169" y="17" width="3" height="16"/></g>
+    <rect x="22" y="62" width="1156" height="482" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#FFE600" stroke-width="2.2" fill="none" opacity="0.85"><path d="M22 82 V62 H42"/><path d="M1158 62 H1178 V82"/></g>
+    <g stroke="#284653" stroke-width="2" fill="none" opacity="0.9"><path d="M22 524 V544 H42"/><path d="M1158 544 H1178 V524"/></g>
+    <g fill="#1B7A10" opacity="0.95"><circle cx="939" cy="86" r="1.7"/><circle cx="947" cy="86" r="1.7"/><circle cx="954" cy="86" r="1.7"/><circle cx="932" cy="93" r="1.7"/><circle cx="939" cy="93" r="1.7"/><circle cx="947" cy="93" r="1.7"/><circle cx="821" cy="101" r="1.7"/><circle cx="836" cy="101" r="1.7"/><circle cx="843" cy="101" r="1.7"/><circle cx="850" cy="101" r="1.7"/><circle cx="858" cy="101" r="1.7"/><circle cx="873" cy="101" r="1.7"/><circle cx="880" cy="101" r="1.7"/><circle cx="887" cy="101" r="1.7"/><circle cx="895" cy="101" r="1.7"/><circle cx="910" cy="101" r="1.7"/><circle cx="932" cy="101" r="1.7"/><circle cx="939" cy="101" r="1.7"/><circle cx="947" cy="101" r="1.7"/><circle cx="984" cy="101" r="1.7"/><circle cx="998" cy="101" r="1.7"/><circle cx="1013" cy="101" r="1.7"/><circle cx="1021" cy="101" r="1.7"/><circle cx="1028" cy="101" r="1.7"/><circle cx="1035" cy="101" r="1.7"/><circle cx="1050" cy="101" r="1.7"/><circle cx="1058" cy="101" r="1.7"/><circle cx="1065" cy="101" r="1.7"/><circle cx="1072" cy="101" r="1.7"/><circle cx="1087" cy="101" r="1.7"/><circle cx="1102" cy="101" r="1.7"/><circle cx="1109" cy="101" r="1.7"/><circle cx="1117" cy="101" r="1.7"/><circle cx="1124" cy="101" r="1.7"/><circle cx="1139" cy="101" r="1.7"/><circle cx="821" cy="108" r="1.7"/><circle cx="828" cy="108" r="1.7"/><circle cx="836" cy="108" r="1.7"/><circle cx="843" cy="108" r="1.7"/><circle cx="858" cy="108" r="1.7"/><circle cx="873" cy="108" r="1.7"/><circle cx="880" cy="108" r="1.7"/><circle cx="887" cy="108" r="1.7"/><circle cx="895" cy="108" r="1.7"/><circle cx="910" cy="108" r="1.7"/><circle cx="917" cy="108" r="1.7"/><circle cx="932" cy="108" r="1.7"/><circle cx="947" cy="108" r="1.7"/><circle cx="984" cy="108" r="1.7"/><circle cx="998" cy="108" r="1.7"/><circle cx="1013" cy="108" r="1.7"/><circle cx="1021" cy="108" r="1.7"/><circle cx="1035" cy="108" r="1.7"/><circle cx="1050" cy="108" r="1.7"/><circle cx="1058" cy="108" r="1.7"/><circle cx="1065" cy="108" r="1.7"/><circle cx="1072" cy="108" r="1.7"/><circle cx="1087" cy="108" r="1.7"/><circle cx="1095" cy="108" r="1.7"/><circle cx="1102" cy="108" r="1.7"/><circle cx="1109" cy="108" r="1.7"/><circle cx="1124" cy="108" r="1.7"/><circle cx="1139" cy="108" r="1.7"/><circle cx="843" cy="116" r="1.7"/><circle cx="858" cy="116" r="1.7"/><circle cx="865" cy="116" r="1.7"/><circle cx="873" cy="116" r="1.7"/><circle cx="880" cy="116" r="1.7"/><circle cx="895" cy="116" r="1.7"/><circle cx="910" cy="116" r="1.7"/><circle cx="917" cy="116" r="1.7"/><circle cx="969" cy="116" r="1.7"/><circle cx="984" cy="116" r="1.7"/><circle cx="998" cy="116" r="1.7"/><circle cx="1006" cy="116" r="1.7"/><circle cx="1013" cy="116" r="1.7"/><circle cx="1021" cy="116" r="1.7"/><circle cx="1035" cy="116" r="1.7"/><circle cx="1043" cy="116" r="1.7"/><circle cx="1050" cy="116" r="1.7"/><circle cx="1058" cy="116" r="1.7"/><circle cx="1072" cy="116" r="1.7"/><circle cx="1087" cy="116" r="1.7"/><circle cx="1095" cy="116" r="1.7"/><circle cx="1102" cy="116" r="1.7"/><circle cx="858" cy="123" r="1.7"/><circle cx="865" cy="123" r="1.7"/><circle cx="873" cy="123" r="1.7"/><circle cx="880" cy="123" r="1.7"/><circle cx="984" cy="123" r="1.7"/><circle cx="991" cy="123" r="1.7"/><circle cx="998" cy="123" r="1.7"/><circle cx="1006" cy="123" r="1.7"/><circle cx="1021" cy="123" r="1.7"/><circle cx="1035" cy="123" r="1.7"/><circle cx="1043" cy="123" r="1.7"/><circle cx="1050" cy="123" r="1.7"/><circle cx="1058" cy="123" r="1.7"/><circle cx="858" cy="130" r="1.7"/><circle cx="865" cy="130" r="1.7"/><circle cx="880" cy="130" r="1.7"/><circle cx="895" cy="130" r="1.7"/><circle cx="902" cy="130" r="1.7"/><circle cx="910" cy="130" r="1.7"/><circle cx="969" cy="130" r="1.7"/><circle cx="984" cy="130" r="1.7"/><circle cx="991" cy="130" r="1.7"/><circle cx="998" cy="130" r="1.7"/><circle cx="1006" cy="130" r="1.7"/><circle cx="1021" cy="130" r="1.7"/><circle cx="1028" cy="130" r="1.7"/><circle cx="1072" cy="130" r="1.7"/><circle cx="1080" cy="130" r="1.7"/><circle cx="1087" cy="130" r="1.7"/><circle cx="1109" cy="130" r="1.7"/><circle cx="858" cy="138" r="1.7"/><circle cx="865" cy="138" r="1.7"/><circle cx="880" cy="138" r="1.7"/><circle cx="887" cy="138" r="1.7"/><circle cx="895" cy="138" r="1.7"/><circle cx="902" cy="138" r="1.7"/><circle cx="969" cy="138" r="1.7"/><circle cx="976" cy="138" r="1.7"/><circle cx="1006" cy="138" r="1.7"/><circle cx="1021" cy="138" r="1.7"/><circle cx="1028" cy="138" r="1.7"/><circle cx="1065" cy="138" r="1.7"/><circle cx="1072" cy="138" r="1.7"/><circle cx="1080" cy="138" r="1.7"/><circle cx="1109" cy="138" r="1.7"/><circle cx="880" cy="145" r="1.7"/><circle cx="887" cy="145" r="1.7"/><circle cx="895" cy="145" r="1.7"/><circle cx="902" cy="145" r="1.7"/><circle cx="969" cy="145" r="1.7"/><circle cx="976" cy="145" r="1.7"/><circle cx="984" cy="145" r="1.7"/><circle cx="991" cy="145" r="1.7"/><circle cx="1006" cy="145" r="1.7"/><circle cx="1013" cy="145" r="1.7"/><circle cx="1021" cy="145" r="1.7"/><circle cx="1028" cy="145" r="1.7"/><circle cx="1043" cy="145" r="1.7"/><circle cx="1058" cy="145" r="1.7"/><circle cx="1065" cy="145" r="1.7"/><circle cx="1072" cy="145" r="1.7"/><circle cx="1080" cy="145" r="1.7"/><circle cx="1102" cy="145" r="1.7"/><circle cx="1109" cy="145" r="1.7"/><circle cx="873" cy="153" r="1.7"/><circle cx="880" cy="153" r="1.7"/><circle cx="961" cy="153" r="1.7"/><circle cx="969" cy="153" r="1.7"/><circle cx="976" cy="153" r="1.7"/><circle cx="991" cy="153" r="1.7"/><circle cx="1006" cy="153" r="1.7"/><circle cx="1021" cy="153" r="1.7"/><circle cx="1028" cy="153" r="1.7"/><circle cx="1043" cy="153" r="1.7"/><circle cx="1050" cy="153" r="1.7"/><circle cx="1058" cy="153" r="1.7"/><circle cx="1065" cy="153" r="1.7"/><circle cx="1080" cy="153" r="1.7"/><circle cx="880" cy="160" r="1.7"/><circle cx="887" cy="160" r="1.7"/><circle cx="902" cy="160" r="1.7"/><circle cx="961" cy="160" r="1.7"/><circle cx="969" cy="160" r="1.7"/><circle cx="976" cy="160" r="1.7"/><circle cx="991" cy="160" r="1.7"/><circle cx="998" cy="160" r="1.7"/><circle cx="1006" cy="160" r="1.7"/><circle cx="1028" cy="160" r="1.7"/><circle cx="1080" cy="160" r="1.7"/><circle cx="1087" cy="160" r="1.7"/><circle cx="902" cy="167" r="1.7"/><circle cx="961" cy="167" r="1.7"/><circle cx="976" cy="167" r="1.7"/><circle cx="991" cy="167" r="1.7"/><circle cx="998" cy="167" r="1.7"/><circle cx="1006" cy="167" r="1.7"/><circle cx="1028" cy="167" r="1.7"/><circle cx="1080" cy="167" r="1.7"/><circle cx="1087" cy="167" r="1.7"/><circle cx="895" cy="175" r="1.7"/><circle cx="902" cy="175" r="1.7"/><circle cx="910" cy="175" r="1.7"/><circle cx="924" cy="175" r="1.7"/><circle cx="976" cy="175" r="1.7"/><circle cx="984" cy="175" r="1.7"/><circle cx="991" cy="175" r="1.7"/><circle cx="998" cy="175" r="1.7"/><circle cx="1013" cy="175" r="1.7"/><circle cx="1072" cy="175" r="1.7"/><circle cx="1080" cy="175" r="1.7"/><circle cx="1087" cy="175" r="1.7"/><circle cx="902" cy="182" r="1.7"/><circle cx="910" cy="182" r="1.7"/><circle cx="924" cy="182" r="1.7"/><circle cx="976" cy="182" r="1.7"/><circle cx="984" cy="182" r="1.7"/><circle cx="991" cy="182" r="1.7"/><circle cx="998" cy="182" r="1.7"/><circle cx="1013" cy="182" r="1.7"/><circle cx="1072" cy="182" r="1.7"/><circle cx="1080" cy="182" r="1.7"/><circle cx="1087" cy="182" r="1.7"/><circle cx="1102" cy="182" r="1.7"/><circle cx="1109" cy="182" r="1.7"/><circle cx="910" cy="190" r="1.7"/><circle cx="924" cy="190" r="1.7"/><circle cx="932" cy="190" r="1.7"/><circle cx="939" cy="190" r="1.7"/><circle cx="969" cy="190" r="1.7"/><circle cx="976" cy="190" r="1.7"/><circle cx="984" cy="190" r="1.7"/><circle cx="998" cy="190" r="1.7"/><circle cx="1013" cy="190" r="1.7"/><circle cx="1072" cy="190" r="1.7"/><circle cx="1087" cy="190" r="1.7"/><circle cx="1102" cy="190" r="1.7"/><circle cx="1109" cy="190" r="1.7"/><circle cx="910" cy="197" r="1.7"/><circle cx="917" cy="197" r="1.7"/><circle cx="924" cy="197" r="1.7"/><circle cx="932" cy="197" r="1.7"/><circle cx="998" cy="197" r="1.7"/><circle cx="1006" cy="197" r="1.7"/><circle cx="1013" cy="197" r="1.7"/><circle cx="1072" cy="197" r="1.7"/><circle cx="1087" cy="197" r="1.7"/><circle cx="1095" cy="197" r="1.7"/><circle cx="1102" cy="197" r="1.7"/><circle cx="1109" cy="197" r="1.7"/><circle cx="910" cy="204" r="1.7"/><circle cx="917" cy="204" r="1.7"/><circle cx="924" cy="204" r="1.7"/><circle cx="932" cy="204" r="1.7"/><circle cx="998" cy="204" r="1.7"/><circle cx="1006" cy="204" r="1.7"/><circle cx="1013" cy="204" r="1.7"/><circle cx="1021" cy="204" r="1.7"/><circle cx="1087" cy="204" r="1.7"/><circle cx="1095" cy="204" r="1.7"/><circle cx="1102" cy="204" r="1.7"/><circle cx="1109" cy="204" r="1.7"/><circle cx="910" cy="212" r="1.7"/><circle cx="917" cy="212" r="1.7"/><circle cx="932" cy="212" r="1.7"/><circle cx="991" cy="212" r="1.7"/><circle cx="998" cy="212" r="1.7"/><circle cx="1006" cy="212" r="1.7"/><circle cx="1021" cy="212" r="1.7"/><circle cx="1087" cy="212" r="1.7"/><circle cx="1095" cy="212" r="1.7"/><circle cx="1109" cy="212" r="1.7"/><circle cx="910" cy="219" r="1.7"/><circle cx="917" cy="219" r="1.7"/><circle cx="932" cy="219" r="1.7"/><circle cx="991" cy="219" r="1.7"/><circle cx="998" cy="219" r="1.7"/><circle cx="1006" cy="219" r="1.7"/><circle cx="1087" cy="219" r="1.7"/><circle cx="1095" cy="219" r="1.7"/><circle cx="1109" cy="219" r="1.7"/><circle cx="1117" cy="219" r="1.7"/><circle cx="917" cy="227" r="1.7"/><circle cx="932" cy="227" r="1.7"/><circle cx="1095" cy="227" r="1.7"/><circle cx="1109" cy="227" r="1.7"/><circle cx="1117" cy="227" r="1.7"/><circle cx="917" cy="234" r="1.7"/><circle cx="1095" cy="234" r="1.7"/><circle cx="1102" cy="234" r="1.7"/><circle cx="1109" cy="234" r="1.7"/><circle cx="1117" cy="234" r="1.7"/><circle cx="917" cy="241" r="1.7"/><circle cx="1139" cy="241" r="1.7"/><circle cx="910" cy="249" r="1.7"/></g>
+    <g stroke="#00E5FF" stroke-width="1" fill="none" opacity="0.4"><path class="flow" d="M841 195 L910 128"/><path class="flow" d="M910 128 L986 167"/><path class="flow" d="M986 167 L958 227"/><path class="flow" d="M958 227 L841 195"/><path class="flow" d="M986 167 L1055 121"/><path class="flow" d="M1055 121 L1104 188"/><path class="flow" d="M1104 188 L1034 237"/><path class="flow" d="M1034 237 L958 227"/></g>
+    <g><circle cx="841" cy="195" r="3.2" fill="#39FF14" class="live" style="animation-delay:-0.0s"/><circle cx="910" cy="128" r="3.2" fill="#00E5FF" class="live" style="animation-delay:-0.4s"/><circle cx="986" cy="167" r="3.2" fill="#DFFF00" class="live" style="animation-delay:-0.8s"/><circle cx="958" cy="227" r="3.2" fill="#39FF14" class="live" style="animation-delay:-1.2s"/><circle cx="1055" cy="121" r="3.2" fill="#00E5FF" class="live" style="animation-delay:-1.6s"/><circle cx="1104" cy="188" r="3.2" fill="#DFFF00" class="live" style="animation-delay:-2.0s"/><circle cx="1034" cy="237" r="3.2" fill="#39FF14" class="live" style="animation-delay:-2.4s"/></g>
+    <text x="64" y="116" font-size="13.5" fill="#00E5FF" letter-spacing="5.5">SYSTEM // OPERATOR</text>
+    <g transform="translate(64 148) scale(3.0000)" fill="none" stroke="#39FF14" stroke-width="0.63" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/><path d="M8 12 l3 3 l5.5-6"/></g>
+    <text x="164" y="212" font-size="78" fill="#39FF14" font-weight="700" letter-spacing="5" filter="url(#glowLg)">ARYAN</text>
+    <text x="452.0" y="212" font-size="78" fill="#00E5FF" font-weight="700" letter-spacing="5" filter="url(#glowLg)">IQ</text>
+    <rect x="566.6" y="156" width="15" height="66" fill="#00E5FF" class="blink" filter="url(#glowSm)"/>
+    <rect x="164" y="236" width="430" height="2.4" fill="url(#ruleGreen)"/>
+    <text x="164" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">FULL-STACK DEVELOPER</text>
+    <text x="420.6" y="268" font-size="16.5" fill="#39FF14">•</text>
+    <text x="441.6" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">CYBERSECURITY ENGINEER</text>
+    <text x="722.8" y="268" font-size="16.5" fill="#39FF14">•</text>
+    <text x="743.8" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">AI SYSTEMS BUILDER</text>
+    <rect x="64" y="300" width="648" height="96" rx="3" fill="#03130C" fill-opacity="1.0" stroke="#39FF14" stroke-width="1.2"/>
+    <rect x="64" y="300" width="3" height="96" fill="#39FF14" opacity="0.8"/>
+    <g transform="translate(86 334) scale(1.0000)" fill="none" stroke="#39FF14" stroke-width="1.90" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M3 6 l6 6 l-6 6"/><path d="M13 18 h8"/></g>
+    <text x="126" y="340" font-size="16.5" fill="#EAF2F7" letter-spacing="0.4">I build systems. I break assumptions.</text>
+    <text x="126" y="368" font-size="16.5" fill="#EAF2F7" letter-spacing="0.4">I secure what matters.</text>
+    <rect x="736" y="300" width="400" height="96" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#00E5FF" stroke-width="1.8" fill="none" opacity="0.7"><path d="M736 313 V300 H749"/><path d="M1123 300 H1136 V313"/><path d="M736 383 V396 H749"/><path d="M1123 396 H1136 V383"/></g>
+    <text x="758" y="328" font-size="11.5" fill="#6E828F" letter-spacing="2.8">CURRENT STATUS</text>
+    <text x="758" y="358" font-size="22" fill="#FFE600" font-weight="700" letter-spacing="2.6" filter="url(#glowSm)">BUILDING</text>
+    <circle cx="897.8" cy="351" r="5" fill="#FFE600" class="live"/>
+    <text x="758" y="380" font-size="11.5" fill="#39FF14" letter-spacing="2.2">NOTHING IS IMPOSSIBLE</text>
+    <rect x="64" y="424" width="1072" height="100" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#12242E" stroke-width="1"/>
+    <g transform="translate(155.2 437) scale(1.3333)" fill="none" stroke="#00E5FF" stroke-width="1.43" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></g>
+    <text x="123.79999999999998" y="488" font-size="12.5" fill="#00E5FF" font-weight="700" letter-spacing="2.2">FULL-STACK</text>
+    <text x="110.14999999999999" y="505" font-size="11.5" fill="#6E828F">Scalable web apps</text>
+    <text x="113.75" y="520" font-size="11.5" fill="#6E828F">&amp; robust systems</text>
+    <rect x="278.4" y="440" width="1" height="68" fill="#1B3541"/>
+    <g transform="translate(369.59999999999997 437) scale(1.3333)" fill="none" stroke="#39FF14" stroke-width="1.43" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></g>
+    <text x="323.65" y="488" font-size="12.5" fill="#39FF14" font-weight="700" letter-spacing="2.2">CYBERSECURITY</text>
+    <text x="328.15" y="505" font-size="11.5" fill="#6E828F">Secure by design</text>
+    <text x="342.54999999999995" y="520" font-size="11.5" fill="#6E828F">threat-aware</text>
+    <rect x="492.8" y="440" width="1" height="68" fill="#1B3541"/>
+    <g transform="translate(584.0 437) scale(1.3333)" fill="none" stroke="#00E5FF" stroke-width="1.43" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 3 L19 7 v8 l-7 4 l-7-4 V7 Z"/><circle cx="12" cy="11" r="2.4"/><path d="M12 3 v5.6M5 7 l4.8 2.8M19 7 l-4.8 2.8M12 13.4 v5.6"/></g>
+    <text x="552.6" y="488" font-size="12.5" fill="#00E5FF" font-weight="700" letter-spacing="2.2">AI SYSTEMS</text>
+    <text x="560.55" y="505" font-size="11.5" fill="#6E828F">LLM-powered</text>
+    <text x="538.95" y="520" font-size="11.5" fill="#6E828F">intelligent tools</text>
+    <rect x="707.2" y="440" width="1" height="68" fill="#1B3541"/>
+    <g transform="translate(798.4000000000001 437) scale(1.3333)" fill="none" stroke="#FFE600" stroke-width="1.43" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></g>
+    <text x="767.0000000000001" y="488" font-size="12.5" fill="#FFE600" font-weight="700" letter-spacing="2.2">AUTOMATION</text>
+    <text x="760.5500000000001" y="505" font-size="11.5" fill="#6E828F">Pipelines, bots</text>
+    <text x="774.95" y="520" font-size="11.5" fill="#6E828F">&amp; workflows</text>
+    <rect x="921.6" y="440" width="1" height="68" fill="#1B3541"/>
+    <g transform="translate(1012.8 437) scale(1.3333)" fill="none" stroke="#00E5FF" stroke-width="1.43" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12.5 L12 17.5 L21 12.5"/><path d="M3 16.8 L12 21.8 L21 16.8"/></g>
+    <text x="971.6999999999999" y="488" font-size="12.5" fill="#00E5FF" font-weight="700" letter-spacing="2.2">ARCHITECTURE</text>
+    <text x="985.75" y="505" font-size="11.5" fill="#6E828F">Clean design</text>
+    <text x="982.15" y="520" font-size="11.5" fill="#6E828F">built to last</text>
+  </g>
+</svg>

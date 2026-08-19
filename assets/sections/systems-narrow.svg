@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 1020" width="440" height="1020" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">systems - selected work</title>
+  <desc id="d">Selected systems. ARYANIQ, personal platform and engineering hub, live. KAMINO RECORDS, music label platform, private. SHINEL SUPPLIER, multilingual commerce platform, private. XPRIME, product platform, private. XOS and XADMIN, internal systems, undisclosed. Source, infrastructure topology and client data for private systems are not published. Nothing here claims scale, revenue or third-party endorsement.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="440" height="1020" fill="#03070A"/>
+    <rect width="440" height="1020" fill="url(#grid)" opacity="0.5"/>
+    <rect width="440" height="1020" fill="url(#scan)"/>
+    <rect x="10" y="58" width="420" height="950" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#FFE600" stroke-width="1.8" fill="none" opacity="0.7"><path d="M10 72 V58 H24"/><path d="M416 58 H430 V72"/></g>
+    <rect x="18" y="12" width="34" height="30" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1.2" stroke-opacity="0.5"/>
+    <g stroke="#39FF14" stroke-width="2" fill="none" stroke-linecap="square"><path d="M27 19 l6 6 l-6 6"/><path d="M36 35 h8"/></g>
+    <text x="66" y="38" font-size="27" fill="#FFE600" font-weight="700" letter-spacing="0.6">~/systems</text>
+    <text x="67" y="60" font-size="11.5" fill="#6E828F" letter-spacing="3">SELECTED SYSTEMS &amp; PROJECTS</text>
+    <rect x="24" y="74" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#00E5FF" stroke-width="1.3"/>
+    <rect x="24" y="74" width="392" height="2.5" fill="#00E5FF" opacity="0.85"/>
+    <g stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 85 V74 H35"/><path d="M405 212 H416 V201"/></g>
+    <text x="42" y="108" font-size="13" fill="#00E5FF" font-weight="700" letter-spacing="1.8">ARYANIQ</text>
+    <circle cx="352.0" cy="103" r="4" fill="#39FF14" class="live"/>
+    <text x="398" y="107" font-size="10.5" fill="#39FF14" letter-spacing="1.6" text-anchor="end">LIVE</text>
+    <text x="42" y="128" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Personal platform &amp; engineering hub</text>
+    <rect x="42" y="140" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="162" font-size="12" fill="#C3CDD6">Public home for the practice:</text>
+    <text x="42" y="180" font-size="12" fill="#C3CDD6">services, writing and contact.</text>
+    <rect x="42" y="168" width="90.4" height="21" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="53" y="182.28" font-size="10.5" fill="#2979FF" letter-spacing="0.6">TypeScript</text>
+    <rect x="138.4" y="168" width="42.1" height="21" rx="2" fill="#08141C" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="149.4" y="182.28" font-size="10.5" fill="#00E5FF" letter-spacing="0.6">Web</text>
+    <rect x="24" y="224" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#39FF14" stroke-width="1.3"/>
+    <rect x="24" y="224" width="392" height="2.5" fill="#39FF14" opacity="0.85"/>
+    <g stroke="#39FF14" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 235 V224 H35"/><path d="M405 362 H416 V351"/></g>
+    <text x="42" y="258" font-size="13" fill="#39FF14" font-weight="700" letter-spacing="1.8">KAMINO RECORDS</text>
+    <circle cx="328.3" cy="253" r="4" fill="#6E828F"/>
+    <text x="398" y="257" font-size="10.5" fill="#6E828F" letter-spacing="1.6" text-anchor="end">PRIVATE</text>
+    <text x="42" y="278" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Music label platform</text>
+    <rect x="42" y="290" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="312" font-size="12" fill="#C3CDD6">Catalogue, releases and artist</text>
+    <text x="42" y="330" font-size="12" fill="#C3CDD6">management on a headless CMS.</text>
+    <rect x="42" y="318" width="69.7" height="21" rx="2" fill="#08141C" stroke="#C3CDD6" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="53" y="332.28" font-size="10.5" fill="#C3CDD6" letter-spacing="0.6">Next.js</text>
+    <rect x="117.7" y="318" width="97.3" height="21" rx="2" fill="#08141C" stroke="#39FF14" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="128.7" y="332.28" font-size="10.5" fill="#39FF14" letter-spacing="0.6">Payload CMS</text>
+    <rect x="221.0" y="318" width="90.4" height="21" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="232.0" y="332.28" font-size="10.5" fill="#2979FF" letter-spacing="0.6">PostgreSQL</text>
+    <rect x="24" y="374" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#FFE600" stroke-width="1.3"/>
+    <rect x="24" y="374" width="392" height="2.5" fill="#FFE600" opacity="0.85"/>
+    <g stroke="#FFE600" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 385 V374 H35"/><path d="M405 512 H416 V501"/></g>
+    <text x="42" y="408" font-size="13" fill="#FFE600" font-weight="700" letter-spacing="1.8">SHINEL SUPPLIER</text>
+    <circle cx="328.3" cy="403" r="4" fill="#6E828F"/>
+    <text x="398" y="407" font-size="10.5" fill="#6E828F" letter-spacing="1.6" text-anchor="end">PRIVATE</text>
+    <text x="42" y="428" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Multilingual commerce platform</text>
+    <rect x="42" y="440" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="462" font-size="12" fill="#C3CDD6">Multi-language storefront and</text>
+    <text x="42" y="480" font-size="12" fill="#C3CDD6">supplier-side operations.</text>
+    <rect x="42" y="468" width="90.4" height="21" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="53" y="482.28" font-size="10.5" fill="#2979FF" letter-spacing="0.6">TypeScript</text>
+    <rect x="138.4" y="468" width="42.1" height="21" rx="2" fill="#08141C" stroke="#00E5FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="149.4" y="482.28" font-size="10.5" fill="#00E5FF" letter-spacing="0.6">Web</text>
+    <rect x="24" y="524" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#00E5FF" stroke-width="1.3"/>
+    <rect x="24" y="524" width="392" height="2.5" fill="#00E5FF" opacity="0.85"/>
+    <g stroke="#00E5FF" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 535 V524 H35"/><path d="M405 662 H416 V651"/></g>
+    <text x="42" y="558" font-size="13" fill="#00E5FF" font-weight="700" letter-spacing="1.8">XPRIME</text>
+    <circle cx="328.3" cy="553" r="4" fill="#6E828F"/>
+    <text x="398" y="557" font-size="10.5" fill="#6E828F" letter-spacing="1.6" text-anchor="end">PRIVATE</text>
+    <text x="42" y="578" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Product platform</text>
+    <rect x="42" y="590" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="612" font-size="12" fill="#C3CDD6">Closed product build. Stack is</text>
+    <text x="42" y="630" font-size="12" fill="#C3CDD6">public, internals are not.</text>
+    <rect x="42" y="618" width="90.4" height="21" rx="2" fill="#08141C" stroke="#2979FF" stroke-width="1" stroke-opacity="0.55"/>
+    <text x="53" y="632.28" font-size="10.5" fill="#2979FF" letter-spacing="0.6">TypeScript</text>
+    <rect x="24" y="674" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#39FF14" stroke-width="1.3"/>
+    <rect x="24" y="674" width="392" height="2.5" fill="#39FF14" opacity="0.85"/>
+    <g stroke="#39FF14" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 685 V674 H35"/><path d="M405 812 H416 V801"/></g>
+    <text x="42" y="708" font-size="13" fill="#39FF14" font-weight="700" letter-spacing="1.8">XOS</text>
+    <circle cx="296.7" cy="703" r="4" fill="#3A4C58"/>
+    <text x="398" y="707" font-size="10.5" fill="#3A4C58" letter-spacing="1.6" text-anchor="end">UNDISCLOSED</text>
+    <text x="42" y="728" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Internal system</text>
+    <rect x="42" y="740" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="762" font-size="12" fill="#C3CDD6">Details withheld. Named here for</text>
+    <text x="42" y="780" font-size="12" fill="#C3CDD6">completeness, not disclosure.</text>
+    <text x="42" y="784" font-size="11" fill="#3A4C58">— no public detail —</text>
+    <rect x="24" y="824" width="392" height="138" rx="3" fill="#08141C" fill-opacity="1" stroke="#FFE600" stroke-width="1.3"/>
+    <rect x="24" y="824" width="392" height="2.5" fill="#FFE600" opacity="0.85"/>
+    <g stroke="#FFE600" stroke-width="1.5" fill="none" opacity="0.45"><path d="M24 835 V824 H35"/><path d="M405 962 H416 V951"/></g>
+    <text x="42" y="858" font-size="13" fill="#FFE600" font-weight="700" letter-spacing="1.8">XADMIN</text>
+    <circle cx="296.7" cy="853" r="4" fill="#3A4C58"/>
+    <text x="398" y="857" font-size="10.5" fill="#3A4C58" letter-spacing="1.6" text-anchor="end">UNDISCLOSED</text>
+    <text x="42" y="878" font-size="11.5" fill="#6E828F" letter-spacing="0.4">Internal system</text>
+    <rect x="42" y="890" width="356" height="1" fill="#1B3541"/>
+    <text x="42" y="912" font-size="12" fill="#C3CDD6">Details withheld. Named here for</text>
+    <text x="42" y="930" font-size="12" fill="#C3CDD6">completeness, not disclosure.</text>
+    <text x="42" y="934" font-size="11" fill="#3A4C58">— no public detail —</text>
+    <text x="24" y="982" font-size="10.5" fill="#3A4C58">Private system internals are not</text>
+    <text x="24" y="997" font-size="10.5" fill="#3A4C58">published. No scale or revenue claims.</text>
+  </g>
+</svg>

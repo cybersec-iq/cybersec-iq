@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 603" width="440" height="603" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">about - operating principles</title>
+  <desc id="d">About panel. I design and ship production systems end to end: interface, API, data layer, infrastructure and automation. Most of my work sits where product engineering meets security. How I work: security first; automate the repeatable; boring infrastructure, interesting products; own the whole path; ship, measure, harden.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="440" height="603" fill="#03070A"/>
+    <rect width="440" height="603" fill="url(#grid)" opacity="0.5"/>
+    <rect width="440" height="603" fill="url(#scan)"/>
+    <rect x="10" y="34" width="420" height="557" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#39FF14" stroke-width="1.8" fill="none" opacity="0.75"><path d="M416 34 H430 V48"/><path d="M10 577 V591 H24"/></g>
+    <path d="M24 42 V18 L30 12 H105.8 L119.8 42 Z" fill="#0B1A23" stroke="#00E5FF" stroke-width="1.2" stroke-opacity="0.6"/>
+    <text x="40" y="31.68" font-size="13" fill="#00E5FF" font-weight="600" letter-spacing="1.2">~/about</text>
+    <text x="28" y="68" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">I design and ship </tspan><tspan fill="#39FF14" font-weight="600">production</tspan></text>
+    <text x="28" y="87" font-size="11.5" letter-spacing="0.1"><tspan fill="#39FF14" font-weight="600">systems</tspan><tspan fill="#C3CDD6"> end to end — interface,</tspan></text>
+    <text x="28" y="106" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">API, data layer, infrastructure and</tspan></text>
+    <text x="28" y="125" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">the automation that keeps them running.</tspan></text>
+    <text x="28" y="163" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">Most of my work sits where </tspan></text>
+    <text x="28" y="182" font-size="11.5" letter-spacing="0.1"><tspan fill="#00E5FF" font-weight="600">product engineering meets security</tspan><tspan fill="#C3CDD6">:</tspan></text>
+    <text x="28" y="201" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">platforms that handle real users, real</tspan></text>
+    <text x="28" y="220" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">payments and real data, built so the</tspan></text>
+    <text x="28" y="239" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">boring parts are </tspan><tspan fill="#39FF14" font-weight="600">automated</tspan><tspan fill="#C3CDD6"> and the</tspan></text>
+    <text x="28" y="258" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">risky parts are </tspan><tspan fill="#FFE600" font-weight="600">deliberate</tspan><tspan fill="#C3CDD6">.</tspan></text>
+    <text x="28" y="287" font-size="12" fill="#00E5FF" letter-spacing="3">HOW I WORK</text>
+    <rect x="136" y="282" width="276" height="1" fill="#1B3541"/>
+    <rect x="28" y="303" width="384" height="48" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <rect x="28" y="303" width="3" height="48" fill="#39FF14" opacity="0.85"/>
+    <g transform="translate(42 316) scale(0.8333)" fill="none" stroke="#39FF14" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></g>
+    <text x="72" y="324" font-size="11.5" fill="#39FF14" font-weight="700" letter-spacing="0.8">SECURITY FIRST</text>
+    <text x="72" y="341" font-size="10.5" fill="#6E828F">Security is a design input, not a review step.</text>
+    <rect x="28" y="359" width="384" height="48" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <rect x="28" y="359" width="3" height="48" fill="#FFE600" opacity="0.85"/>
+    <g transform="translate(42 372) scale(0.8333)" fill="none" stroke="#FFE600" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></g>
+    <text x="72" y="380" font-size="11.5" fill="#FFE600" font-weight="700" letter-spacing="0.8">AUTOMATE THE REPEATABLE</text>
+    <text x="72" y="397" font-size="10.5" fill="#6E828F">If a task happens twice it becomes a script, a</text>
+    <rect x="28" y="415" width="384" height="48" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <rect x="28" y="415" width="3" height="48" fill="#00E5FF" opacity="0.85"/>
+    <g transform="translate(42 428) scale(0.8333)" fill="none" stroke="#00E5FF" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></g>
+    <text x="72" y="436" font-size="11.5" fill="#00E5FF" font-weight="700" letter-spacing="0.8">BORING INFRA, INTERESTING PRODUCTS</text>
+    <text x="72" y="453" font-size="10.5" fill="#6E828F">Predictable deploys are what make ambitious fe</text>
+    <rect x="28" y="471" width="384" height="48" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <rect x="28" y="471" width="3" height="48" fill="#39FF14" opacity="0.85"/>
+    <g transform="translate(42 484) scale(0.8333)" fill="none" stroke="#39FF14" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1" fill="#39FF14"/></g>
+    <text x="72" y="492" font-size="11.5" fill="#39FF14" font-weight="700" letter-spacing="0.8">OWN THE WHOLE PATH</text>
+    <text x="72" y="509" font-size="10.5" fill="#6E828F">From git init to the production incident at 2a</text>
+    <rect x="28" y="527" width="384" height="48" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <rect x="28" y="527" width="3" height="48" fill="#00E5FF" opacity="0.85"/>
+    <g transform="translate(42 540) scale(0.8333)" fill="none" stroke="#00E5FF" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></g>
+    <text x="72" y="548" font-size="11.5" fill="#00E5FF" font-weight="700" letter-spacing="0.8">SHIP, MEASURE, HARDEN</text>
+    <text x="72" y="565" font-size="10.5" fill="#6E828F">Working beats perfect. Then perfect the parts </text>
+  </g>
+</svg>
