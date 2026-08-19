@@ -1,12 +1,9 @@
-"""~/whoami — terminal identity module.
+"""~/whoami — compact terminal identity module.
 
-Reference: 02_WHOAMI_ABOUT_REFERENCE.png (prompt, name, ONLINE pill, the
-LOCATION/STATUS/MISSION panel, wireframe globe) plus the tab device from the
-supplementary HUD reference.
-
-Deliberately NOT taken from the supplementary reference: the hooded-figure
-avatar. The identity here is Aryan IQ and the shield mark, not an anonymous
-hacker cliche.
+The composition follows 02_WHOAMI_ABOUT_REFERENCE.png: visible terminal
+chrome, a two-line shell prompt, left-aligned identity output, restrained
+facts and a thin bottom divider. The supplementary HUD reference contributes
+only the secondary rotating globe.
 """
 
 import design as D
@@ -26,114 +23,130 @@ DESC = ('Terminal identity panel. Prompt cybersec-iq at github, tilde profile, '
 TITLE = 'whoami - Aryan IQ'
 
 
-def _online_pill(x, y, w=104, h=28):
-    o = ('    <rect x="%d" y="%d" width="%d" height="%d" rx="3" fill="%s" '
-         'stroke="%s" stroke-width="1.2" stroke-opacity="0.7"/>\n'
-         % (x, y, w, h, D.SURFACE_2, D.GREEN))
-    o += D.status_dot(x + 18, y + h / 2, D.GREEN, 4)
-    o += D.text(x + 32, y + h / 2 + 4.5, 'ONLINE', size=12, fill=D.GREEN, tracking=2.2)
+def _chrome(x, y, w, h=44, compact=False):
+    """macOS/Linux-style terminal chrome required by the reference."""
+    o = D.panel(x, y, w, h, fill=D.SURFACE_3, stroke=D.LINE_2, rx=3, sw=1.1)
+    r, gap = ((4.2, 14) if compact else (5.2, 17))
+    sx = x + (18 if compact else 22)
+    cy = y + h / 2
+    for i, col in enumerate(('#FF5F57', '#FEBC2E', '#28C840')):
+        o += f'    <circle cx="{sx + i * gap}" cy="{cy}" r="{r}" fill="{col}"/>\n'
+    size = 10.5 if compact else 13
+    title_x = sx + gap * 3 + (2 if compact else 8)
+    o += D.text(title_x, cy + size * .34, 'bash — cybersec-iq — 96×24',
+                size=size, fill=D.TEXT, tracking=.35)
+    label = 'ONLINE'
+    label_w = D.tw(label, size, 1.5)
+    lx = x + w - label_w - (16 if compact else 22)
+    o += D.status_dot(lx - (10 if compact else 13), cy, D.GREEN, 3.4 if compact else 4)
+    o += D.text(lx, cy + size * .34, label, size=size, fill=D.GREEN,
+                weight='600', tracking=1.5, filt='glowSm')
+    return o
+
+
+def _bottom_divider(x, y, w):
+    mid = x + w / 2
+    o = D.hline(x, y, w, D.LINE_2, 1)
+    o += D.hline(x, y, w * .48, D.GREEN_DIM, 1)
+    o += D.hline(mid + w * .02, y, w * .48, D.CYAN_DIM, 1)
+    o += (f'    <rect x="{mid - 5}" y="{y - 5}" width="10" height="10" '
+          f'transform="rotate(45 {mid} {y})" fill="{D.SURFACE}" '
+          f'stroke="{D.YELLOW}" stroke-width="1.2"/>\n')
     return o
 
 
 def wide():
-    W, H = 1200, 520
-    px, py, pw, ph = 22, 40, W - 44, 462
+    W, H = 1200, 510
+    px, py, pw, ph = 22, 42, W - 44, 420
+    chrome_h = 46
+    left_x, split_x = px + 42, 830
 
-    o = D.tab(px + 26, py - 26, '~/whoami', color=D.CYAN, size=16)
-    o += D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
-    o += D.brackets(px, py, pw, ph, color=D.GREEN, arm=18, sw=2, corners='tl,br', opacity=0.75)
+    o = D.text(px + 2, 28, '~/whoami', size=17, fill=D.CYAN, weight='600', tracking=.4)
+    o += D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4, sw=1.2)
+    o += _chrome(px, py, pw, chrome_h)
+    o += D.hline(px, py + chrome_h, pw, D.LINE_3, 1)
+    o += D.brackets(px, py, pw, ph, color=D.GREEN, arm=17, sw=1.6,
+                    corners='bl,br', opacity=.62)
 
-    cx = px + 46
+    # Reference-faithful two-line shell prompt.
+    ps = 15
+    o += D.text(left_x, 126, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
+                size=ps, fill=D.GREEN, weight='600', tracking=.15)
+    o += D.text(left_x, 151, '╰─$', size=ps, fill=D.GREEN, weight='600')
+    o += D.text(left_x + 48, 151, 'whoami', size=ps, fill=D.TEXT_HI, weight='600')
 
-    # wireframe globe, right side, clear of the copy
-    o += D.globe(1000, 250, 116, D.GREEN_DIM, 0.75)
-    o += ('    <rect x="932" y="384" width="136" height="26" rx="2" fill="%s" '
-          'stroke="%s" stroke-width="1"/>\n' % (D.SURFACE_2, D.LINE_2))
-    o += D.text(948, 402, 'MUSCAT, OMAN', size=11.5, fill=D.MUTED, tracking=1.8)
+    # Identity output: compact, crisp and left aligned.
+    nx, ny, ns = left_x, 230, 66
+    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700',
+                tracking=3.2, filt='glowMd')
+    ix = nx + D.tw('ARYAN', ns, 3.2) + 24
+    o += D.text(ix, ny, 'IQ', size=ns, fill=D.GREEN_HI, weight='700',
+                tracking=3.2, filt='glowMd')
+    o += D.text(left_x, 266, DISCIPLINES, size=14.5, fill=D.TEXT,
+                tracking=1.45, preserve=True)
+    o += D.rule(left_x, 286, 500, h=1.5)
 
-    # prompt line
-    ps = 17
-    o += D.text(cx, 92, USER, size=ps, fill=D.GREEN, weight='600')
-    ux = cx + D.tw(USER, ps)
-    o += D.text(ux, 92, ':~$', size=ps, fill=D.CYAN)
-    o += D.text(ux + D.tw(':~$', ps) + 12, 92, 'whoami', size=ps, fill=D.TEXT_HI)
-    o += _online_pill(px + pw - 150, 74)
-
-    o += D.text(cx, 120, '>', size=ps, fill=D.GREEN_DIM)
-
-    # name
-    nx, ny, ns = cx, 200, 74
-    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700', tracking=5, filt='glowLg')
-    ix = nx + D.tw('ARYAN', ns, 5) + 32
-    o += D.text(ix, ny, 'IQ', size=ns, fill=D.CYAN, weight='700', tracking=5, filt='glowLg')
-    o += D.caret(ix + D.tw('IQ', ns, 5) + 14, ny - 54, w=14, h=64, color=D.CYAN)
-
-    o += D.text(cx, 234, DISCIPLINES, size=15.5, fill=D.TEXT, tracking=2.2, preserve=True)
-    o += D.rule(cx, 250, 300, h=2.4)
-
-    # LOCATION / STATUS / MISSION
-    ix0, iy0 = cx, 284
-    bw, bh = 780, 152
-    o += D.panel(ix0, iy0, bw, bh, fill='#03110C', stroke=D.GREEN, sw=1.2)
-    o += D.brackets(ix0, iy0, bw, bh, color=D.GREEN, arm=14, sw=1.8,
-                    corners='tl,tr,bl,br', opacity=0.6)
-    for i, (icon, key, val, col) in enumerate(ROWS):
-        ry = iy0 + 44 + i * 40
-        o += icon(ix0 + 26, ry - 15, 20, D.CYAN)
-        o += D.text(ix0 + 60, ry, key, size=16, fill=D.CYAN, tracking=2.6)
-        o += D.text(ix0 + 250, ry, ':', size=16, fill=D.FAINT)
-        o += D.text(ix0 + 292, ry, val, size=16, fill=col, weight='600', tracking=1.8)
+    for i, (_, key, val, col) in enumerate(ROWS):
+        ry = 326 + i * 39
+        o += D.text(left_x, ry, key, size=15.5, fill=D.CYAN, tracking=2.1)
+        o += D.text(left_x + 124, ry, ':', size=15.5, fill=D.FAINT)
+        o += D.text(left_x + 151, ry, val, size=15.5, fill=col,
+                    weight='600', tracking=1.15)
         if key == 'STATUS':
-            o += D.status_dot(ix0 + 292 + D.tw(val, 16, 1.8) + 18, ry - 5, D.YELLOW, 5)
+            o += D.status_dot(left_x + 151 + D.tw(val, 15.5, 1.15) + 17,
+                              ry - 5, D.YELLOW, 4)
 
-    o += D.prompt_bar(cx, 452, bw, '', h=44, user=USER, size=15)
+    # Secondary network globe occupies 30% and never competes with identity.
+    o += D.vline(split_x, 112, 306, D.LINE, 1)
+    o += D.globe(1001, 257, 126, D.GREEN_DIM, .78)
+    o += D.text(1001, 397, 'MUSCAT, OMAN', size=11.5, fill=D.CYAN,
+                tracking=1.8, anchor='middle')
+    o += D.label(1001, 421, 'NETWORK ORIGIN', size=9.5, fill=D.MUTED,
+                 tracking=2.2, anchor='middle')
+    o += _bottom_divider(px + 42, 482, pw - 84)
     return D.doc(W, H, TITLE, DESC, o)
 
 
 def narrow():
-    W = 440
-    px, py, pw = 10, 34, W - 20
+    W, H = 440, 610
+    px, py, pw, ph = 10, 34, W - 20, 534
     cx = px + 18
-    inner = pw - 36
 
-    o = D.tab(px + 14, py - 22, '~/whoami', color=D.CYAN, size=13)
+    o = D.text(px + 1, 23, '~/whoami', size=13.5, fill=D.CYAN,
+               weight='600', tracking=.3)
+    o += D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
+    o += _chrome(px, py, pw, h=40, compact=True)
+    o += D.hline(px, py + 40, pw, D.LINE_3, 1)
+    o += D.text(cx, 103, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
+                size=11.4, fill=D.GREEN, weight='600')
+    o += D.text(cx, 126, '╰─$', size=12, fill=D.GREEN, weight='600')
+    o += D.text(cx + 38, 126, 'whoami', size=12, fill=D.TEXT_HI, weight='600')
 
-    ps = 13
-    o += D.text(cx, py + 40, USER, size=ps, fill=D.GREEN, weight='600')
-    ux = cx + D.tw(USER, ps)
-    o += D.text(ux, py + 40, ':~$', size=ps, fill=D.CYAN)
-    o += D.text(ux + D.tw(':~$', ps) + 8, py + 40, 'whoami', size=ps, fill=D.TEXT_HI)
+    nx, ny, ns = cx, 188, 42
+    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700',
+                tracking=1.8, filt='glowMd')
+    ix = nx + D.tw('ARYAN', ns, 1.8) + 14
+    o += D.text(ix, ny, 'IQ', size=ns, fill=D.GREEN_HI, weight='700',
+                tracking=1.8, filt='glowMd')
+    o += D.text(cx, 216, 'FULL-STACK DEVELOPER / CYBERSECURITY',
+                size=10.7, fill=D.TEXT, tracking=.45)
+    o += D.text(cx, 234, '/ AI SYSTEMS BUILDER', size=10.7,
+                fill=D.TEXT, tracking=.45)
+    o += D.rule(cx, 250, 220, h=1.3)
 
-    o += D.globe(W - 74, py + 44, 44, D.GREEN_DIM, 0.55)
+    for i, (_, key, val, col) in enumerate(ROWS):
+        ry = 286 + i * 34
+        o += D.text(cx, ry, key, size=11.8, fill=D.CYAN, tracking=1.3)
+        o += D.text(cx + 90, ry, ':', size=11.8, fill=D.FAINT)
+        o += D.text(cx + 108, ry, val, size=11.8, fill=col,
+                    weight='600', tracking=.45)
+        if key == 'STATUS':
+            o += D.status_dot(cx + 108 + D.tw(val, 11.8, .45) + 13,
+                              ry - 4, D.YELLOW, 3.5)
 
-    nx, ny, ns = cx, py + 108, 44
-    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700', tracking=2, filt='glowMd')
-    ix = nx + D.tw('ARYAN', ns, 2) + 16
-    o += D.text(ix, ny, 'IQ', size=ns, fill=D.CYAN, weight='700', tracking=2, filt='glowMd')
-    o += D.caret(ix + D.tw('IQ', ns, 2) + 9, ny - 32, w=9, h=38, color=D.CYAN)
-
-    o += D.text(cx, ny + 26, 'FULL-STACK  /  CYBERSECURITY', size=12.5, fill=D.TEXT, tracking=1, preserve=True)
-    o += D.text(cx, ny + 44, 'AI SYSTEMS BUILDER', size=12.5, fill=D.TEXT, tracking=1)
-    o += D.rule(cx, ny + 54, 180, h=2)
-
-    iy0 = ny + 74
-    bh = 128
-    o += D.panel(cx, iy0, inner, bh, fill='#03110C', stroke=D.GREEN, sw=1.2)
-    o += D.brackets(cx, iy0, inner, bh, color=D.GREEN, arm=11, sw=1.6,
-                    corners='tl,tr,bl,br', opacity=0.6)
-    for i, (icon, key, val, col) in enumerate(ROWS):
-        ry = iy0 + 34 + i * 34
-        o += icon(cx + 14, ry - 12, 16, D.CYAN)
-        o += D.text(cx + 40, ry, key, size=12.5, fill=D.CYAN, tracking=1.6)
-        o += D.text(cx + 132, ry, ':', size=12.5, fill=D.FAINT)
-        o += D.text(cx + 148, ry, val, size=12.5, fill=col, weight='600', tracking=0.8)
-
-    by = iy0 + bh + 14
-    o += D.prompt_bar(cx, by, inner, '', h=36, user=USER, size=12)
-
-    ph = by + 36 + 16 - py
-    H = py + ph + 12
-    frame = (D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
-             + D.brackets(px, py, pw, ph, color=D.GREEN, arm=14, sw=1.8,
-                          corners='tl,br', opacity=0.75))
-    return D.doc(W, H, TITLE, DESC, frame + o)
+    o += D.hline(cx, 375, pw - 36, D.LINE, 1)
+    o += D.globe(W / 2, 455, 64, D.GREEN_DIM, .75)
+    o += D.text(W / 2, 541, 'MUSCAT, OMAN', size=10.5, fill=D.CYAN,
+                tracking=1.4, anchor='middle')
+    o += _bottom_divider(cx, 589, pw - 36)
+    return D.doc(W, H, TITLE, DESC, o)
