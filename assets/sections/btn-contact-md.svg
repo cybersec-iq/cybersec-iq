@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 70" width="198" height="70" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
-  <title id="t">PLAY SNAKE</title>
-  <desc id="d">PLAY SNAKE. Snake Protocol console</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">GET IN TOUCH</title>
+  <desc id="d">GET IN TOUCH. Let's connect</desc>
   <defs>
     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
       <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
@@ -52,12 +52,12 @@
     </style>
   </defs>
   <g class="m">
-    <rect x="1" y="1" width="196" height="68" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#FFE600" stroke-width="1.5"/>
-    <rect x="1" y="1" width="4" height="68" fill="#FFE600" opacity="0.9"/>
-    <g stroke="#FFE600" stroke-width="1.6" fill="none" opacity="0.5"><path d="M1 12 V1 H12"/><path d="M186 69 H197 V58"/></g>
-    <g transform="translate(15 25.0) scale(0.8333)" fill="none" stroke="#FFE600" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><rect x="2.5" y="7" width="19" height="10.5" rx="4"/><path d="M7 10.4 v3.7M5.2 12.2 h3.7"/><circle cx="16.2" cy="11.4" r="1.1" fill="#FFE600"/><circle cx="18.4" cy="13.8" r="1.1" fill="#FFE600"/></g>
-    <text x="43" y="32.0" font-size="10.8" fill="#FFE600" font-weight="700" letter-spacing="0.65">PLAY SNAKE</text>
-    <text x="43" y="50.0" font-size="9.2" fill="#6E828F" letter-spacing="0">Snake Protocol console</text>
-    <path d="M180 28.0 l7 7 l-7 7" fill="none" stroke="#FFE600" stroke-width="2.2" stroke-linecap="square" opacity="0.85"/>
+    <rect x="1" y="1" width="298" height="78" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#2979FF" stroke-width="1.5"/>
+    <rect x="1" y="1" width="4" height="78" fill="#2979FF" opacity="0.9"/>
+    <g stroke="#2979FF" stroke-width="1.6" fill="none" opacity="0.5"><path d="M1 13 V1 H13"/><path d="M287 79 H299 V67"/></g>
+    <g transform="translate(20 27.0) scale(1.0833)" fill="none" stroke="#2979FF" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M2.5 6.2 L12 13.4 L21.5 6.2"/></g>
+    <text x="60" y="37.0" font-size="13" fill="#2979FF" font-weight="700" letter-spacing="1.1">GET IN TOUCH</text>
+    <text x="60" y="57.0" font-size="10" fill="#6E828F" letter-spacing="0">Let's connect</text>
+    <path d="M276 32.0 l8 8 l-8 8" fill="none" stroke="#2979FF" stroke-width="2.4" stroke-linecap="square" opacity="0.85"/>
   </g>
 </svg>

@@ -5,10 +5,10 @@
   <img src="assets/sections/hero.svg" alt="Aryan IQ — developer command center. SYSTEM // OPERATOR. Full-stack developer, cybersecurity engineer, AI systems builder. I build systems. I break assumptions. I secure what matters. Current status: building. Nothing is impossible. Muscat, Oman." width="100%">
 </picture>
 
-<a href="https://cybersec-iq.github.io/cybersec-iq/#projects"><img src="assets/sections/btn-explore.svg" alt="Explore systems — view projects and systems"></a>
-<a href="https://cybersec-iq.github.io/cybersec-iq/#stack"><img src="assets/sections/btn-overview.svg" alt="System overview — tech stack and architecture"></a>
-<a href="https://cybersec-iq.github.io/cybersec-iq/snake/"><img src="assets/sections/btn-snake.svg" alt="Play Snake — Snake Protocol console"></a>
-<a href="https://aryaniq.com"><img src="assets/sections/btn-contact.svg" alt="Get in touch — let's connect"></a>
+<a href="https://cybersec-iq.github.io/cybersec-iq/#projects"><picture><source media="(max-width: 450px)" srcset="assets/sections/btn-explore-xs.svg"><source media="(min-width: 661px) and (max-width: 960px)" srcset="assets/sections/btn-explore-md.svg"><img src="assets/sections/btn-explore.svg" alt="Explore systems — view projects and systems"></picture></a>
+<a href="https://cybersec-iq.github.io/cybersec-iq/#stack"><picture><source media="(max-width: 450px)" srcset="assets/sections/btn-overview-xs.svg"><source media="(min-width: 661px) and (max-width: 960px)" srcset="assets/sections/btn-overview-md.svg"><img src="assets/sections/btn-overview.svg" alt="System overview — tech stack and architecture"></picture></a>
+<a href="https://cybersec-iq.github.io/cybersec-iq/snake/"><picture><source media="(max-width: 450px)" srcset="assets/sections/btn-snake-xs.svg"><source media="(min-width: 661px) and (max-width: 960px)" srcset="assets/sections/btn-snake-md.svg"><img src="assets/sections/btn-snake.svg" alt="Play Snake — Snake Protocol console"></picture></a>
+<a href="https://aryaniq.com"><picture><source media="(max-width: 450px)" srcset="assets/sections/btn-contact-xs.svg"><source media="(min-width: 661px) and (max-width: 960px)" srcset="assets/sections/btn-contact-md.svg"><img src="assets/sections/btn-contact.svg" alt="Get in touch — let's connect"></picture></a>
 
 <br>
 
