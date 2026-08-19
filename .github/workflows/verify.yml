@@ -34,9 +34,22 @@ jobs:
 
       - name: Syntax check the site scripts
         run: |
-          node --check docs/terminal.js
+          node --check docs/app.js
           node --check docs/snake/game.js
-          node --check tools/render-stats.mjs
+
+      - name: Compile the asset generators
+        run: python3 -m compileall -q tools
+
+      - name: Section assets match their source
+        # Regenerates every static section and fails if the committed SVGs
+        # differ, so assets/ can never drift away from tools/.
+        run: |
+          python3 tools/build_sections.py
+          if ! git diff --quiet -- assets/sections; then
+            echo "::error::assets/sections is stale - run: python tools/build_sections.py"
+            git diff --stat -- assets/sections
+            exit 1
+          fi
 
       - name: Snake game logic
         run: node tests/snake.test.js

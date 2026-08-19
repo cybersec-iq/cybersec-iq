@@ -20,7 +20,9 @@ on:
     branches: [main]
     paths:
       - ".github/workflows/profile-assets.yml"
-      - "tools/render-stats.mjs"
+      - "tools/render_activity.py"
+      - "tools/frame_snake.py"
+      - "tools/design.py"
 
 # Only the contents scope, and only because we publish the generated SVGs.
 permissions:
@@ -40,11 +42,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
       - name: Render contribution snake
         uses: Platane/snk@v3
         with:
@@ -55,13 +52,16 @@ jobs:
             dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%2339FF14&color_dots=%230A0E13,%230E3B1A,%23177A2C,%2325C23F,%23C6FF00
             dist/github-contribution-grid-snake.svg?color_snake=%231F7A2E&color_dots=%23EAF2EC,%23BFE4C7,%237ACF92,%233FB463,%231F7A2E
 
-      - name: Render public activity card
+      - name: Render activity section from live GitHub data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_USER: ${{ github.repository_owner }}
-        # Written outside dist/: the snake step runs in a container as root
-        # and leaves dist/ root-owned, so the runner cannot write into it.
-        run: node tools/render-stats.mjs stats/profile-stats.svg
+        # Written outside dist/: the snake step runs in a container as root and
+        # leaves dist/ root-owned, so the runner cannot write into it.
+        run: python3 tools/render_activity.py stats
+
+      - name: Frame the contribution snake in the command-center panel
+        run: python3 tools/frame_snake.py dist/github-contribution-grid-snake-dark.svg stats
 
       - name: Publish to the output branch
         run: |

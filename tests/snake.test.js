@@ -28,7 +28,8 @@ function el(id) {
     setAttribute(k, v) { this.attrs[k] = v; },
     getAttribute(k) { return this.attrs[k]; },
     addEventListener(t, fn) { (this.listeners[t] = this.listeners[t] || []).push(fn); },
-    getBoundingClientRect() { return { width: 660, height: 660 }; }
+    rect: { width: 660, height: 660 },
+    getBoundingClientRect() { return this.rect; }
   };
 }
 
@@ -38,6 +39,8 @@ function build(opts) {
   ['canvas', 'board', 'overlay', 'ov-k', 'ov-t', 'ov-d', 'ov-btn',
    'score', 'high', 'length', 'status', 'live', 'btn-toggle', 'btn-restart']
     .forEach(id => { nodes[id] = el(id); });
+
+  if (opts.boardRect) { nodes.board.rect = opts.boardRect; }
 
   const ctx = makeCtx();
   nodes.canvas.width = 0;
@@ -122,6 +125,7 @@ function build(opts) {
 
   return {
     snap, key, tickFrames, nodes, store,
+    setBoardRect: r => { nodes.board.rect = r; },
     setHidden: v => { doc.hidden = v; },
     setRandom: q => { randomQueue = q.slice(); },
     // The first animation frame only establishes the time base and never
@@ -368,6 +372,23 @@ console.log('== 12. localStorage handling ==');
         build({ store: { [KEY]: '-5' } }).snap().high, '0000');
   check('valid value is restored',
         build({ store: { [KEY]: '420' } }).snap().high, '0420');
+}
+
+console.log('');
+console.log('== 13. board sizing edge cases ==');
+{
+  // aspect-ratio not resolved yet: height reads 0, width is real. The board is
+  // square by CSS, so the width alone must be enough to size the canvas.
+  const g = build({ boardRect: { width: 480, height: 0 } });
+  check('sizes from width when height is unresolved', g.snap().canvas, 480);
+
+  // Genuinely no layout (hidden tab): skip rather than lock to a placeholder.
+  const h = build({ boardRect: { width: 0, height: 0 } });
+  check('skips sizing when there is no layout', h.snap().canvas, 0);
+  h.setBoardRect({ width: 620, height: 620 });
+  h.begin();
+  h.tickFrames(21, TICK);
+  check('recovers once layout arrives', h.snap().canvas, 620);
 }
 
 console.log('');
