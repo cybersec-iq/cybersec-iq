@@ -145,31 +145,60 @@ def desc(m, stamp):
             % (m['longest'], m['current'], m['best'], m['active'], m['window'], stamp))
 
 
-def wide(m, user, stamp):
-    W, H = 1200, 386
-    px, pw = 22, 1200 - 44
+def wide(m, user, stamp, header=True):
+    """Wide activity card.
 
-    o = D.section_header(px + 24, 46, '~/activity', 'PUBLIC GITHUB ACTIVITY',
-                         right='LIVE DATA', right_icon=D.i_pulse, w=pw - 48)
-
-    ph = 292
-    o += D.panel(px, 76, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
-    o += D.brackets(px, 76, pw, ph, color=D.CYAN, arm=18, sw=2,
-                    corners='tl,tr,bl,br', opacity=0.55)
-
-    o += D.text(px + pw - 172, 44, '@' + user, size=12.5, fill=D.CYAN,
-                tracking=1.4, anchor='end')
-    o += D.text(px + pw - 160, 44, '|', size=12.5, fill=D.LINE_3)
-
+    `header=True` prints the `>_ ~/activity` section header above the panel and
+    is what the README embeds, since nothing there supplies a heading of its
+    own. `header=False` drops it and moves the title inside the panel as the
+    card's own header row: the Pages site already renders `~/activity` above
+    the card, and two identical titles stacked together read as a mistake.
+    Both share the same data and the same geometry below the header.
+    """
+    W = 1200
+    px, pw = 22, W - 44
     cx = px + 30
     inner = pw - 60
+    right = cx + inner
+
+    if header:
+        ptop, ph, tiles_y, iy, H = 76, 292, 104, 226, 386
+    else:
+        # No section header, so the panel starts at the top and everything
+        # shifts up by 26px rather than leaving a gap where the title was.
+        ptop, ph, tiles_y, iy, H = 16, 326, 78, 200, 356
+
+    o = ''
+    if header:
+        o += D.section_header(px + 24, 46, '~/activity', 'PUBLIC GITHUB ACTIVITY',
+                              right='LIVE DATA', right_icon=D.i_pulse, w=pw - 48)
+        o += D.text(px + pw - 172, 44, '@' + user, size=12.5, fill=D.CYAN,
+                    tracking=1.4, anchor='end')
+        o += D.text(px + pw - 160, 44, '|', size=12.5, fill=D.LINE_3)
+
+    o += D.panel(px, ptop, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
+    o += D.brackets(px, ptop, pw, ph, color=D.CYAN, arm=18, sw=2,
+                    corners='tl,tr,bl,br', opacity=0.55)
+
+    if not header:
+        o += D.text(cx, 46, 'PUBLIC GITHUB ACTIVITY', size=14, fill=D.CYAN,
+                    weight='700', tracking=3.2)
+        o += D.label(right, 46, 'LIVE DATA', size=11.5, fill=D.CYAN_DIM,
+                     tracking=3, anchor='end')
+        lw = D.tw('LIVE DATA', 11.5, 3)
+        o += D.i_pulse(right - lw - 26, 33, 15, D.CYAN_DIM)
+        o += D.text(right - lw - 38, 46, '|', size=12.5, fill=D.LINE_3, anchor='end')
+        o += D.text(right - lw - 50, 46, '@' + user, size=12.5, fill=D.CYAN,
+                    tracking=1.4, anchor='end')
+        o += D.hline(cx, 62, inner, D.LINE_2)
+
     gap = 12
     n = 6
     tw_ = (inner - gap * (n - 1)) / n
     for i, (lab, val, note, col, icon) in enumerate(tiles(m)):
-        o += D.metric_tile(cx + i * (tw_ + gap), 104, tw_, 104, lab, val, note, col, icon)
+        o += D.metric_tile(cx + i * (tw_ + gap), tiles_y, tw_, 104, lab, val, note, col, icon)
 
-    iy, ih = 226, 122
+    ih = 122
     lw = inner * 0.60
     o += D.panel(cx, iy, lw, ih, fill=D.SURFACE_2, stroke=D.LINE)
     o += D.label(cx + 20, iy + 26, 'ACTIVITY INSIGHTS', size=11.5, fill=D.CYAN, tracking=2.8)
@@ -193,23 +222,37 @@ def wide(m, user, stamp):
     return D.doc(W, H, 'Public GitHub activity for ' + user, desc(m, stamp), o)
 
 
-def narrow(m, user, stamp):
+def narrow(m, user, stamp, header=True):
+    """Narrow activity card. See wide() for what `header` controls."""
     W = 440
-    px, py, pw = 10, 58, W - 20
+    px, pw = 10, W - 20
+    py = 58 if header else 16
     cx = px + 14
     inner = pw - 28
 
-    o = D.section_header(px + 8, 34, '~/activity', 'PUBLIC GITHUB ACTIVITY')
+    o = ''
+    if header:
+        o += D.section_header(px + 8, 34, '~/activity', 'PUBLIC GITHUB ACTIVITY')
+        top = py + 16
+    else:
+        o += D.text(cx, py + 26, 'PUBLIC GITHUB ACTIVITY', size=11.5, fill=D.CYAN,
+                    weight='700', tracking=2.2)
+        o += D.status_dot(cx + inner - 42, py + 22, D.GREEN, 4)
+        o += D.label(cx + inner, py + 26, 'LIVE', size=10.5, fill=D.GREEN,
+                     tracking=2, anchor='end')
+        o += D.text(cx, py + 43, '@' + user, size=10.5, fill=D.MUTED, tracking=1.2)
+        o += D.hline(cx, py + 54, inner, D.LINE_2)
+        top = py + 68
 
     gap = 10
     tw_ = (inner - gap) / 2
     th = 84
     for i, (lab, val, note, col, icon) in enumerate(tiles(m)):
         c, r = i % 2, i // 2
-        o += D.metric_tile(cx + c * (tw_ + gap), py + 16 + r * (th + gap),
+        o += D.metric_tile(cx + c * (tw_ + gap), top + r * (th + gap),
                            tw_, th, lab, val, note, col, icon)
 
-    iy = py + 16 + 3 * (th + gap) + 6
+    iy = top + 3 * (th + gap) + 6
     rows = insights(m)
     ih = 30 + len(rows) * 22
     o += D.panel(cx, iy, inner, ih, fill=D.SURFACE_2, stroke=D.LINE)
@@ -244,8 +287,13 @@ def main():
     stamp = datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M UTC')
 
     os.makedirs(out, exist_ok=True)
+    # `activity*` carries its own section header, because the README embeds it
+    # bare. `activity-embed` omits it: the Pages site renders `~/activity`
+    # above the card, and printing it twice reads as a mistake. Pages scales
+    # the wide card responsively, so no narrow embed variant is emitted.
     for name, svg in (('activity.svg', wide(m, user, stamp)),
-                      ('activity-narrow.svg', narrow(m, user, stamp))):
+                      ('activity-narrow.svg', narrow(m, user, stamp)),
+                      ('activity-embed.svg', wide(m, user, stamp, header=False))):
         ET.fromstring(svg)
         with open(os.path.join(out, name), 'w', encoding='utf-8', newline='\n') as fh:
             fh.write(svg)
