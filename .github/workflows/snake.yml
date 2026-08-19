@@ -1,0 +1,75 @@
+name: Contribution Snake
+
+# Regenerates the animated contribution-grid snake and publishes it to the
+# dedicated `output` branch, so `main` stays free of daily bot commits.
+
+on:
+  schedule:
+    # Once a day, 03:17 UTC. Deliberately off the hour to avoid the
+    # scheduling stampede GitHub sees at :00.
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/snake.yml"
+
+# Only the contents scope, and only because we push the generated SVGs.
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-snake
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    name: Generate and publish
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render contribution snake
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          # Palettes follow the cybersec-iq system: neon green snake over a
+          # near-black grid for dark mode, and a legible green ramp for light.
+          outputs: |
+            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=%2339FF14&color_dots=%230A0E13,%230E3B1A,%23177A2C,%2325C23F,%23C6FF00
+            dist/github-contribution-grid-snake.svg?color_snake=%231F7A2E&color_dots=%23EAF2EC,%23BFE4C7,%237ACF92,%233FB463,%231F7A2E
+
+      - name: Publish to the output branch
+        run: |
+          set -euo pipefail
+
+          staged="$(mktemp -d)"
+          cp dist/*.svg "$staged/"
+
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # An orphan branch keeps exactly one generated commit at a time,
+          # so the repository never accumulates a year of snake history.
+          git switch --orphan output
+          cp "$staged"/*.svg .
+          git add -- ./*.svg
+          git commit -m "chore(snake): regenerate contribution grid"
+          git push --force origin output
+
+      - name: Summary
+        run: |
+          {
+            echo "### Contribution snake regenerated"
+            echo
+            echo "| Asset | Size |"
+            echo "| --- | --- |"
+            for f in dist/*.svg; do
+              echo "| \`$(basename "$f")\` | $(du -h "$f" | cut -f1) |"
+            done
+            echo
+            echo "Published to the \`output\` branch."
+          } >> "$GITHUB_STEP_SUMMARY"
