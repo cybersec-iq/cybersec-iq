@@ -419,3 +419,20 @@ body::after {
   }
   body::after { display: none; }
 }
+
+/* ---------------- accent utilities ----------------
+   These exist because the page ships a strict CSP (style-src 'self').
+   Inline style="--accent:…" attributes are blocked by it, which silently
+   collapsed every per-card accent to the default. Classes keep the hardened
+   policy and the reference's colour coding at the same time. */
+
+.a-green  { --accent: var(--green); }
+.a-cyan   { --accent: var(--cyan); }
+.a-yellow { --accent: var(--yellow); }
+.a-lime   { --accent: var(--lime); }
+.a-blue   { --accent: var(--blue); }
+
+.is-green { color: var(--green); }
+.is-muted { color: var(--muted); }
+.noshrink { flex: none; }
+.mt       { margin-top: 18px; }

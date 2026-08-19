@@ -89,7 +89,7 @@
     <!-- Session panel: browser-side facts only. No CPU/RAM/uptime telemetry -
          a static site cannot measure those, so they are not shown. -->
     <section class="panel session" aria-label="Session">
-      <p class="session__head"><span>SESSION</span><span class="dot" style="color:#39FF14"></span></p>
+      <p class="session__head"><span>SESSION</span><span class="dot is-green"></span></p>
       <p class="session__row"><span class="session__k">LOCAL TIME</span><span class="session__v session__v--green" id="s-time">—</span></p>
       <p class="session__row"><span class="session__k">TIME ZONE</span><span class="session__v" id="s-tz">—</span></p>
       <p class="session__row"><span class="session__k">VIEWPORT</span><span class="session__v session__v--cyan" id="s-vw">—</span></p>
@@ -111,7 +111,7 @@
           <h2 class="sec__path" id="h-who">~/whoami</h2>
           <p class="sec__sub">OPERATOR IDENTITY</p>
         </span>
-        <span class="sec__right"><span class="dot" style="color:#39FF14"></span>ONLINE</span>
+        <span class="sec__right"><span class="dot is-green"></span>ONLINE</span>
       </div>
 
       <div class="panel panel--brackets panel--green body">
@@ -170,27 +170,27 @@
 
         <p class="subhead">HOW I WORK</p>
         <div class="cards">
-          <article class="card" style="--accent:#39FF14">
+          <article class="card a-green">
             <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></svg></span>
             <h3 class="card__title">SECURITY FIRST</h3>
             <p class="card__body">Security is a design input, not a review step. Threat assumptions get written down before the schema does.</p>
           </article>
-          <article class="card" style="--accent:#FFE600">
+          <article class="card a-yellow">
             <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></svg></span>
             <h3 class="card__title">AUTOMATE THE REPEATABLE</h3>
             <p class="card__body">If a task happens twice, it becomes a script, a pipeline or a bot.</p>
           </article>
-          <article class="card" style="--accent:#00E5FF">
+          <article class="card a-cyan">
             <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></svg></span>
             <h3 class="card__title">BORING INFRASTRUCTURE</h3>
             <p class="card__body">Predictable deploys are what make ambitious features affordable.</p>
           </article>
-          <article class="card" style="--accent:#39FF14">
+          <article class="card a-green">
             <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/></svg></span>
             <h3 class="card__title">OWN THE WHOLE PATH</h3>
             <p class="card__body">From git init to the production incident at 2am. No handoff to hide behind.</p>
           </article>
-          <article class="card" style="--accent:#00E5FF">
+          <article class="card a-cyan">
             <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></svg></span>
             <h3 class="card__title">SHIP, MEASURE, HARDEN</h3>
             <p class="card__body">Working beats perfect. Then perfect the parts that carry risk.</p>
@@ -212,7 +212,7 @@
 
       <div class="panel panel--brackets panel--green body">
         <div class="stack">
-          <article class="cat" style="--accent:#00E5FF">
+          <article class="cat a-cyan">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></svg>
               <span><h3 class="cat__name">FRONTEND</h3><p class="cat__purpose">Modern UI/UX</p></span>
@@ -220,7 +220,7 @@
             <div class="chips"><span class="chip chip--cyan">React</span><span class="chip chip--text">Next.js</span><span class="chip chip--blue">TypeScript</span><span class="chip chip--yellow">JavaScript</span></div>
           </article>
 
-          <article class="cat" style="--accent:#39FF14">
+          <article class="cat a-green">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M3 6 l6 6 l-6 6"/><path d="M13 18 h8"/></svg>
               <span><h3 class="cat__name">BACKEND</h3><p class="cat__purpose">Robust APIs</p></span>
@@ -228,7 +228,7 @@
             <div class="chips"><span class="chip chip--green">Node.js</span><span class="chip chip--text">Python</span><span class="chip chip--cyan">REST APIs</span></div>
           </article>
 
-          <article class="cat" style="--accent:#00E5FF">
+          <article class="cat a-cyan">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6 v12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2 V6"/><path d="M4 12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2"/></svg>
               <span><h3 class="cat__name">DATA</h3><p class="cat__purpose">Data &amp; storage</p></span>
@@ -236,7 +236,7 @@
             <div class="chips"><span class="chip chip--blue">PostgreSQL</span></div>
           </article>
 
-          <article class="cat" style="--accent:#FFE600">
+          <article class="cat a-yellow">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></svg>
               <span><h3 class="cat__name">INFRASTRUCTURE</h3><p class="cat__purpose">Deploy &amp; scale</p></span>
@@ -244,7 +244,7 @@
             <div class="chips"><span class="chip chip--cyan">Docker</span><span class="chip chip--yellow">Linux</span><span class="chip chip--green">Git</span><span class="chip chip--text">GitHub Actions</span></div>
           </article>
 
-          <article class="cat" style="--accent:#39FF14">
+          <article class="cat a-green">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/><path d="M8 12 l3 3 l5.5-6"/></svg>
               <span><h3 class="cat__name">SECURITY PRACTICE</h3><p class="cat__purpose">Secure by design</p></span>
@@ -252,7 +252,7 @@
             <div class="chips"><span class="chip chip--green">Secure SDLC</span><span class="chip chip--green">Threat Modelling</span><span class="chip chip--green">Dependency Hygiene</span><span class="chip chip--green">Hardening</span></div>
           </article>
 
-          <article class="cat" style="--accent:#FFE600">
+          <article class="cat a-yellow">
             <div class="cat__head">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></svg>
               <span><h3 class="cat__name">TOOLS &amp; AUTOMATION</h3><p class="cat__purpose">Productivity &amp; automation</p></span>
@@ -283,42 +283,42 @@
 
       <div class="panel panel--brackets body">
         <div class="grid-sys">
-          <article class="sys" style="--accent:#00E5FF">
+          <article class="sys a-cyan">
             <div class="sys__top"><h3 class="sys__name">ARYANIQ</h3><span class="sys__status sys__status--live"><span class="dot"></span>LIVE</span></div>
             <p class="sys__domain">Personal platform &amp; engineering hub</p>
             <p class="sys__body">Public home for the practice: services, writing and contact.</p>
             <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span><span class="chip chip--cyan">Web</span></div>
           </article>
 
-          <article class="sys" style="--accent:#39FF14">
+          <article class="sys a-green">
             <div class="sys__top"><h3 class="sys__name">KAMINO RECORDS</h3><span class="sys__status">PRIVATE</span></div>
             <p class="sys__domain">Music label platform</p>
             <p class="sys__body">Catalogue, releases and artist management on a headless CMS.</p>
             <div class="chips sys__chips"><span class="chip chip--text">Next.js</span><span class="chip chip--green">Payload CMS</span><span class="chip chip--blue">PostgreSQL</span></div>
           </article>
 
-          <article class="sys" style="--accent:#FFE600">
+          <article class="sys a-yellow">
             <div class="sys__top"><h3 class="sys__name">SHINEL SUPPLIER</h3><span class="sys__status">PRIVATE</span></div>
             <p class="sys__domain">Multilingual commerce platform</p>
             <p class="sys__body">Multi-language storefront and supplier-side operations.</p>
             <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span><span class="chip chip--cyan">Web</span></div>
           </article>
 
-          <article class="sys" style="--accent:#00E5FF">
+          <article class="sys a-cyan">
             <div class="sys__top"><h3 class="sys__name">XPRIME</h3><span class="sys__status">PRIVATE</span></div>
             <p class="sys__domain">Product platform</p>
             <p class="sys__body">Closed product build. Stack is public, internals are not.</p>
             <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span></div>
           </article>
 
-          <article class="sys" style="--accent:#39FF14">
+          <article class="sys a-green">
             <div class="sys__top"><h3 class="sys__name">XOS</h3><span class="sys__status">UNDISCLOSED</span></div>
             <p class="sys__domain">Internal system</p>
             <p class="sys__body">Details withheld. Named here for completeness, not disclosure.</p>
             <p class="sys__none">— no public detail —</p>
           </article>
 
-          <article class="sys" style="--accent:#FFE600">
+          <article class="sys a-yellow">
             <div class="sys__top"><h3 class="sys__name">XADMIN</h3><span class="sys__status">UNDISCLOSED</span></div>
             <p class="sys__domain">Internal system</p>
             <p class="sys__body">Details withheld. Named here for completeness, not disclosure.</p>
@@ -327,7 +327,7 @@
         </div>
 
         <p class="note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex:none"><rect x="4.5" y="10.5" width="15" height="10.5" rx="1"/><path d="M8 10.5 V7.6 a4 4 0 0 1 8 0 v2.9"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true noshrink"><rect x="4.5" y="10.5" width="15" height="10.5" rx="1"/><path d="M8 10.5 V7.6 a4 4 0 0 1 8 0 v2.9"/></svg>
           Source, infrastructure topology and client data for private systems are not published. Nothing here claims scale, revenue or third-party endorsement.
         </p>
       </div>
@@ -341,7 +341,7 @@
           <h2 class="sec__path" id="h-activity">~/activity</h2>
           <p class="sec__sub">PUBLIC GITHUB ACTIVITY</p>
         </span>
-        <span class="sec__right"><span class="dot" style="color:#39FF14"></span>LIVE DATA</span>
+        <span class="sec__right"><span class="dot is-green"></span>LIVE DATA</span>
       </div>
 
       <div class="panel body">
@@ -352,7 +352,7 @@
           <figcaption>Regenerated daily from the GitHub API. Public activity only — private contributions are not counted.</figcaption>
         </figure>
 
-        <figure class="figure" style="margin-top:18px">
+        <figure class="figure mt">
           <img src="https://raw.githubusercontent.com/cybersec-iq/cybersec-iq/output/snake-framed.svg"
                alt="Animated contribution grid: a snake traverses the GitHub contribution graph for cybersec-iq."
                loading="lazy" width="1200" height="330">
@@ -390,7 +390,7 @@
             <p class="keyrow"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>MOVE</span></p>
             <p class="keyrow"><kbd>SPACE</kbd><kbd>P</kbd><span>PAUSE</span></p>
             <p class="keyrow"><kbd>R</kbd><span>RESTART</span></p>
-            <p class="keyrow"><span style="color:var(--muted)">Swipe or on-screen pad on touch devices.</span></p>
+            <p class="keyrow"><span class="is-muted">Swipe or on-screen pad on touch devices.</span></p>
           </div>
         </div>
       </div>
@@ -436,22 +436,22 @@
 
       <div class="panel panel--brackets body">
         <div class="tiles">
-          <a class="tile" style="--accent:#00E5FF" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
+          <a class="tile a-cyan" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="3.9" ry="9"/><path d="M3 12 h18M4.6 7 h14.8M4.6 17 h14.8"/></svg>
             <p class="tile__title">WEBSITE</p><p class="tile__value">aryaniq.com</p>
             <p class="tile__body">Portfolio, services and current work.</p>
           </a>
-          <a class="tile" style="--accent:#39FF14" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
+          <a class="tile a-green" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.6" aria-hidden="true"><path d="M12 2.2 a9.8 9.8 0 0 0-3.1 19.1 c.5.1.7-.2.7-.5 v-1.8 c-2.7.6-3.3-1.3-3.3-1.3 -.4-1.1-1.1-1.4-1.1-1.4 -.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8 .1-.6.3-1.1.6-1.3 -2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7 -.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 a9.4 9.4 0 0 1 4.9 0 c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7 .6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.5 4.9 .4.3.7.9.7 1.9 v2.8 c0 .3.2.6.7.5 A9.8 9.8 0 0 0 12 2.2 Z"/></svg>
             <p class="tile__title">GITHUB</p><p class="tile__value">@cybersec-iq</p>
             <p class="tile__body">Code, tooling and open builds.</p>
           </a>
-          <div class="tile" style="--accent:#FFE600">
+          <div class="tile a-yellow">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M12 2 a7 7 0 0 1 7 7 c0 5.4-7 13-7 13 S5 14.4 5 9 a7 7 0 0 1 7-7 Z"/><circle cx="12" cy="9" r="2.6"/></svg>
             <p class="tile__title">LOCATION</p><p class="tile__value">Muscat, Oman</p>
             <p class="tile__body">Building globally, shipping locally.</p>
           </div>
-          <a class="tile" style="--accent:#2979FF" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
+          <a class="tile a-blue" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2979FF" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M2.5 6.2 L12 13.4 L21.5 6.2"/></svg>
             <p class="tile__title">ENQUIRIES</p><p class="tile__value">via aryaniq.com</p>
             <p class="tile__body">Project, role or collaboration.</p>
