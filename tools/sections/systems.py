@@ -75,15 +75,21 @@ def _card(x, y, w, h, item, compact=False):
     o += D.text(x + 18, y + 54, domain, size=11.5, fill=D.MUTED, tracking=0.4)
     o += D.hline(x + 18, y + 66, w - 36, D.LINE_2)
 
-    for i, ln in enumerate(body):
-        o += D.text(x + 18, y + 88 + i * 18, ln, size=12, fill=D.TEXT)
+    # Lay the card out top-down rather than from fixed offsets, so a longer
+    # description can never end up underneath the technology chips.
+    bs = 12
+    cy = y + 88
+    for ln in D.wrap(' '.join(body), D.fit_chars(w - 36, bs)):
+        o += D.text(x + 18, cy, ln, size=bs, fill=D.TEXT)
+        cy += 18
 
+    cy += 4
     if chips:
-        c, _, _ = D.chip_row(x + 18, y + h - 44, chips, size=10.5, h=21,
+        c, _, _ = D.chip_row(x + 18, cy, chips, size=10.5, h=21,
                              max_w=w - 36, gap=6, lh=25)
         o += c
     else:
-        o += D.text(x + 18, y + h - 28, '— no public detail —', size=11, fill=D.FAINT)
+        o += D.text(x + 18, cy + 14, '— no public detail —', size=11, fill=D.FAINT)
     return o
 
 
@@ -122,7 +128,7 @@ def narrow():
 
     o = D.section_header(px + 8, 34, '~/systems', 'SELECTED SYSTEMS & PROJECTS')
 
-    ch = 138
+    ch = 152
     for i, item in enumerate(SYSTEMS):
         o += _card(cx, py + 16 + i * (ch + 12), inner, ch, item, compact=True)
 

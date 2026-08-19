@@ -123,7 +123,7 @@ def narrow():
     o += D.hline(cx + 108, hy - 5, inner - 108, D.LINE_2)
 
     ky = hy + 16
-    rowh = 56
+    rowh = 76
     for i, (icon, col, name, body) in enumerate(PRINCIPLES):
         ry = ky + i * rowh
         o += D.panel(cx, ry, inner, rowh - 8, fill=D.SURFACE_2, stroke=D.LINE_2)
@@ -132,8 +132,12 @@ def narrow():
         o += icon(cx + 14, ry + 13, 20, col)
         o += D.text(cx + 44, ry + 21, ' '.join(name), size=11.5, fill=col,
                     weight='700', tracking=0.8)
+        # Wrap to the card width instead of truncating: a principle that stops
+        # mid-sentence reads worse than one that takes an extra line.
         flat = ' '.join(x for x in body if x)
-        o += D.text(cx + 44, ry + 38, flat[:46], size=10.5, fill=D.MUTED)
+        bs = 10.5
+        for j, ln in enumerate(D.wrap(flat, D.fit_chars(inner - 58, bs))[:3]):
+            o += D.text(cx + 44, ry + 38 + j * 14, ln, size=bs, fill=D.MUTED)
 
     ph = ky + len(PRINCIPLES) * rowh + 8 - py
     H = py + ph + 12

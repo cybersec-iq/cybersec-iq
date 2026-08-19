@@ -229,6 +229,27 @@ def rich(x, y, runs, size=14, tracking=0.3, anchor=None, weight_for=None):
     return '    <text %s>%s</text>\n' % (' '.join(a), ''.join(parts))
 
 
+def wrap(s, max_chars):
+    """Greedy word wrap. Used where copy has to fit a fixed card width."""
+    words, lines, cur = str(s).split(), [], ''
+    for w in words:
+        cand = (cur + ' ' + w).strip()
+        if len(cand) <= max_chars or not cur:
+            cur = cand
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def fit_chars(width, size, tracking=0.0):
+    """How many monospace characters fit in `width` at `size`."""
+    adv = size * ADV + tracking
+    return max(1, int(width / adv))
+
+
 def paras(x, y, lines, size=14, fill=TEXT, lh=22, tracking=0.2):
     out = ''
     for i, ln in enumerate(lines):
