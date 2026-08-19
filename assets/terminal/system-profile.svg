@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" width="900" height="400" role="img" aria-labelledby="tTitle tDesc" preserveAspectRatio="xMidYMid meet">
+  <title id="tTitle">System profile — whoami</title>
+  <desc id="tDesc">Terminal window. Prompt: cybersec-iq at github, directory tilde slash profile. Command: whoami. Output: ARYAN IQ, Full-Stack Developer, Cybersecurity, AI Systems Builder. Location Muscat Oman. Status building. Mission nothing is impossible.</desc>
+
+  <defs>
+    <linearGradient id="tBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#141C25"/><stop offset="100%" stop-color="#0E141B"/></linearGradient>
+    <pattern id="tGrid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#111A22" stroke-width="1"/></pattern>
+    <linearGradient id="tRule" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#39FF14" stop-opacity="0.55"/><stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/></linearGradient>
+    <filter id="tGlow" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="tWin"><rect x="0" y="0" width="900" height="400" rx="4"/></clipPath>
+    <clipPath id="tType"><rect class="type" x="72" y="112" width="92" height="30"/></clipPath>
+    <style>
+      .mono { font-family: ui-monospace, "JetBrains Mono", "Fira Code", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .type  { animation: type 0.95s steps(6) 0.35s both; }
+      .caret { animation: caret 1.05s steps(1) infinite; }
+      .r1 { animation: rise .5s ease-out 1.40s both; }
+      .r2 { animation: rise .5s ease-out 1.60s both; }
+      .r3 { animation: rise .5s ease-out 1.78s both; }
+      .r4 { animation: rise .5s ease-out 2.00s both; }
+      .r5 { animation: rise .5s ease-out 2.16s both; }
+      .r6 { animation: rise .5s ease-out 2.32s both; }
+      .live { animation: live 2.6s ease-in-out infinite; }
+      @keyframes type  { from { width: 0; } to { width: 92px; } }
+      @keyframes caret { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes live  { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+      @media (prefers-reduced-motion: reduce) { .type,.caret,.r1,.r2,.r3,.r4,.r5,.r6,.live { animation: none; } }
+    </style>
+  </defs>
+
+  <g clip-path="url(#tWin)">
+    <rect width="900" height="400" fill="#0A0E13"/>
+    <rect width="900" height="400" fill="url(#tGrid)"/>
+
+    <rect width="900" height="40" fill="url(#tBar)"/>
+    <line x1="0" y1="40" x2="900" y2="40" stroke="#1B2733" stroke-width="1"/>
+    <circle cx="24" cy="20" r="5.2" fill="#FF5F57" opacity="0.85"/>
+    <circle cx="45" cy="20" r="5.2" fill="#FFD400" opacity="0.85"/>
+    <circle cx="66" cy="20" r="5.2" fill="#39FF14" opacity="0.85"/>
+    <text class="mono" x="96" y="25" fill="#5E6E7C" font-size="12.5" letter-spacing="2.2">bash — cybersec-iq — 96×24</text>
+    <g transform="translate(800 20)">
+      <circle class="live" cx="0" cy="0" r="4" fill="#39FF14"/>
+      <text class="mono" x="14" y="4.5" fill="#39FF14" font-size="11.5" letter-spacing="2.2">ONLINE</text>
+    </g>
+
+    <g class="mono">
+      <g stroke="#39FF14" stroke-width="1.7" fill="none" opacity="0.9">
+        <path d="M32 74 v52"/><path d="M32 74 h18"/><path d="M32 126 h13"/>
+      </g>
+
+      <g font-size="18">
+        <text x="54" y="80" fill="#7C8B99">(</text>
+        <text x="65" y="80" fill="#39FF14" font-weight="600">cybersec-iq</text>
+        <g transform="translate(196 74)">
+          <circle r="7.5" fill="none" stroke="#C6FF00" stroke-width="1.5"/>
+          <circle r="2" fill="#C6FF00"/>
+          <path d="M-4.8 -4.8 L4.8 4.8" stroke="#C6FF00" stroke-width="1.3" opacity="0.75"/>
+        </g>
+        <text x="210" y="80" fill="#00E5FF" font-weight="600">github</text>
+        <text x="285" y="80" fill="#7C8B99">)-[</text>
+        <text x="322" y="80" fill="#D7E3EC">~/profile</text>
+        <text x="432" y="80" fill="#7C8B99">]</text>
+
+        <text x="52" y="132" fill="#C6FF00" font-weight="700">$</text>
+        <g clip-path="url(#tType)"><text x="74" y="132" fill="#D7E3EC">whoami</text></g>
+        <rect class="caret" x="172" y="115" width="10" height="21" fill="#39FF14"/>
+      </g>
+
+      <g class="r1" filter="url(#tGlow)">
+        <text x="52" y="198" fill="#39FF14" font-size="38" font-weight="700" letter-spacing="4.5">ARYAN IQ</text>
+      </g>
+      <g class="r2">
+        <text x="53" y="233" fill="#D7E3EC" font-size="16" letter-spacing="1.2">Full-Stack Developer<tspan fill="#1B2733" dx="13">/</tspan><tspan dx="13">Cybersecurity</tspan><tspan fill="#1B2733" dx="13">/</tspan><tspan dx="13">AI Systems Builder</tspan></text>
+      </g>
+      <g class="r3"><rect x="52" y="256" width="560" height="1.5" fill="url(#tRule)"/></g>
+
+      <g font-size="16" letter-spacing="1.8">
+        <g class="r4">
+          <text x="52" y="296" fill="#00E5FF">LOCATION</text><text x="186" y="296" fill="#1B2733">:</text><text x="212" y="296" fill="#D7E3EC">MUSCAT, OMAN</text>
+        </g>
+        <g class="r5">
+          <text x="52" y="330" fill="#00E5FF">STATUS</text><text x="186" y="330" fill="#1B2733">:</text><text x="212" y="330" fill="#C6FF00">BUILDING</text>
+          <circle class="live" cx="352" cy="325" r="4" fill="#C6FF00"/>
+        </g>
+        <g class="r6">
+          <text x="52" y="364" fill="#00E5FF">MISSION</text><text x="186" y="364" fill="#1B2733">:</text><text x="212" y="364" fill="#39FF14" font-weight="600">NOTHING IS IMPOSSIBLE</text>
+        </g>
+      </g>
+    </g>
+    <rect x="0.75" y="0.75" width="898.5" height="398.5" rx="4" fill="none" stroke="#1B2733" stroke-width="1.5"/>
+  </g>
+</svg>
