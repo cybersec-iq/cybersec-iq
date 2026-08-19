@@ -215,7 +215,10 @@ def rich(x, y, runs, size=14, tracking=0.3, anchor=None, weight_for=None):
     never drift apart mid-sentence on someone else's machine.
     """
     a = ['x="%s"' % x, 'y="%s"' % y, 'font-size="%s"' % size,
-         'letter-spacing="%s"' % tracking]
+         'letter-spacing="%s"' % tracking,
+         # Without this a leading space in a tspan can be collapsed away and
+         # adjacent phrases render welded together ("Codeis my craft.").
+         'xml:space="preserve"']
     if anchor:
         a.append('text-anchor="%s"' % anchor)
     parts = []
@@ -260,6 +263,32 @@ def paras(x, y, lines, size=14, fill=TEXT, lh=22, tracking=0.2):
 # --------------------------------------------------------------------------
 # components
 # --------------------------------------------------------------------------
+
+def name_lockup(x, y, first, second, size, tracking, c1=GREEN, c2=CYAN,
+                caret=True, caret_color=None, filt='glowLg'):
+    """ARYAN IQ with a trailing block caret, as one flowed text.
+
+    The two words and the caret ride the same text flow, so none of them needs
+    an x estimated from font metrics - which is what previously risked the
+    caret landing on top of the last glyph on a wider font.
+    """
+    runs = [(first, c1), (' ', c1), (second, c2)]
+    body = rich(x, y, runs, size=size, tracking=tracking,
+                weight_for=lambda c: '700')
+    if not caret:
+        return body if not filt else body.replace('<text ', '<text filter="url(#%s)" ' % filt, 1)
+    # the caret is a separate tspan so it can blink on its own
+    a = ['x="%s"' % x, 'y="%s"' % y, 'font-size="%s"' % size,
+         'letter-spacing="%s"' % tracking, 'xml:space="preserve"']
+    if filt:
+        a.append('filter="url(#%s)"' % filt)
+    parts = ['<tspan fill="%s" font-weight="700">%s</tspan>' % (c1, esc(first)),
+             '<tspan fill="%s" font-weight="700"> </tspan>' % c1,
+             '<tspan fill="%s" font-weight="700">%s</tspan>' % (c2, esc(second)),
+             '<tspan fill="%s" font-weight="700" class="blink">█</tspan>'
+             % (caret_color or c2)]
+    return '    <text %s>%s</text>\n' % (' '.join(a), ''.join(parts))
+
 
 def status_dot(x, y, color=GREEN, r=4.5, animate=True):
     c = ' class="live"' if animate else ''

@@ -11,28 +11,27 @@ Responsive strategy
 A README cannot use CSS, so how many buttons land in a row is decided purely by
 each image's intrinsic width against the rendered column. `<picture>` with
 width media queries (which GitHub's sanitizer preserves) selects a genuinely
-recomposed asset per band — scaling one asset down is what made the phone
-layout unreadable.
+recomposed asset per band.
 
-The bands come from measuring the real profile page, not from guesswork. The
-column is NOT viewport minus a constant: the avatar sidebar appears around
-768px, so the column actually shrinks relative to the viewport there.
+Columns measured on the real profile page (the avatar sidebar appears around
+768px, so the column is NOT viewport minus a constant):
 
-    viewport   320  390  430  768  1024  1200  1440
-    column     238  308  348  383   575   751   846
-    inter-image gap from Markdown whitespace: 4px
+    viewport   320  360  375  390  393  414  430  768  1024  1280  1440
+    column     238  278  293  308  311  332  348  383   575   831   846
 
-A band shows exactly N buttons per row when N*W + (N-1)*4 <= column and
-(N+1)*W + N*4 > column. No single width satisfies that across a 3.5x column
-range, which is why there are four tiers:
+Markdown whitespace puts a 4px gap between adjacent images, so a band shows
+exactly N per row when  N*W + (N-1)*4 <= column  and  (N+1)*W + N*4 > column.
+Every band below keeps at least 15px of slack on BOTH sides of that
+inequality, so a small difference in a real device's column cannot tip a row
+from two buttons to three — which is the defect being fixed.
 
-    <= 430px          xs    116 wide   2 fit, 3 cannot   -> 2 x 2
-    431-900px         sm    170 wide   2 fit, 3 cannot   -> 2 x 2
-    1001-1279px       md    134 wide   4 fit             -> 4 x 1
-    901-1000, >=1280  wide  198 wide   2 x 2 / 4 x 1
+    <= 375px            xs    112   2 fit / 3 cannot     -> 2 x 2
+    376-480px           md    135   2 fit / 3 cannot     -> 2 x 2
+    481-900px           tab   175   2 fit / 3 cannot     -> 2 x 2
+    1001-1279px         md    135   4 fit                -> 4 x 1
+    901-1000, >=1280    wide  198   2 x 2 / 4 x 1
 
-Within each tier all four buttons are a fixed size, so a longer label can never
-make one card bigger than its neighbours.
+The 198px desktop asset is emitted byte-identically to the accepted version.
 """
 
 import design as D
@@ -45,6 +44,11 @@ BUTTONS = [
 ]
 
 
+def _n(v):
+    """Drop a trailing .0 so integral coordinates stay integers in the output."""
+    return int(v) if float(v).is_integer() else v
+
+
 def _frame(W, H, color, arm):
     o = D.panel(1, 1, W - 2, H - 2, fill=D.SURFACE_2, stroke=color, sw=1.5)
     o += ('    <rect x="1" y="1" width="4" height="%d" fill="%s" opacity="0.9"/>\n'
@@ -52,11 +56,6 @@ def _frame(W, H, color, arm):
     o += D.brackets(1, 1, W - 2, H - 2, color=color, arm=arm, sw=1.6,
                     corners='tl,br', opacity=0.5)
     return o
-
-
-def _n(v):
-    """Drop a trailing .0 so integral coordinates stay integers in the output."""
-    return int(v) if float(v).is_integer() else v
 
 
 def _chevron(x, y, color, sw=2.2, size=7):
@@ -70,8 +69,8 @@ def _stacked(W, H, title, sub, color, icon, icon_px, title_px, sub_px, pad,
     """Icon and chevron on the top row, text below.
 
     Giving the top row to the icon and chevron frees the full card width for
-    the text, which is what makes a narrow card readable. Both text blocks wrap
-    to the measured inner width, so nothing can cross a border.
+    the text, which is what makes a narrow card readable. Both blocks wrap to
+    the measured inner width, so nothing can cross a border.
     """
     inner = W - pad * 2
     o = _frame(W, H, color, 9)
@@ -88,31 +87,8 @@ def _stacked(W, H, title, sub, color, icon, icon_px, title_px, sub_px, pad,
     return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
 
 
-def _inline(W, H, title, sub, color, icon, icon_px, title_px, sub_px):
-    """Icon left, text centre, chevron right — the wide/tablet composition."""
-    tx = 20 + icon_px + 8
-    text_w = W - tx - 26                      # keep clear of the chevron
-    o = _frame(W, H, color, 11)
-    o += icon(15, H / 2 - icon_px / 2, icon_px, color)
-    lines = D.wrap(sub, D.fit_chars(text_w, sub_px))[:2]
-    shift = 0 if len(lines) < 2 else -5
-    o += D.text(tx, H / 2 - 3 + shift, title, size=title_px, fill=color,
-                weight='700', tracking=.65)
-    for i, ln in enumerate(lines):
-        o += D.text(tx, H / 2 + 15 + shift + i * (sub_px + 2), ln,
-                    size=sub_px, fill=D.MUTED, tracking=0)
-    o += _chevron(W - 18, H / 2 - 7, color)
-    return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
-
-
 def button(title, sub, color, icon):
-    """Default / wide: the accepted desktop button.
-
-    Written out literally rather than via _inline(), because _inline() wraps
-    the subtitle to the card width and the desktop card is the one composition
-    that must not change: wrapping turned its single-line subtitles into two
-    lines. This emits byte-identical output to the version already in use.
-    """
+    """Default / wide: the accepted desktop button, byte-identical."""
     W, H = 198, 70
     o = _frame(W, H, color, 11)
     o += icon(15, H / 2 - 10, 20, color)
@@ -122,30 +98,42 @@ def button(title, sub, color, icon):
     return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
 
 
-def button_sm(title, sub, color, icon):
-    """431-900px: two per row, still an inline composition."""
-    return _inline(170, 78, title, sub, color, icon, 18, 10.4, 8.6)
+def button_tab(title, sub, color, icon):
+    """481-900px: two per row, inline composition with a wrapped subtitle."""
+    W, H = 175, 80
+    tx = 44
+    text_w = W - tx - 26
+    o = _frame(W, H, color, 11)
+    o += icon(15, H / 2 - 9, 18, color)
+    lines = D.wrap(sub, D.fit_chars(text_w, 8.6))[:2]
+    shift = 0 if len(lines) < 2 else -5
+    o += D.text(tx, H / 2 - 3 + shift, title, size=10.4, fill=color,
+                weight='700', tracking=.6)
+    for i, ln in enumerate(lines):
+        o += D.text(tx, H / 2 + 14 + shift + i * 11, ln, size=8.6, fill=D.MUTED)
+    o += _chevron(W - 18, H / 2 - 7, color)
+    return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
 
 
 def button_md(title, sub, color, icon):
-    """1001-1279px: compact enough that four fit the 575-751px column."""
-    return _stacked(134, 80, title, sub, color, icon,
+    """376-480px (2 up) and 1001-1279px (4 up): one line each, comfortably."""
+    return _stacked(135, 80, title, sub, color, icon,
                     icon_px=16, title_px=11, sub_px=8, pad=10,
                     title_y=46, sub_y=64, lh=10)
 
 
 def button_xs(title, sub, color, icon):
-    """<=430px: the phone card. Title and subtitle both wrap in-card."""
-    return _stacked(116, 100, title, sub, color, icon,
-                    icon_px=16, title_px=11, sub_px=8, pad=10,
-                    title_y=46, sub_y=76, lh=11)
+    """<=375px: the tightest phone card. Title and subtitle both wrap in-card."""
+    return _stacked(112, 98, title, sub, color, icon,
+                    icon_px=15, title_px=10.5, sub_px=7.8, pad=9,
+                    title_y=45, sub_y=74, lh=11)
 
 
 def all_buttons():
     out = {}
     for name, title, sub, color, icon in BUTTONS:
         out[name] = button(title, sub, color, icon)
-        out[name + '-sm'] = button_sm(title, sub, color, icon)
-        out[name + '-md'] = button_md(title, sub, color, icon)
         out[name + '-xs'] = button_xs(title, sub, color, icon)
+        out[name + '-md'] = button_md(title, sub, color, icon)
+        out[name + '-tab'] = button_tab(title, sub, color, icon)
     return out

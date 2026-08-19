@@ -74,15 +74,9 @@
     <g><circle cx="861" cy="141" r="3.2" fill="#39FF14" class="live" style="animation-delay:-0.0s"/><circle cx="934" cy="207" r="3.2" fill="#00E5FF" class="live" style="animation-delay:-0.4s"/><circle cx="979" cy="121" r="3.2" fill="#FFE600" class="live" style="animation-delay:-0.8s"/><circle cx="1034" cy="158" r="3.2" fill="#39FF14" class="live" style="animation-delay:-1.2s"/><circle cx="1079" cy="186" r="3.2" fill="#00E5FF" class="live" style="animation-delay:-1.6s"/><circle cx="1114" cy="142" r="3.2" fill="#39FF14" class="live" style="animation-delay:-2.0s"/><circle cx="1124" cy="234" r="3.2" fill="#00E5FF" class="live" style="animation-delay:-2.4s"/></g>
     <text x="64" y="116" font-size="13.5" fill="#00E5FF" letter-spacing="5.5">SYSTEM // OPERATOR</text>
     <g transform="translate(64 148) scale(3.0000)" fill="none" stroke="#39FF14" stroke-width="0.63" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/><path d="M8 12 l3 3 l5.5-6"/></g>
-    <text x="164" y="212" font-size="78" fill="#39FF14" font-weight="700" letter-spacing="5" filter="url(#glowLg)">ARYAN</text>
-    <text x="452.0" y="212" font-size="78" fill="#00E5FF" font-weight="700" letter-spacing="5" filter="url(#glowLg)">IQ</text>
-    <rect x="566.6" y="156" width="15" height="66" fill="#00E5FF" class="blink" filter="url(#glowSm)"/>
+    <text x="164" y="212" font-size="78" letter-spacing="5" xml:space="preserve" filter="url(#glowLg)"><tspan fill="#39FF14" font-weight="700">ARYAN</tspan><tspan fill="#39FF14" font-weight="700"> </tspan><tspan fill="#00E5FF" font-weight="700">IQ</tspan><tspan fill="#00E5FF" font-weight="700" class="blink">█</tspan></text>
     <rect x="164" y="236" width="430" height="2.4" fill="url(#ruleGreen)"/>
-    <text x="164" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">FULL-STACK DEVELOPER</text>
-    <text x="420.6" y="268" font-size="16.5" fill="#39FF14">•</text>
-    <text x="441.6" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">CYBERSECURITY ENGINEER</text>
-    <text x="722.8" y="268" font-size="16.5" fill="#39FF14">•</text>
-    <text x="743.8" y="268" font-size="16.5" fill="#C3CDD6" letter-spacing="2.4">AI SYSTEMS BUILDER</text>
+    <text x="164" y="268" font-size="16.5" letter-spacing="2.4" xml:space="preserve"><tspan fill="#C3CDD6">FULL-STACK DEVELOPER</tspan><tspan fill="#39FF14">  •  </tspan><tspan fill="#C3CDD6">CYBERSECURITY ENGINEER</tspan><tspan fill="#39FF14">  •  </tspan><tspan fill="#C3CDD6">AI SYSTEMS BUILDER</tspan></text>
     <rect x="64" y="300" width="648" height="96" rx="3" fill="#03130C" fill-opacity="1.0" stroke="#39FF14" stroke-width="1.2"/>
     <rect x="64" y="300" width="3" height="96" fill="#39FF14" opacity="0.8"/>
     <g transform="translate(86 334) scale(1.0000)" fill="none" stroke="#39FF14" stroke-width="1.90" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M3 6 l6 6 l-6 6"/><path d="M13 18 h8"/></g>

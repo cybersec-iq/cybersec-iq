@@ -59,16 +59,16 @@
     <g stroke="#39FF14" stroke-width="1.8" fill="none" opacity="0.75"><path d="M416 34 H430 V48"/><path d="M10 727 V741 H24"/></g>
     <path d="M24 42 V18 L30 12 H105.8 L119.8 42 Z" fill="#0B1A23" stroke="#00E5FF" stroke-width="1.2" stroke-opacity="0.6"/>
     <text x="40" y="31.68" font-size="13" fill="#00E5FF" font-weight="600" letter-spacing="1.2">~/about</text>
-    <text x="28" y="68" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">I design and ship </tspan><tspan fill="#39FF14" font-weight="600">production</tspan></text>
-    <text x="28" y="87" font-size="11.5" letter-spacing="0.1"><tspan fill="#39FF14" font-weight="600">systems</tspan><tspan fill="#C3CDD6"> end to end — interface,</tspan></text>
-    <text x="28" y="106" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">API, data layer, infrastructure and</tspan></text>
-    <text x="28" y="125" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">the automation that keeps them running.</tspan></text>
-    <text x="28" y="163" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">Most of my work sits where </tspan></text>
-    <text x="28" y="182" font-size="11.5" letter-spacing="0.1"><tspan fill="#00E5FF" font-weight="600">product engineering meets security</tspan><tspan fill="#C3CDD6">:</tspan></text>
-    <text x="28" y="201" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">platforms that handle real users, real</tspan></text>
-    <text x="28" y="220" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">payments and real data, built so the</tspan></text>
-    <text x="28" y="239" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">boring parts are </tspan><tspan fill="#39FF14" font-weight="600">automated</tspan><tspan fill="#C3CDD6"> and the</tspan></text>
-    <text x="28" y="258" font-size="11.5" letter-spacing="0.1"><tspan fill="#C3CDD6">risky parts are </tspan><tspan fill="#FFE600" font-weight="600">deliberate</tspan><tspan fill="#C3CDD6">.</tspan></text>
+    <text x="28" y="68" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">I design and ship </tspan><tspan fill="#39FF14" font-weight="600">production</tspan></text>
+    <text x="28" y="87" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#39FF14" font-weight="600">systems</tspan><tspan fill="#C3CDD6"> end to end — interface,</tspan></text>
+    <text x="28" y="106" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">API, data layer, infrastructure and</tspan></text>
+    <text x="28" y="125" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">the automation that keeps them running.</tspan></text>
+    <text x="28" y="163" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">Most of my work sits where </tspan></text>
+    <text x="28" y="182" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#00E5FF" font-weight="600">product engineering meets security</tspan><tspan fill="#C3CDD6">:</tspan></text>
+    <text x="28" y="201" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">platforms that handle real users, real</tspan></text>
+    <text x="28" y="220" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">payments and real data, built so the</tspan></text>
+    <text x="28" y="239" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">boring parts are </tspan><tspan fill="#39FF14" font-weight="600">automated</tspan><tspan fill="#C3CDD6"> and the</tspan></text>
+    <text x="28" y="258" font-size="11.5" letter-spacing="0.1" xml:space="preserve"><tspan fill="#C3CDD6">risky parts are </tspan><tspan fill="#FFE600" font-weight="600">deliberate</tspan><tspan fill="#C3CDD6">.</tspan></text>
     <text x="28" y="287" font-size="12" fill="#00E5FF" letter-spacing="3">HOW I WORK</text>
     <rect x="136" y="282" width="276" height="1" fill="#1B3541"/>
     <rect x="28" y="303" width="384" height="78" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>

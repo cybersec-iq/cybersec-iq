@@ -59,11 +59,11 @@
     <text x="64" y="34.76" font-size="16" fill="#00E5FF" font-weight="600" letter-spacing="1.2">~/about</text>
     <rect x="22" y="40" width="1156" height="466" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
     <g stroke="#39FF14" stroke-width="2" fill="none" opacity="0.75"><path d="M1160 40 H1178 V58"/><path d="M22 488 V506 H40"/></g>
-    <text x="62" y="86" font-size="16" letter-spacing="0.3"><tspan fill="#C3CDD6">I design and ship </tspan><tspan fill="#39FF14" font-weight="600">production systems</tspan><tspan fill="#C3CDD6"> end to end — interface, API,</tspan></text>
-    <text x="62" y="112" font-size="16" letter-spacing="0.3"><tspan fill="#C3CDD6">data layer, infrastructure and the automation that keeps them running.</tspan></text>
-    <text x="62" y="164" font-size="16" letter-spacing="0.3"><tspan fill="#C3CDD6">Most of my work sits where </tspan><tspan fill="#00E5FF" font-weight="600">product engineering meets security</tspan><tspan fill="#C3CDD6">: platforms</tspan></text>
-    <text x="62" y="190" font-size="16" letter-spacing="0.3"><tspan fill="#C3CDD6">that handle real users, real payments and real data, built so that the</tspan></text>
-    <text x="62" y="216" font-size="16" letter-spacing="0.3"><tspan fill="#C3CDD6">boring parts are </tspan><tspan fill="#39FF14" font-weight="600">automated</tspan><tspan fill="#C3CDD6"> and the risky parts are </tspan><tspan fill="#FFE600" font-weight="600">deliberate</tspan><tspan fill="#C3CDD6">.</tspan></text>
+    <text x="62" y="86" font-size="16" letter-spacing="0.3" xml:space="preserve"><tspan fill="#C3CDD6">I design and ship </tspan><tspan fill="#39FF14" font-weight="600">production systems</tspan><tspan fill="#C3CDD6"> end to end — interface, API,</tspan></text>
+    <text x="62" y="112" font-size="16" letter-spacing="0.3" xml:space="preserve"><tspan fill="#C3CDD6">data layer, infrastructure and the automation that keeps them running.</tspan></text>
+    <text x="62" y="164" font-size="16" letter-spacing="0.3" xml:space="preserve"><tspan fill="#C3CDD6">Most of my work sits where </tspan><tspan fill="#00E5FF" font-weight="600">product engineering meets security</tspan><tspan fill="#C3CDD6">: platforms</tspan></text>
+    <text x="62" y="190" font-size="16" letter-spacing="0.3" xml:space="preserve"><tspan fill="#C3CDD6">that handle real users, real payments and real data, built so that the</tspan></text>
+    <text x="62" y="216" font-size="16" letter-spacing="0.3" xml:space="preserve"><tspan fill="#C3CDD6">boring parts are </tspan><tspan fill="#39FF14" font-weight="600">automated</tspan><tspan fill="#C3CDD6"> and the risky parts are </tspan><tspan fill="#FFE600" font-weight="600">deliberate</tspan><tspan fill="#C3CDD6">.</tspan></text>
     <text x="62" y="248" font-size="13" fill="#00E5FF" letter-spacing="4">HOW I WORK</text>
     <rect x="218" y="243" width="960" height="1" fill="#1B3541"/>
     <rect x="62" y="274" width="213" height="202" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>

@@ -71,12 +71,12 @@ def narrow():
     lines = [[('Code', D.GREEN), (' is my craft.', D.TEXT)],
              [('Security', D.CYAN), (' is my mindset.', D.TEXT)],
              [('Impact', D.YELLOW), (' is the goal.', D.TEXT)]]
+    # One flowed <text> per line. Advancing x per phrase needs the viewer's
+    # exact glyph metrics, and when the real font is wider than the estimate
+    # the phrases collide - that is what produced "Codeis my craft.".
     for i, runs in enumerate(lines):
-        cx = px + 46
-        for s, col in runs:
-            o += D.text(cx, 42 + i * 22, s, size=13, fill=col,
-                        weight='600' if col != D.TEXT else None)
-            cx += D.tw(s, 13)
+        o += D.rich(px + 46, 42 + i * 22, runs, size=13, tracking=0,
+                    weight_for=lambda c: None if c == D.TEXT else '600')
 
     sy = 122
     rowh = 30

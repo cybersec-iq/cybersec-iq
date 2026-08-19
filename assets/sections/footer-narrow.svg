@@ -57,12 +57,9 @@
     <rect width="440" height="292" fill="url(#scan)"/>
     <rect x="10" y="14" width="420" height="96" rx="3" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
     <g fill="#1B7A10" opacity="0.6" font-size="34" font-weight="700"><text x="26" y="52">&#8220;</text></g>
-    <text x="56" y="42" font-size="13" fill="#39FF14" font-weight="600">Code</text>
-    <text x="87.2" y="42" font-size="13" fill="#C3CDD6"> is my craft.</text>
-    <text x="56" y="64" font-size="13" fill="#00E5FF" font-weight="600">Security</text>
-    <text x="118.4" y="64" font-size="13" fill="#C3CDD6"> is my mindset.</text>
-    <text x="56" y="86" font-size="13" fill="#FFE600" font-weight="600">Impact</text>
-    <text x="102.8" y="86" font-size="13" fill="#C3CDD6"> is the goal.</text>
+    <text x="56" y="42" font-size="13" letter-spacing="0" xml:space="preserve"><tspan fill="#39FF14" font-weight="600">Code</tspan><tspan fill="#C3CDD6"> is my craft.</tspan></text>
+    <text x="56" y="64" font-size="13" letter-spacing="0" xml:space="preserve"><tspan fill="#00E5FF" font-weight="600">Security</tspan><tspan fill="#C3CDD6"> is my mindset.</tspan></text>
+    <text x="56" y="86" font-size="13" letter-spacing="0" xml:space="preserve"><tspan fill="#FFE600" font-weight="600">Impact</tspan><tspan fill="#C3CDD6"> is the goal.</tspan></text>
     <rect x="10" y="122" width="420" height="132" rx="3" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
     <g transform="translate(26 136) scale(0.6667)" fill="none" stroke="#0A6C7C" stroke-width="2.85" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><path d="M12 6.6 V12 l4 2.4"/></g>
     <text x="50" y="148" font-size="10" fill="#6E828F" letter-spacing="1.6">TIME ZONE</text>

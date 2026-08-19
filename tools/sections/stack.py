@@ -136,8 +136,8 @@ def narrow():
     step = inner / len(parts)
     for i, (k, v, col) in enumerate(parts):
         ox = cx + i * step + 14
-        o += D.text(ox, sy + 21, k, size=10, fill=D.MUTED, tracking=1.4)
-        o += D.text(ox + D.tw(k, 10, 1.4) + 10, sy + 21, v, size=13, fill=col, weight='700')
+        o += D.rich(ox, sy + 21, [(k + '  ', D.MUTED), (v, col)], size=10.5,
+                    tracking=1.2, weight_for=lambda c: None if c == D.MUTED else '700')
 
     ph = sy + sh + 16 - py
     H = py + ph + 12

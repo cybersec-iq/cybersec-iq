@@ -69,10 +69,8 @@
     <text x="64" y="278" font-size="13.5" fill="#6E828F">A real, playable Snake — original build, no framework,</text>
     <text x="64" y="297" font-size="13.5" fill="#6E828F">no trackers, no dependencies.</text>
     <g transform="translate(64 316) scale(0.7083)" fill="none" stroke="#39FF14" stroke-width="2.68" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></g>
-    <text x="90" y="330" font-size="14" fill="#2979FF">cybersec-iq.github.io/cybersec-iq</text>
-    <text x="381.2" y="330" font-size="13" fill="#6E828F">— command center</text>
-    <text x="90" y="351" font-size="14" fill="#2979FF">/snake</text>
-    <text x="154.4" y="351" font-size="13" fill="#6E828F">— SNAKE PROTOCOL</text>
+    <text x="90" y="330" font-size="13.5" letter-spacing="0.3" xml:space="preserve"><tspan fill="#2979FF">cybersec-iq.github.io/cybersec-iq</tspan><tspan fill="#6E828F">  — command center</tspan></text>
+    <text x="90" y="351" font-size="13.5" letter-spacing="0.3" xml:space="preserve"><tspan fill="#2979FF">/snake</tspan><tspan fill="#6E828F">  — SNAKE PROTOCOL</tspan></text>
     <rect x="582" y="54" width="554" height="334" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
     <text x="606" y="84" font-size="14" fill="#EAF2F7" font-weight="600" letter-spacing="2">SNAKE PROTOCOL</text>
     <circle cx="1052" cy="79" r="4" fill="#39FF14" class="live"/>

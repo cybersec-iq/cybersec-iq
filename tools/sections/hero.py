@@ -77,19 +77,15 @@ def wide():
     o += D.i_shield_check(cx, 148, 72, D.GREEN)
 
     nx, ny, ns = cx + 100, 212, 78
-    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700', tracking=5, filt='glowLg')
-    ix = nx + D.tw('ARYAN', ns, 5) + 34
-    o += D.text(ix, ny, 'IQ', size=ns, fill=D.CYAN, weight='700', tracking=5, filt='glowLg')
-    o += D.caret(ix + D.tw('IQ', ns, 5) + 16, ny - 56, w=15, h=66, color=D.CYAN)
+    o += D.name_lockup(nx, ny, 'ARYAN', 'IQ', ns, 5)
     o += D.rule(nx, 236, 430, h=2.4)
 
-    dx, dsz, dtr = nx, 16.5, 2.4
+    runs = []
     for i, part in enumerate(DISCIPLINES):
-        o += D.text(dx, 268, part, size=dsz, fill=D.TEXT, tracking=dtr)
-        dx += D.tw(part, dsz, dtr)
+        runs.append((part, D.TEXT))
         if i < len(DISCIPLINES) - 1:
-            o += D.text(dx + 13, 268, '•', size=dsz, fill=D.GREEN)
-            dx += 34
+            runs.append(('  •  ', D.GREEN))
+    o += D.rich(nx, 268, runs, size=16.5, tracking=2.4)
 
     qx, qy, qw, qh = cx, 300, 648, 96
     o += D.panel(qx, qy, qw, qh, fill='#03130C', stroke=D.GREEN, sw=1.2)
@@ -149,10 +145,7 @@ def narrow():
     o += D.i_shield_check(cx, 92, 40, D.GREEN)
 
     nx, ny, ns = cx + 52, 132, 42
-    o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700', tracking=2, filt='glowMd')
-    ix = nx + D.tw('ARYAN', ns, 2) + 16
-    o += D.text(ix, ny, 'IQ', size=ns, fill=D.CYAN, weight='700', tracking=2, filt='glowMd')
-    o += D.caret(ix + D.tw('IQ', ns, 2) + 9, ny - 30, w=9, h=36, color=D.CYAN)
+    o += D.name_lockup(nx, ny, 'ARYAN', 'IQ', ns, 2, filt='glowMd')
     o += D.rule(nx, 148, 196, h=2)
 
     y = 182

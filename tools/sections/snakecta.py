@@ -99,12 +99,11 @@ def wide():
     o += D.text(cx, py + 277, 'no trackers, no dependencies.', size=13.5, fill=D.MUTED)
 
     o += D.i_code(cx, py + 296, 17, D.GREEN)
-    o += D.text(cx + 26, py + 310, 'cybersec-iq.github.io/cybersec-iq', size=14, fill=D.BLUE)
-    o += D.text(cx + 26 + D.tw('cybersec-iq.github.io/cybersec-iq', 14) + 14, py + 310,
-                '— command center', size=13, fill=D.MUTED)
-    o += D.text(cx + 26, py + 331, '/snake', size=14, fill=D.BLUE)
-    o += D.text(cx + 26 + D.tw('/snake', 14) + 14, py + 331, '— SNAKE PROTOCOL',
-                size=13, fill=D.MUTED)
+    o += D.rich(cx + 26, py + 310,
+                [('cybersec-iq.github.io/cybersec-iq', D.BLUE), ('  — command center', D.MUTED)],
+                size=13.5)
+    o += D.rich(cx + 26, py + 331,
+                [('/snake', D.BLUE), ('  — SNAKE PROTOCOL', D.MUTED)], size=13.5)
 
     # right: spec + board
     rx = px + 560

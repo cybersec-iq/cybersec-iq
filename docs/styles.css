@@ -506,3 +506,39 @@ body::after {
 /* The activity and contribution-grid SVGs already carry their own framed
    panel, so they sit directly in the section rather than inside a second one. */
 .figures { display: grid; gap: 18px; }
+
+/* ---------------- mobile hardening ----------------
+   Audited at a true 320/360/375/390/393/414/430 layout viewport.
+
+   The contact tiles previously fell to a single column on phones because
+   `auto-fit, minmax(180px, 1fr)` cannot fit two 180px tracks in a ~350px
+   column. They are pinned to two explicit columns instead, with the internal
+   type stepped down so the copy still fits inside each tile. */
+
+@media (max-width: 600px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .tile { padding: 16px 10px; }
+  .tile__title { font-size: 11.5px; letter-spacing: 1.6px; }
+  .tile__value { font-size: 11.5px; overflow-wrap: anywhere; }
+  .tile__body { font-size: 10.5px; line-height: 1.5; }
+  .tile svg { width: 24px; height: 24px; }
+
+  /* Desktop rhythm is too airy once every card is stacked. */
+  .main { gap: 20px; }
+  .body { padding: 14px; }
+  .sec__head { margin-bottom: 10px; }
+  .cards, .stack, .grid-sys { gap: 10px; }
+  .card, .cat, .sys { padding: 14px 13px; }
+  .subhead { margin: 16px 0 10px; }
+
+  .foot { gap: 8px 14px; padding: 16px 14px; }
+  .foot__mission { margin-left: 0; }
+}
+
+@media (max-width: 400px) {
+  /* At the tightest widths the two-up tiles need a little more room again. */
+  .tile { padding: 14px 8px; }
+  .tile__title { font-size: 10.5px; letter-spacing: 1.2px; }
+  .tile__value { font-size: 11px; }
+  .tile__body { font-size: 10px; }
+}
