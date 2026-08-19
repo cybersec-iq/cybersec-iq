@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Aryan IQ — Command Center</title>
+<meta name="description" content="Aryan IQ — Full-Stack Developer, Cybersecurity and AI systems builder based in Muscat, Oman. Interactive command center and Snake Protocol.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#05070A">
+<link rel="stylesheet" href="./styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070A'/%3E%3Cpath d='M16 4 L27 8 V17 C27 24 22 28 16 30 C10 28 5 24 5 17 V8 Z' fill='none' stroke='%2339FF14' stroke-width='2'/%3E%3Cpath d='M11 17 l4 4 l7 -9' fill='none' stroke='%23C6FF00' stroke-width='2.6'/%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+
+  <header class="mast">
+    <svg class="mast__mark" viewBox="0 0 34 42" aria-hidden="true" focusable="false">
+      <path d="M17 1 L32 6 V21 C32 32 25 39 17 41 C9 39 2 32 2 21 V6 Z" fill="none" stroke="#39FF14" stroke-width="1.8" opacity=".8"/>
+      <path d="M11 21 l5 5 l9 -11" fill="none" stroke="#C6FF00" stroke-width="2.6" stroke-linecap="square"/>
+    </svg>
+    <div class="mast__id">
+      <h1 class="mast__name">ARYAN IQ</h1>
+      <p class="mast__role">Full-Stack &middot; Cybersecurity &middot; AI Systems &middot; Automation</p>
+    </div>
+    <p class="mast__status"><span class="dot"></span>SYSTEM ONLINE</p>
+  </header>
+
+  <main id="main">
+
+    <section class="sec" aria-labelledby="h-term">
+      <div class="sec__head"><h2 id="h-term">Interactive Console</h2></div>
+
+      <div class="panel">
+        <div class="panel__bar">
+          <span class="led led--r"></span><span class="led led--y"></span><span class="led led--g"></span>
+          <span class="panel__title">bash &mdash; cybersec-iq &mdash; ~/profile</span>
+        </div>
+
+        <div class="term">
+          <div class="term__log" id="log" role="log" aria-live="polite" aria-label="Console output" tabindex="0"></div>
+
+          <form class="term__form" id="form" autocomplete="off">
+            <span class="term__ps" aria-hidden="true">&gt;</span>
+            <label class="skip" for="cmd">Enter a command</label>
+            <input class="term__in" id="cmd" name="cmd" type="text" spellcheck="false"
+                   autocapitalize="off" autocorrect="off" maxlength="64"
+                   placeholder="type a command, or `help`">
+          </form>
+        </div>
+      </div>
+      <p class="term__hint">TRY: help &middot; whoami &middot; projects &middot; stack &middot; github &middot; website &middot; snake &middot; clear &nbsp;&mdash;&nbsp; &uarr;/&darr; recalls history</p>
+    </section>
+
+    <section class="sec" aria-labelledby="h-nav">
+      <div class="sec__head"><h2 id="h-nav">Navigation</h2></div>
+      <div class="grid">
+        <a class="card card--snake" href="./snake/">
+          <span class="card__k">Run</span>
+          <span class="card__v">SNAKE PROTOCOL</span>
+          <span class="card__d">Playable arcade build &middot; keyboard + touch</span>
+        </a>
+        <a class="card card--site" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
+          <span class="card__k">Open</span>
+          <span class="card__v">ARYANIQ.COM</span>
+          <span class="card__d">Primary site &amp; contact</span>
+        </a>
+        <a class="card card--gh" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
+          <span class="card__k">Return</span>
+          <span class="card__v">GITHUB PROFILE</span>
+          <span class="card__d">github.com/cybersec-iq</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <span>&copy; ARYAN IQ</span>
+    <span>MUSCAT, OMAN</span>
+    <span class="foot__mission">NOTHING IS IMPOSSIBLE</span>
+    <a href="https://github.com/cybersec-iq/cybersec-iq" target="_blank" rel="noopener noreferrer">SOURCE</a>
+  </footer>
+
+</div>
+
+<script src="./terminal.js" defer></script>
+</body>
+</html>
