@@ -56,9 +56,8 @@
     <rect x="1" y="1" width="4" height="68" fill="#39FF14" opacity="0.9"/>
     <g stroke="#39FF14" stroke-width="1.6" fill="none" opacity="0.5"><path d="M1 12 V1 H12"/><path d="M186 69 H197 V58"/></g>
     <g transform="translate(15 25.0) scale(0.8333)" fill="none" stroke="#39FF14" stroke-width="2.28" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/><circle cx="12" cy="12" r="1.1" fill="#39FF14"/></g>
-    <text x="48" y="27.0" font-size="10.8" fill="#39FF14" font-weight="700" letter-spacing="0.65">SYSTEM OVERVIEW</text>
-    <text x="48" y="45.0" font-size="9.2" fill="#6E828F" letter-spacing="0">Tech stack &amp;</text>
-    <text x="48" y="56.2" font-size="9.2" fill="#6E828F" letter-spacing="0">architecture</text>
-    <path d="M180 28.0 l7 7 l-7 7" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square" opacity="0.85"/>
+    <text x="43" y="32.0" font-size="10.8" fill="#39FF14" font-weight="700" letter-spacing="0.65">SYSTEM OVERVIEW</text>
+    <text x="43" y="50.0" font-size="9.2" fill="#6E828F" letter-spacing="0">Tech stack &amp; architecture</text>
+    <path d="M180 28 l7 7 l-7 7" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square" opacity="0.85"/>
   </g>
 </svg>

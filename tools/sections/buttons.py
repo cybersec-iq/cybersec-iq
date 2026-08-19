@@ -54,10 +54,15 @@ def _frame(W, H, color, arm):
     return o
 
 
+def _n(v):
+    """Drop a trailing .0 so integral coordinates stay integers in the output."""
+    return int(v) if float(v).is_integer() else v
+
+
 def _chevron(x, y, color, sw=2.2, size=7):
     return ('    <path d="M%s %s l%s %s l-%s %s" fill="none" stroke="%s" '
             'stroke-width="%s" stroke-linecap="square" opacity="0.85"/>\n'
-            % (x, y, size, size, size, size, color, sw))
+            % (_n(x), _n(y), size, size, size, size, color, sw))
 
 
 def _stacked(W, H, title, sub, color, icon, icon_px, title_px, sub_px, pad,
@@ -101,8 +106,20 @@ def _inline(W, H, title, sub, color, icon, icon_px, title_px, sub_px):
 
 
 def button(title, sub, color, icon):
-    """Default / wide: the accepted desktop button, unchanged."""
-    return _inline(198, 70, title, sub, color, icon, 20, 10.8, 9.2)
+    """Default / wide: the accepted desktop button.
+
+    Written out literally rather than via _inline(), because _inline() wraps
+    the subtitle to the card width and the desktop card is the one composition
+    that must not change: wrapping turned its single-line subtitles into two
+    lines. This emits byte-identical output to the version already in use.
+    """
+    W, H = 198, 70
+    o = _frame(W, H, color, 11)
+    o += icon(15, H / 2 - 10, 20, color)
+    o += D.text(43, H / 2 - 3, title, size=10.8, fill=color, weight='700', tracking=.65)
+    o += D.text(43, H / 2 + 15, sub, size=9.2, fill=D.MUTED, tracking=0)
+    o += _chevron(W - 18, H / 2 - 7, color)
+    return D.doc(W, H, title, title + '. ' + sub, o, ground=False)
 
 
 def button_sm(title, sub, color, icon):
