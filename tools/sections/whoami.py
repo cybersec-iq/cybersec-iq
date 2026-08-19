@@ -93,11 +93,11 @@ def wide():
     # A narrower canvas keeps the text from occupying only the left third
     # after removing the competing illustration. GitHub still scales it to the
     # README width.
-    W, H = 900, 390
-    px, py, pw, ph = 22, 42, W - 44, 300
+    W, H = 900, 412
+    px, py, pw, ph = 22, 42, W - 44, 322
     chrome_h = 46
     left_x = px + 42
-    typing_defs, typing = _typewriter(left_x + 48, 126, 'whoami', 15,
+    typing_defs, typing = _typewriter(left_x + 48, 148, 'whoami', 15,
                                       'type-whoami-wide')
 
     o = D.text(px + 2, 28, '~/whoami', size=17, fill=D.CYAN, weight='600', tracking=.4)
@@ -109,24 +109,24 @@ def wide():
 
     # Reference-faithful two-line shell prompt.
     ps = 15
-    o += D.text(left_x, 100, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
+    o += D.text(left_x, 122, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
                 size=ps, fill=D.GREEN, weight='600', tracking=.15)
-    o += D.text(left_x, 126, '╰─$', size=ps, fill=D.GREEN, weight='600')
+    o += D.text(left_x, 148, '╰─$', size=ps, fill=D.GREEN, weight='600')
     o += typing
 
     # Identity output: compact, crisp and left aligned.
-    nx, ny, ns = left_x, 180, 56
+    nx, ny, ns = left_x, 202, 56
     o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700',
                 tracking=3.2, filt='glowMd')
     ix = nx + D.tw('ARYAN', ns, 3.2) + 24
     o += D.text(ix, ny, 'IQ', size=ns, fill=D.GREEN_HI, weight='700',
                 tracking=3.2, filt='glowMd')
-    o += D.text(left_x, 214, DISCIPLINES, size=13.2, fill=D.TEXT,
+    o += D.text(left_x, 236, DISCIPLINES, size=13.2, fill=D.TEXT,
                 tracking=1.45, preserve=True)
-    o += D.rule(left_x, 232, pw - 84, h=1.5)
+    o += D.rule(left_x, 254, pw - 84, h=1.5)
 
     for i, (_, key, val, col) in enumerate(ROWS):
-        ry = 265 + i * 31
+        ry = 287 + i * 31
         o += D.text(left_x, ry, key, size=15.5, fill=D.CYAN, tracking=2.1)
         o += D.text(left_x + 124, ry, ':', size=15.5, fill=D.FAINT)
         o += D.text(left_x + 151, ry, val, size=15.5, fill=col,
@@ -135,15 +135,15 @@ def wide():
             o += D.status_dot(left_x + 151 + D.tw(val, 15.5, 1.15) + 17,
                               ry - 5, D.YELLOW, 4)
 
-    o += _bottom_divider(px + 42, 368, pw - 84)
+    o += _bottom_divider(px + 42, 390, pw - 84)
     return D.doc(W, H, TITLE, DESC, o, extra_defs=typing_defs)
 
 
 def narrow():
-    W, H = 440, 410
-    px, py, pw, ph = 10, 34, W - 20, 342
+    W, H = 440, 432
+    px, py, pw, ph = 10, 34, W - 20, 364
     cx = px + 18
-    typing_defs, typing = _typewriter(cx + 38, 118, 'whoami', 12,
+    typing_defs, typing = _typewriter(cx + 38, 140, 'whoami', 12,
                                       'type-whoami-narrow', duration=12)
 
     o = D.text(px + 1, 23, '~/whoami', size=13.5, fill=D.CYAN,
@@ -151,25 +151,25 @@ def narrow():
     o += D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
     o += _chrome(px, py, pw, h=40, compact=True)
     o += D.hline(px, py + 40, pw, D.LINE_3, 1)
-    o += D.text(cx, 94, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
+    o += D.text(cx, 116, '╭─(cybersec-iq ◉ github)-[ ~/profile ]',
                 size=11.4, fill=D.GREEN, weight='600')
-    o += D.text(cx, 118, '╰─$', size=12, fill=D.GREEN, weight='600')
+    o += D.text(cx, 140, '╰─$', size=12, fill=D.GREEN, weight='600')
     o += typing
 
-    nx, ny, ns = cx, 180, 40
+    nx, ny, ns = cx, 202, 40
     o += D.text(nx, ny, 'ARYAN', size=ns, fill=D.GREEN, weight='700',
                 tracking=1.8, filt='glowMd')
     ix = nx + D.tw('ARYAN', ns, 1.8) + 14
     o += D.text(ix, ny, 'IQ', size=ns, fill=D.GREEN_HI, weight='700',
                 tracking=1.8, filt='glowMd')
-    o += D.text(cx, 208, 'FULL-STACK DEVELOPER / CYBERSECURITY',
+    o += D.text(cx, 230, 'FULL-STACK DEVELOPER / CYBERSECURITY',
                 size=10.7, fill=D.TEXT, tracking=.45)
-    o += D.text(cx, 226, '/ AI SYSTEMS BUILDER', size=10.7,
+    o += D.text(cx, 248, '/ AI SYSTEMS BUILDER', size=10.7,
                 fill=D.TEXT, tracking=.45)
-    o += D.rule(cx, 244, 272, h=1.3)
+    o += D.rule(cx, 266, 272, h=1.3)
 
     for i, (_, key, val, col) in enumerate(ROWS):
-        ry = 278 + i * 32
+        ry = 300 + i * 32
         o += D.text(cx, ry, key, size=11.8, fill=D.CYAN, tracking=1.3)
         o += D.text(cx + 90, ry, ':', size=11.8, fill=D.FAINT)
         o += D.text(cx + 108, ry, val, size=11.8, fill=col,
@@ -178,5 +178,5 @@ def narrow():
             o += D.status_dot(cx + 108 + D.tw(val, 11.8, .45) + 13,
                               ry - 4, D.YELLOW, 3.5)
 
-    o += _bottom_divider(cx, 397, pw - 36)
+    o += _bottom_divider(cx, 419, pw - 36)
     return D.doc(W, H, TITLE, DESC, o, extra_defs=typing_defs)
