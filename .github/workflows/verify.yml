@@ -1,0 +1,44 @@
+name: Verify
+
+# Guards the two things that silently rot on a profile repository:
+# broken asset links, and a Snake build that no longer plays.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Assets and game logic
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Syntax check the site scripts
+        run: |
+          node --check docs/terminal.js
+          node --check docs/snake/game.js
+
+      - name: Snake game logic
+        run: node tests/snake.test.js
+
+      - name: Assets, links and outbound-link hygiene
+        run: python3 tests/validate.py

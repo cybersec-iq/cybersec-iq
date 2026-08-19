@@ -1,0 +1,57 @@
+name: Deploy Pages
+
+# Publishes the static command center + Snake Protocol from docs/.
+# Nothing is built: the site is plain HTML, CSS and JS with no dependencies.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a deploy mid-flight; queue instead.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Summary
+        run: |
+          {
+            echo "### Pages deployed"
+            echo
+            echo "- Command center: ${{ steps.deployment.outputs.page_url }}"
+            echo "- Snake Protocol: ${{ steps.deployment.outputs.page_url }}snake/"
+          } >> "$GITHUB_STEP_SUMMARY"
