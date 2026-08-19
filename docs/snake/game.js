@@ -75,10 +75,13 @@
 
   function resize() {
     var rect = board.getBoundingClientRect();
-    var css = Math.min(rect.width, rect.height);
-    // Layout may not have settled yet (hidden tab, pending fonts). Skip
-    // rather than locking the canvas to a placeholder size — the polling
-    // check in frame() picks it up as soon as the board has real geometry.
+    // The board is square by CSS (aspect-ratio: 1/1). If the height has not
+    // resolved yet — aspect-ratio still pending, or an engine that does not
+    // support it — fall back to the width rather than measuring zero and
+    // leaving the board blank until the next animation frame.
+    var css = rect.height > 0 ? Math.min(rect.width, rect.height) : rect.width;
+    // Layout genuinely unavailable (hidden tab): skip. The polling check in
+    // frame() picks it up as soon as the board has real geometry.
     if (!(css > 0)) { return; }
 
     var dpr = Math.min(window.devicePixelRatio || 1, 3);

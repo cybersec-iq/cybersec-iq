@@ -1,9 +1,13 @@
 /* cybersec-iq — SNAKE PROTOCOL
-   Extends ../styles.css. No external assets. */
+   Extends ../styles.css and reuses its tokens, panel geometry, buttons and
+   tiles so the game reads as part of the command center rather than a
+   separate page. */
 
-.shell--game { max-width: 720px; padding-bottom: 48px; }
-
-.mast__name--game { font-size: clamp(17px, 4vw, 24px); letter-spacing: 3px; }
+.game {
+  position: relative; z-index: 2;
+  max-width: 760px; margin: 0 auto;
+  padding: clamp(16px, 3vw, 26px) clamp(12px, 3vw, 26px) 32px;
+}
 
 .sr-live {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
@@ -13,182 +17,125 @@
 /* ---------- HUD ---------- */
 
 .hud {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  margin-top: clamp(16px, 4vw, 26px);
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin-bottom: 12px;
 }
-
 .hud__cell {
-  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
-  padding: 10px clamp(6px, 2vw, 14px);
+  position: relative;
+  background: var(--surface-2);
+  border: 1px solid var(--accent, var(--line-2));
+  border-radius: var(--radius);
+  padding: 10px clamp(8px, 2vw, 14px);
   display: flex; flex-direction: column; gap: 3px; min-width: 0;
 }
-
+.hud__cell::before {
+  content: ""; position: absolute; inset: -1px -1px auto -1px; height: 2.5px;
+  background: var(--accent, var(--cyan)); opacity: .85;
+}
 .hud__k {
-  font-size: clamp(8.5px, 2.1vw, 10px);
-  letter-spacing: 2.2px; color: var(--muted); text-transform: uppercase;
+  font-size: clamp(9px, 2.1vw, 10.5px); letter-spacing: 2px;
+  color: var(--muted); text-transform: uppercase;
 }
-
 .hud__v {
-  font-size: clamp(15px, 4.4vw, 21px);
-  font-weight: 700; letter-spacing: 1.6px; color: var(--neon);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap; overflow: hidden; text-overflow: clip;
+  font-size: clamp(17px, 4.6vw, 26px); font-weight: 700; letter-spacing: 1.2px;
+  color: var(--accent, var(--green)); font-variant-numeric: tabular-nums;
+  white-space: nowrap; text-shadow: 0 0 12px currentColor;
 }
-
-.hud__v--lime { color: var(--lime); }
-.hud__v--cyan { color: var(--cyan); }
-.hud__v--status { font-size: clamp(11px, 3vw, 15px); letter-spacing: 1.8px; }
-
+.hud__v--status { font-size: clamp(12px, 3vw, 17px); letter-spacing: 1.8px; }
 .hud__v--status[data-s="READY"]  { color: var(--cyan); }
-.hud__v--status[data-s="ACTIVE"] { color: var(--neon); }
-.hud__v--status[data-s="PAUSED"] { color: var(--amber); }
+.hud__v--status[data-s="ACTIVE"] { color: var(--green); }
+.hud__v--status[data-s="PAUSED"] { color: var(--yellow); }
 .hud__v--status[data-s="FAILED"] { color: #FF5F57; }
 
 /* ---------- board ---------- */
 
 .board {
   position: relative;
-  margin-top: 12px;
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: #05070A;
+  aspect-ratio: 1 / 1; width: 100%;
+  background: #020A06;
   overflow: hidden;
-  touch-action: none;         /* swipes belong to the game, not the page */
+  touch-action: none;          /* swipes belong to the game, not the page */
 }
-
 .board canvas { display: block; width: 100%; height: 100%; }
-
-/* HUD corner brackets on the board */
-.board::before, .board::after {
-  content: ""; position: absolute; width: 20px; height: 20px; pointer-events: none;
-  border-color: var(--neon); border-style: solid; opacity: .65;
-}
-.board::before { top: 8px;    left: 8px;    border-width: 2px 0 0 2px; }
-.board::after  { bottom: 8px; right: 8px;   border-width: 0 2px 2px 0; }
 
 /* ---------- overlay ---------- */
 
 .overlay {
   position: absolute; inset: 0;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(5, 7, 10, .86);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
-  padding: 20px;
-  text-align: center;
+  background: rgba(3, 7, 10, .80);
+  backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  padding: 20px; text-align: center;
 }
-
 .overlay[hidden] { display: none; }
-
 .overlay__inner { max-width: 340px; }
-
-.overlay__k {
-  margin: 0; font-size: clamp(9.5px, 2.4vw, 11px); letter-spacing: 4px;
-  color: var(--cyan); text-transform: uppercase;
-}
-
-.overlay__t {
-  margin: 8px 0 0; font-size: clamp(18px, 5.2vw, 26px); font-weight: 700;
-  letter-spacing: 2.6px; color: var(--neon);
-}
-
-.overlay[data-state="over"] .overlay__t { color: #FF5F57; }
-.overlay[data-state="paused"] .overlay__t { color: var(--amber); }
-
-.overlay__d {
-  margin: 10px 0 0; font-size: clamp(11.5px, 2.9vw, 13px);
-  color: var(--muted); line-height: 1.7;
-}
-
+.overlay__k { margin: 0; font-size: clamp(9.5px, 2.4vw, 11px); letter-spacing: 4px;
+              color: var(--cyan); text-transform: uppercase; }
+.overlay__t { margin: 8px 0 0; font-size: clamp(19px, 5.4vw, 28px); font-weight: 700;
+              letter-spacing: 2.6px; color: var(--green); text-shadow: 0 0 20px rgba(57,255,20,.4); }
+.overlay[data-state="over"] .overlay__t { color: #FF5F57; text-shadow: 0 0 20px rgba(255,95,87,.4); }
+.overlay[data-state="paused"] .overlay__t { color: var(--yellow); text-shadow: 0 0 20px rgba(255,230,0,.35); }
+.overlay__d { margin: 10px 0 0; font-size: clamp(11.5px, 2.9vw, 13px);
+              color: var(--muted); line-height: 1.7; }
 .overlay__inner .btn { margin-top: 18px; }
 
 /* ---------- buttons ---------- */
 
-.btn {
-  font: inherit; font-size: clamp(11.5px, 2.9vw, 13px); font-weight: 700;
-  letter-spacing: 3px; text-transform: uppercase;
-  color: var(--neon);
-  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
-  border: 1px solid var(--neon); border-radius: var(--radius);
-  padding: 12px 22px; min-height: 44px; cursor: pointer;
-  transition: background .16s ease, color .16s ease, transform .12s ease;
+.btn--sm {
+  font-size: clamp(11.5px, 2.9vw, 13px); letter-spacing: 3px;
+  padding: 12px 24px; min-height: 46px; gap: 10px;
+  border-width: 1.5px; cursor: pointer; font-family: inherit;
 }
-.btn:hover, .btn:focus-visible { background: var(--neon); color: #05070A; }
-.btn:active { transform: translateY(1px); }
-
-.btn--primary { padding: 13px 34px; }
-
-.btn--ghost { color: var(--muted); border-color: var(--line); }
-.btn--ghost:hover, .btn--ghost:focus-visible { color: var(--cyan); border-color: var(--cyan); background: var(--surface-2); }
+.btn--ghost {
+  color: var(--muted); border-color: var(--line-2); background: var(--surface-2);
+  box-shadow: none;
+}
+.btn--ghost:hover, .btn--ghost:focus-visible {
+  color: var(--cyan); border-color: var(--cyan); background: var(--surface-3); box-shadow: none;
+}
 
 /* ---------- controls ---------- */
 
 .controls {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
-  gap: 16px; margin-top: 16px;
+  gap: 16px; margin-top: 14px;
 }
-
 .controls__btns { display: flex; gap: 10px; flex-wrap: wrap; }
 
-.pad {
-  display: grid;
-  grid-template-columns: repeat(3, 52px);
-  grid-template-rows: repeat(2, 52px);
-  gap: 6px;
-}
-
+.pad { display: grid; grid-template-columns: repeat(3, 52px); grid-template-rows: repeat(2, 52px); gap: 6px; }
 .pad__b {
-  font: inherit; font-size: 15px; line-height: 1;
-  color: var(--cyan);
-  background: linear-gradient(180deg, var(--surface-2) 0%, var(--surface) 100%);
-  border: 1px solid var(--line); border-radius: var(--radius);
-  cursor: pointer; display: flex; align-items: center; justify-content: center;
-  min-width: 52px; min-height: 52px;
-  -webkit-tap-highlight-color: transparent;
+  font: inherit; font-size: 15px; line-height: 1; color: var(--cyan);
+  background: var(--surface-2); border: 1px solid var(--line-2);
+  border-radius: var(--radius); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 52px; min-height: 52px; -webkit-tap-highlight-color: transparent;
   transition: border-color .14s ease, color .14s ease, background .14s ease;
 }
 .pad__b:hover, .pad__b:focus-visible, .pad__b:active {
-  border-color: var(--cyan); color: #05070A; background: var(--cyan);
+  border-color: var(--cyan); color: #03070A; background: var(--cyan);
 }
-
-.pad__b--up    { grid-column: 2; grid-row: 1; }
-.pad__b--left  { grid-column: 1; grid-row: 2; }
-.pad__b--down  { grid-column: 2; grid-row: 2; }
+.pad__b--up { grid-column: 2; grid-row: 1; }
+.pad__b--left { grid-column: 1; grid-row: 2; }
+.pad__b--down { grid-column: 2; grid-row: 2; }
 .pad__b--right { grid-column: 3; grid-row: 2; }
 
-/* ---------- hint ---------- */
+/* ---------- hint + back nav ---------- */
 
-.hint {
-  margin: 16px 0 0; font-size: clamp(10.5px, 2.5vw, 11.5px);
-  letter-spacing: 1.4px; color: var(--muted); line-height: 2;
-}
+.hint { margin: 14px 0 0; font-size: clamp(10.5px, 2.5vw, 11.5px);
+        letter-spacing: 1.4px; color: var(--muted); line-height: 2; }
 .hint__k { color: var(--cyan); letter-spacing: 2.2px; margin-right: 4px; }
-.hint__sep { color: var(--line); margin: 0 8px; }
+.hint__sep { color: var(--line-2); margin: 0 8px; }
 
-/* ---------- back navigation ---------- */
+.backnav { margin-top: clamp(22px, 4vw, 32px); }
+.backnav .tile { padding: 16px 14px; }
 
-.backnav {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 12px; margin-top: clamp(26px, 5vw, 38px);
-}
-
-/* ---------- narrow screens ---------- */
+/* ---------- narrow ---------- */
 
 @media (max-width: 600px) {
   .hud { grid-template-columns: repeat(2, 1fr); }
   .controls { flex-direction: column; align-items: stretch; }
-  .controls__btns .btn { flex: 1; }
-  .pad { justify-content: center; margin: 0 auto; grid-template-columns: repeat(3, 58px); grid-template-rows: repeat(2, 58px); }
+  .controls__btns .btn { flex: 1; justify-content: center; }
+  .pad { justify-content: center; margin: 0 auto;
+         grid-template-columns: repeat(3, 58px); grid-template-rows: repeat(2, 58px); }
   .pad__b { min-width: 58px; min-height: 58px; font-size: 17px; }
 }
-
-/* Pointer-capable devices with a keyboard rarely need the pad, but it stays
-   available — hiding it would break tablet + hybrid laptops. */

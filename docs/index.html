@@ -3,90 +3,473 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: https://raw.githubusercontent.com; connect-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>Aryan IQ — Command Center</title>
-<meta name="description" content="Aryan IQ — Full-Stack Developer, Cybersecurity and AI systems builder based in Muscat, Oman. Interactive command center and Snake Protocol.">
+<title>Aryan IQ — Developer Command Center</title>
+<meta name="description" content="Aryan IQ — full-stack developer, cybersecurity engineer and AI systems builder in Muscat, Oman. Interactive developer command center.">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#05070A">
+<meta name="theme-color" content="#03070A">
 <link rel="stylesheet" href="./styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070A'/%3E%3Cpath d='M16 4 L27 8 V17 C27 24 22 28 16 30 C10 28 5 24 5 17 V8 Z' fill='none' stroke='%2339FF14' stroke-width='2'/%3E%3Cpath d='M11 17 l4 4 l7 -9' fill='none' stroke='%23C6FF00' stroke-width='2.6'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2303070A'/%3E%3Cpath d='M16 4 L27 8 V17 C27 24 22 28 16 30 C10 28 5 24 5 17 V8 Z' fill='none' stroke='%2339FF14' stroke-width='2'/%3E%3Cpath d='M11 17 l4 4 l7 -9' fill='none' stroke='%23DFFF00' stroke-width='2.6'/%3E%3C/svg%3E">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- ============ top bar (ref 01) ============ -->
+<header class="topbar">
+  <span class="topbar__glyph" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square">
+      <path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/>
+    </svg>
+  </span>
+  <span class="topbar__path">~/cybersec-iq</span>
+  <span class="topbar__branch">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <circle cx="6.5" cy="5.5" r="2.6"/><circle cx="6.5" cy="18.5" r="2.6"/><circle cx="17.5" cy="9" r="2.6"/>
+      <path d="M6.5 8.1 v7.8M17.5 11.6 c0 3.4-4 3.2-6.6 4.2"/>
+    </svg>
+    main
+  </span>
+  <span class="topbar__badge">DEVELOPER COMMAND CENTER</span>
+  <span class="topbar__state"><span class="dot"></span>SYSTEM ONLINE</span>
+</header>
+
 <div class="shell">
 
-  <header class="mast">
-    <svg class="mast__mark" viewBox="0 0 34 42" aria-hidden="true" focusable="false">
-      <path d="M17 1 L32 6 V21 C32 32 25 39 17 41 C9 39 2 32 2 21 V6 Z" fill="none" stroke="#39FF14" stroke-width="1.8" opacity=".8"/>
-      <path d="M11 21 l5 5 l9 -11" fill="none" stroke="#C6FF00" stroke-width="2.6" stroke-linecap="square"/>
-    </svg>
-    <div class="mast__id">
-      <h1 class="mast__name">ARYAN IQ</h1>
-      <p class="mast__role">Full-Stack &middot; Cybersecurity &middot; AI Systems &middot; Automation</p>
-    </div>
-    <p class="mast__status"><span class="dot"></span>SYSTEM ONLINE</p>
-  </header>
+  <!-- ============ rail ============ -->
+  <aside class="rail">
 
-  <main id="main">
+    <section class="panel panel--brackets ident" aria-label="Operator identity">
+      <svg class="ident__mark" viewBox="0 0 74 88" aria-hidden="true">
+        <defs>
+          <linearGradient id="mk" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#DFFF00"/><stop offset="55%" stop-color="#39FF14"/><stop offset="100%" stop-color="#00E5FF"/>
+          </linearGradient>
+        </defs>
+        <path d="M37 3 L69 14 V44 C69 66 55 78 37 85 C19 78 5 66 5 44 V14 Z" fill="none" stroke="url(#mk)" stroke-width="2.4" opacity=".9"/>
+        <path d="M37 12 L61 20 V44 C61 60 50 70 37 76 C24 70 13 60 13 44 V20 Z" fill="#39FF14" opacity=".05"/>
+        <circle cx="37" cy="42" r="13" fill="none" stroke="#00E5FF" stroke-width="1.6" opacity=".75"/>
+        <circle cx="37" cy="42" r="5.4" fill="none" stroke="#DFFF00" stroke-width="1.8"/>
+        <circle cx="37" cy="42" r="1.9" fill="#DFFF00"/>
+        <path d="M37 20 v9M37 55 v9M15 42 h9M50 42 h9" stroke="#39FF14" stroke-width="1.4" opacity=".55"/>
+      </svg>
+      <h1 class="ident__name">ARYAN IQ</h1>
+      <p class="ident__handle">cybersec-iq</p>
+      <div class="ident__roles">
+        <p class="ident__role">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 a7 7 0 0 1 7 7 c0 5.4-7 13-7 13 S5 14.4 5 9 a7 7 0 0 1 7-7 Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+          Muscat, Oman
+        </p>
+        <p class="ident__role">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></svg>
+          Full-Stack Developer
+        </p>
+        <p class="ident__role">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></svg>
+          Cybersecurity Engineer
+        </p>
+        <p class="ident__role">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M12 3 L19 7 v8 l-7 4 l-7-4 V7 Z"/><circle cx="12" cy="11" r="2.4"/></svg>
+          AI Systems Builder
+        </p>
+      </div>
+    </section>
 
-    <section class="sec" aria-labelledby="h-term">
-      <div class="sec__head"><h2 id="h-term">Interactive Console</h2></div>
+    <nav class="panel nav" id="nav" aria-label="Sections">
+      <p class="nav__label">NAVIGATION</p>
+      <a class="nav__link" href="#whoami"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg>/whoami</a>
+      <a class="nav__link" href="#about"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11 v6M12 7.4 v.1"/></svg>/about</a>
+      <a class="nav__link" href="#stack"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 L21 8 L12 13 L3 8 Z"/><path d="M3 12.5 L12 17.5 L21 12.5"/></svg>/stack</a>
+      <a class="nav__link" href="#projects"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7 h6 l2 3 h10 v10 H3 Z"/></svg>/projects</a>
+      <a class="nav__link" href="#activity"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></svg>/activity</a>
+      <a class="nav__link" href="#snake"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M3 18 h5 v-5 h5 v-5 h5"/></svg>/snake</a>
+      <a class="nav__link" href="#contact"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M2.5 6.2 L12 13.4 L21.5 6.2"/></svg>/contact</a>
+    </nav>
 
-      <div class="panel">
-        <div class="panel__bar">
-          <span class="led led--r"></span><span class="led led--y"></span><span class="led led--g"></span>
-          <span class="panel__title">bash &mdash; cybersec-iq &mdash; ~/profile</span>
+    <!-- Session panel: browser-side facts only. No CPU/RAM/uptime telemetry -
+         a static site cannot measure those, so they are not shown. -->
+    <section class="panel session" aria-label="Session">
+      <p class="session__head"><span>SESSION</span><span class="dot" style="color:#39FF14"></span></p>
+      <p class="session__row"><span class="session__k">LOCAL TIME</span><span class="session__v session__v--green" id="s-time">—</span></p>
+      <p class="session__row"><span class="session__k">TIME ZONE</span><span class="session__v" id="s-tz">—</span></p>
+      <p class="session__row"><span class="session__k">VIEWPORT</span><span class="session__v session__v--cyan" id="s-vw">—</span></p>
+      <p class="session__row"><span class="session__k">UI THEME</span><span class="session__v session__v--cyan">CYBERSEC-IQ</span></p>
+      <p class="session__row"><span class="session__k">TRACKERS</span><span class="session__v session__v--green">NONE</span></p>
+      <p class="session__note">Read from your own browser. Nothing is sent anywhere, and no analytics or cookies are used.</p>
+    </section>
+
+  </aside>
+
+  <!-- ============ main ============ -->
+  <main class="main" id="main">
+
+    <!-- whoami -->
+    <section class="sec" id="whoami" aria-labelledby="h-who">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-who">~/whoami</h2>
+          <p class="sec__sub">OPERATOR IDENTITY</p>
+        </span>
+        <span class="sec__right"><span class="dot" style="color:#39FF14"></span>ONLINE</span>
+      </div>
+
+      <div class="panel panel--brackets panel--green body">
+        <p class="who__prompt">
+          <span class="who__user">cybersec-iq@github</span><span class="who__sep">:~$</span><span class="who__cmd">whoami</span>
+          <span class="who__pill"><span class="dot"></span>ONLINE</span>
+        </p>
+        <p class="who__name"><b>ARYAN</b> <i>IQ</i><span class="who__caret" aria-hidden="true"></span></p>
+        <p class="who__roles">FULL-STACK DEVELOPER &nbsp;/&nbsp; CYBERSECURITY &nbsp;/&nbsp; AI SYSTEMS BUILDER</p>
+        <div class="who__rule"></div>
+
+        <div class="who__grid">
+          <div class="who__facts">
+            <p class="fact">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M12 2 a7 7 0 0 1 7 7 c0 5.4-7 13-7 13 S5 14.4 5 9 a7 7 0 0 1 7-7 Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+              <span class="fact__k">LOCATION</span><span class="fact__v">MUSCAT, OMAN</span>
+            </p>
+            <p class="fact">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></svg>
+              <span class="fact__k">STATUS</span><span class="fact__v fact__v--yellow">BUILDING</span>
+            </p>
+            <p class="fact">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/></svg>
+              <span class="fact__k">MISSION</span><span class="fact__v fact__v--green">NOTHING IS IMPOSSIBLE</span>
+            </p>
+          </div>
+
+          <svg class="who__globe" viewBox="0 0 168 168" aria-hidden="true">
+            <g fill="none" stroke="#1B7A10" stroke-width="1.1" opacity=".85">
+              <circle cx="84" cy="84" r="72"/>
+              <ellipse cx="84" cy="84" rx="24" ry="72"/><ellipse cx="84" cy="84" rx="49" ry="72"/>
+              <path d="M18 60 h132M12 84 h144M18 108 h132M34 36 h100M34 132 h100"/>
+            </g>
+            <g fill="#00E5FF">
+              <circle cx="60" cy="62" r="2.8" class="dot"/><circle cx="104" cy="74" r="2.8" class="dot"/>
+              <circle cx="118" cy="106" r="2.8" class="dot"/><circle cx="66" cy="112" r="2.8" class="dot"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- about -->
+    <section class="sec" id="about" aria-labelledby="h-about">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-about">~/about</h2>
+          <p class="sec__sub">OPERATING PRINCIPLES</p>
+        </span>
+      </div>
+
+      <div class="panel panel--brackets panel--cyan body">
+        <p class="prose">I design and ship <b>production systems</b> end to end — interface, API, data layer, infrastructure and the automation that keeps them running.</p>
+        <p class="prose">Most of my work sits where <i>product engineering meets security</i>: platforms that handle real users, real payments and real data, built so that the boring parts are <b>automated</b> and the risky parts are <u>deliberate</u>.</p>
+
+        <p class="subhead">HOW I WORK</p>
+        <div class="cards">
+          <article class="card" style="--accent:#39FF14">
+            <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/></svg></span>
+            <h3 class="card__title">SECURITY FIRST</h3>
+            <p class="card__body">Security is a design input, not a review step. Threat assumptions get written down before the schema does.</p>
+          </article>
+          <article class="card" style="--accent:#FFE600">
+            <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></svg></span>
+            <h3 class="card__title">AUTOMATE THE REPEATABLE</h3>
+            <p class="card__body">If a task happens twice, it becomes a script, a pipeline or a bot.</p>
+          </article>
+          <article class="card" style="--accent:#00E5FF">
+            <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></svg></span>
+            <h3 class="card__title">BORING INFRASTRUCTURE</h3>
+            <p class="card__body">Predictable deploys are what make ambitious features affordable.</p>
+          </article>
+          <article class="card" style="--accent:#39FF14">
+            <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.6"/></svg></span>
+            <h3 class="card__title">OWN THE WHOLE PATH</h3>
+            <p class="card__body">From git init to the production incident at 2am. No handoff to hide behind.</p>
+          </article>
+          <article class="card" style="--accent:#00E5FF">
+            <span class="card__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></svg></span>
+            <h3 class="card__title">SHIP, MEASURE, HARDEN</h3>
+            <p class="card__body">Working beats perfect. Then perfect the parts that carry risk.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- stack -->
+    <section class="sec" id="stack" aria-labelledby="h-stack">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-stack">~/stack</h2>
+          <p class="sec__sub">TECHNOLOGY STACK &amp; TOOLING</p>
+        </span>
+        <span class="sec__right">SYSTEM MAP</span>
+      </div>
+
+      <div class="panel panel--brackets panel--green body">
+        <div class="stack">
+          <article class="cat" style="--accent:#00E5FF">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><path d="M9 6 L3.5 12 L9 18"/><path d="M15 6 L20.5 12 L15 18"/></svg>
+              <span><h3 class="cat__name">FRONTEND</h3><p class="cat__purpose">Modern UI/UX</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--cyan">React</span><span class="chip chip--text">Next.js</span><span class="chip chip--blue">TypeScript</span><span class="chip chip--yellow">JavaScript</span></div>
+          </article>
+
+          <article class="cat" style="--accent:#39FF14">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" stroke-linecap="square" aria-hidden="true"><path d="M3 6 l6 6 l-6 6"/><path d="M13 18 h8"/></svg>
+              <span><h3 class="cat__name">BACKEND</h3><p class="cat__purpose">Robust APIs</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--green">Node.js</span><span class="chip chip--text">Python</span><span class="chip chip--cyan">REST APIs</span></div>
+          </article>
+
+          <article class="cat" style="--accent:#00E5FF">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3.2"/><path d="M4 6 v12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2 V6"/><path d="M4 12 c0 1.8 3.6 3.2 8 3.2 s8-1.4 8-3.2"/></svg>
+              <span><h3 class="cat__name">DATA</h3><p class="cat__purpose">Data &amp; storage</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--blue">PostgreSQL</span></div>
+          </article>
+
+          <article class="cat" style="--accent:#FFE600">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M12 2.5 L21 7.2 v9.6 L12 21.5 L3 16.8 V7.2 Z"/><path d="M3 7.2 L12 12 l9-4.8M12 12 v9.5"/></svg>
+              <span><h3 class="cat__name">INFRASTRUCTURE</h3><p class="cat__purpose">Deploy &amp; scale</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--cyan">Docker</span><span class="chip chip--yellow">Linux</span><span class="chip chip--green">Git</span><span class="chip chip--text">GitHub Actions</span></div>
+          </article>
+
+          <article class="cat" style="--accent:#39FF14">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M12 2 L21 6 v6 c0 5.4-4.2 8.6-9 10.4C7.2 20.6 3 17.4 3 12 V6 Z"/><path d="M8 12 l3 3 l5.5-6"/></svg>
+              <span><h3 class="cat__name">SECURITY PRACTICE</h3><p class="cat__purpose">Secure by design</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--green">Secure SDLC</span><span class="chip chip--green">Threat Modelling</span><span class="chip chip--green">Dependency Hygiene</span><span class="chip chip--green">Hardening</span></div>
+          </article>
+
+          <article class="cat" style="--accent:#FFE600">
+            <div class="cat__head">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M13.5 2 L5 13.5 h5.5 L9.5 22 L19 10 h-6 Z"/></svg>
+              <span><h3 class="cat__name">TOOLS &amp; AUTOMATION</h3><p class="cat__purpose">Productivity &amp; automation</p></span>
+            </div>
+            <div class="chips"><span class="chip chip--yellow">GitHub Actions</span><span class="chip chip--yellow">CI/CD Pipelines</span><span class="chip chip--yellow">Automation Bots</span></div>
+          </article>
         </div>
 
-        <div class="term">
-          <div class="term__log" id="log" role="log" aria-live="polite" aria-label="Console output" tabindex="0"></div>
+        <p class="summary">
+          <span>TECHNOLOGIES LISTED<b>12</b></span>
+          <span>CORE CATEGORIES<b>6</b></span>
+          <span>TOOLING &amp; PRACTICE<b>7</b></span>
+          <span>SECURITY FIRST<b>Always</b></span>
+        </p>
+      </div>
+    </section>
 
+    <!-- projects -->
+    <section class="sec" id="projects" aria-labelledby="h-projects">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-projects">~/projects</h2>
+          <p class="sec__sub">SELECTED SYSTEMS &amp; PROJECTS</p>
+        </span>
+        <span class="sec__right">ACCESS CONTROLLED</span>
+      </div>
+
+      <div class="panel panel--brackets body">
+        <div class="grid-sys">
+          <article class="sys" style="--accent:#00E5FF">
+            <div class="sys__top"><h3 class="sys__name">ARYANIQ</h3><span class="sys__status sys__status--live"><span class="dot"></span>LIVE</span></div>
+            <p class="sys__domain">Personal platform &amp; engineering hub</p>
+            <p class="sys__body">Public home for the practice: services, writing and contact.</p>
+            <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span><span class="chip chip--cyan">Web</span></div>
+          </article>
+
+          <article class="sys" style="--accent:#39FF14">
+            <div class="sys__top"><h3 class="sys__name">KAMINO RECORDS</h3><span class="sys__status">PRIVATE</span></div>
+            <p class="sys__domain">Music label platform</p>
+            <p class="sys__body">Catalogue, releases and artist management on a headless CMS.</p>
+            <div class="chips sys__chips"><span class="chip chip--text">Next.js</span><span class="chip chip--green">Payload CMS</span><span class="chip chip--blue">PostgreSQL</span></div>
+          </article>
+
+          <article class="sys" style="--accent:#FFE600">
+            <div class="sys__top"><h3 class="sys__name">SHINEL SUPPLIER</h3><span class="sys__status">PRIVATE</span></div>
+            <p class="sys__domain">Multilingual commerce platform</p>
+            <p class="sys__body">Multi-language storefront and supplier-side operations.</p>
+            <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span><span class="chip chip--cyan">Web</span></div>
+          </article>
+
+          <article class="sys" style="--accent:#00E5FF">
+            <div class="sys__top"><h3 class="sys__name">XPRIME</h3><span class="sys__status">PRIVATE</span></div>
+            <p class="sys__domain">Product platform</p>
+            <p class="sys__body">Closed product build. Stack is public, internals are not.</p>
+            <div class="chips sys__chips"><span class="chip chip--blue">TypeScript</span></div>
+          </article>
+
+          <article class="sys" style="--accent:#39FF14">
+            <div class="sys__top"><h3 class="sys__name">XOS</h3><span class="sys__status">UNDISCLOSED</span></div>
+            <p class="sys__domain">Internal system</p>
+            <p class="sys__body">Details withheld. Named here for completeness, not disclosure.</p>
+            <p class="sys__none">— no public detail —</p>
+          </article>
+
+          <article class="sys" style="--accent:#FFE600">
+            <div class="sys__top"><h3 class="sys__name">XADMIN</h3><span class="sys__status">UNDISCLOSED</span></div>
+            <p class="sys__domain">Internal system</p>
+            <p class="sys__body">Details withheld. Named here for completeness, not disclosure.</p>
+            <p class="sys__none">— no public detail —</p>
+          </article>
+        </div>
+
+        <p class="note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" style="flex:none"><rect x="4.5" y="10.5" width="15" height="10.5" rx="1"/><path d="M8 10.5 V7.6 a4 4 0 0 1 8 0 v2.9"/></svg>
+          Source, infrastructure topology and client data for private systems are not published. Nothing here claims scale, revenue or third-party endorsement.
+        </p>
+      </div>
+    </section>
+
+    <!-- activity -->
+    <section class="sec" id="activity" aria-labelledby="h-activity">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-activity">~/activity</h2>
+          <p class="sec__sub">PUBLIC GITHUB ACTIVITY</p>
+        </span>
+        <span class="sec__right"><span class="dot" style="color:#39FF14"></span>LIVE DATA</span>
+      </div>
+
+      <div class="panel body">
+        <figure class="figure">
+          <img src="https://raw.githubusercontent.com/cybersec-iq/cybersec-iq/output/activity.svg"
+               alt="Public GitHub activity for cybersec-iq: contributions, commits, pull requests, issues, public repositories and followers over the last twelve months, with streak and active-day insights."
+               loading="lazy" width="1200" height="386">
+          <figcaption>Regenerated daily from the GitHub API. Public activity only — private contributions are not counted.</figcaption>
+        </figure>
+
+        <figure class="figure" style="margin-top:18px">
+          <img src="https://raw.githubusercontent.com/cybersec-iq/cybersec-iq/output/snake-framed.svg"
+               alt="Animated contribution grid: a snake traverses the GitHub contribution graph for cybersec-iq."
+               loading="lazy" width="1200" height="330">
+          <figcaption>Contribution grid, rendered as an animated snake by GitHub Actions.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- snake -->
+    <section class="sec" id="snake" aria-labelledby="h-snake">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-snake">~/snake</h2>
+          <p class="sec__sub">INTERACTIVE CONSOLE</p>
+        </span>
+      </div>
+
+      <div class="panel panel--brackets body">
+        <div class="snake">
+          <div>
+            <p class="snake__kicker">// INTERACTIVE CONSOLE</p>
+            <p class="snake__title">PLAY SNAKE</p>
+            <p class="snake__lede">Challenge the terminal. Beat the system.</p>
+            <a class="btn" href="./snake/">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4.5 L19 12 L7 19.5 Z"/></svg>
+              PLAY SNAKE
+              <svg class="btn__chev" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M9 5 l7 7 l-7 7"/></svg>
+            </a>
+            <p class="snake__meta">A real, playable Snake — original build, no framework, no trackers, no dependencies. High score is stored in your own browser.</p>
+          </div>
+
+          <div class="keys">
+            <p class="keyrow"><kbd>&larr;</kbd><kbd>&rarr;</kbd><kbd>&uarr;</kbd><kbd>&darr;</kbd><span>MOVE</span></p>
+            <p class="keyrow"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><span>MOVE</span></p>
+            <p class="keyrow"><kbd>SPACE</kbd><kbd>P</kbd><span>PAUSE</span></p>
+            <p class="keyrow"><kbd>R</kbd><span>RESTART</span></p>
+            <p class="keyrow"><span style="color:var(--muted)">Swipe or on-screen pad on touch devices.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- console -->
+    <section class="sec" id="console" aria-labelledby="h-console">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-console">~/console</h2>
+          <p class="sec__sub">TERMINAL FEED</p>
+        </span>
+      </div>
+
+      <div class="panel term">
+        <div class="term__bar">
+          <span class="led led--r"></span><span class="led led--y"></span><span class="led led--g"></span>
+          <span class="term__title">bash — cybersec-iq — ~/profile</span>
+        </div>
+        <div class="term__wrap">
+          <div class="term__log" id="log" role="log" aria-live="polite" aria-label="Console output" tabindex="0"></div>
           <form class="term__form" id="form" autocomplete="off">
             <span class="term__ps" aria-hidden="true">&gt;</span>
             <label class="skip" for="cmd">Enter a command</label>
             <input class="term__in" id="cmd" name="cmd" type="text" spellcheck="false"
-                   autocapitalize="off" autocorrect="off" maxlength="64"
-                   placeholder="type a command, or `help`">
+                   autocapitalize="off" autocorrect="off" maxlength="64" placeholder="type a command, or `help`">
           </form>
+          <p class="term__hint">help · whoami · about · stack · projects · activity · snake · contact · github · website · clear &nbsp;—&nbsp; &uarr;/&darr; history &nbsp;·&nbsp; press / to focus</p>
         </div>
       </div>
-      <p class="term__hint">TRY: help &middot; whoami &middot; projects &middot; stack &middot; github &middot; website &middot; snake &middot; clear &nbsp;&mdash;&nbsp; &uarr;/&darr; recalls history</p>
     </section>
 
-    <section class="sec" aria-labelledby="h-nav">
-      <div class="sec__head"><h2 id="h-nav">Navigation</h2></div>
-      <div class="grid">
-        <a class="card card--snake" href="./snake/">
-          <span class="card__k">Run</span>
-          <span class="card__v">SNAKE PROTOCOL</span>
-          <span class="card__d">Playable arcade build &middot; keyboard + touch</span>
-        </a>
-        <a class="card card--site" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
-          <span class="card__k">Open</span>
-          <span class="card__v">ARYANIQ.COM</span>
-          <span class="card__d">Primary site &amp; contact</span>
-        </a>
-        <a class="card card--gh" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
-          <span class="card__k">Return</span>
-          <span class="card__v">GITHUB PROFILE</span>
-          <span class="card__d">github.com/cybersec-iq</span>
-        </a>
+    <!-- contact -->
+    <section class="sec" id="contact" aria-labelledby="h-contact">
+      <div class="sec__head">
+        <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg></span>
+        <span class="sec__titles">
+          <h2 class="sec__path" id="h-contact">~/contact</h2>
+          <p class="sec__sub">CONTACT &amp; CONNECT</p>
+        </span>
+      </div>
+
+      <div class="panel panel--brackets body">
+        <div class="tiles">
+          <a class="tile" style="--accent:#00E5FF" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="3.9" ry="9"/><path d="M3 12 h18M4.6 7 h14.8M4.6 17 h14.8"/></svg>
+            <p class="tile__title">WEBSITE</p><p class="tile__value">aryaniq.com</p>
+            <p class="tile__body">Portfolio, services and current work.</p>
+          </a>
+          <a class="tile" style="--accent:#39FF14" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.6" aria-hidden="true"><path d="M12 2.2 a9.8 9.8 0 0 0-3.1 19.1 c.5.1.7-.2.7-.5 v-1.8 c-2.7.6-3.3-1.3-3.3-1.3 -.4-1.1-1.1-1.4-1.1-1.4 -.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8 .1-.6.3-1.1.6-1.3 -2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7 -.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 a9.4 9.4 0 0 1 4.9 0 c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7 .6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.5 4.9 .4.3.7.9.7 1.9 v2.8 c0 .3.2.6.7.5 A9.8 9.8 0 0 0 12 2.2 Z"/></svg>
+            <p class="tile__title">GITHUB</p><p class="tile__value">@cybersec-iq</p>
+            <p class="tile__body">Code, tooling and open builds.</p>
+          </a>
+          <div class="tile" style="--accent:#FFE600">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFE600" stroke-width="1.8" aria-hidden="true"><path d="M12 2 a7 7 0 0 1 7 7 c0 5.4-7 13-7 13 S5 14.4 5 9 a7 7 0 0 1 7-7 Z"/><circle cx="12" cy="9" r="2.6"/></svg>
+            <p class="tile__title">LOCATION</p><p class="tile__value">Muscat, Oman</p>
+            <p class="tile__body">Building globally, shipping locally.</p>
+          </div>
+          <a class="tile" style="--accent:#2979FF" href="https://aryaniq.com" target="_blank" rel="noopener noreferrer">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2979FF" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="5" width="19" height="14" rx="1"/><path d="M2.5 6.2 L12 13.4 L21.5 6.2"/></svg>
+            <p class="tile__title">ENQUIRIES</p><p class="tile__value">via aryaniq.com</p>
+            <p class="tile__body">Project, role or collaboration.</p>
+          </a>
+        </div>
       </div>
     </section>
 
   </main>
-
-  <footer class="foot">
-    <span>&copy; ARYAN IQ</span>
-    <span>MUSCAT, OMAN</span>
-    <span class="foot__mission">NOTHING IS IMPOSSIBLE</span>
-    <a href="https://github.com/cybersec-iq/cybersec-iq" target="_blank" rel="noopener noreferrer">SOURCE</a>
-  </footer>
-
 </div>
 
-<script src="./terminal.js" defer></script>
+<footer class="foot">
+  <span>&copy; ARYAN IQ</span>
+  <span class="foot__quote"><b>Code</b> is my craft. <i>Security</i> is my mindset. <u>Impact</u> is the goal.</span>
+  <a href="https://github.com/cybersec-iq/cybersec-iq" target="_blank" rel="noopener noreferrer">SOURCE</a>
+  <span class="foot__mission">NOTHING IS IMPOSSIBLE.</span>
+</footer>
+
+<script src="./app.js" defer></script>
 </body>
 </html>

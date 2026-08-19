@@ -8,54 +8,57 @@
 <title>Snake Protocol — Aryan IQ</title>
 <meta name="description" content="SNAKE PROTOCOL — a cyberpunk Snake game by Aryan IQ. Keyboard and touch controls, no dependencies, no tracking.">
 <meta name="color-scheme" content="dark">
-<meta name="theme-color" content="#05070A">
+<meta name="theme-color" content="#03070A">
 <link rel="stylesheet" href="../styles.css">
 <link rel="stylesheet" href="./styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2305070A'/%3E%3Cpath d='M4 22h7v-6h7v-6h7' fill='none' stroke='%2339FF14' stroke-width='4'/%3E%3Crect x='24' y='7' width='5' height='5' fill='%23C6FF00'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2303070A'/%3E%3Cpath d='M4 22h7v-6h7v-6h7' fill='none' stroke='%2339FF14' stroke-width='4'/%3E%3Crect x='24' y='7' width='5' height='5' fill='%23DFFF00'/%3E%3C/svg%3E">
 </head>
-<body class="game-body">
+<body>
 <a class="skip" href="#board">Skip to game board</a>
 
-<div class="shell shell--game">
-
-  <header class="mast">
-    <svg class="mast__mark" viewBox="0 0 34 42" aria-hidden="true" focusable="false">
-      <path d="M17 1 L32 6 V21 C32 32 25 39 17 41 C9 39 2 32 2 21 V6 Z" fill="none" stroke="#39FF14" stroke-width="1.8" opacity=".8"/>
-      <path d="M11 21 l5 5 l9 -11" fill="none" stroke="#C6FF00" stroke-width="2.6" stroke-linecap="square"/>
+<header class="topbar">
+  <span class="topbar__glyph" aria-hidden="true">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.2" stroke-linecap="square">
+      <path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/>
     </svg>
-    <div class="mast__id">
-      <h1 class="mast__name mast__name--game">SNAKE PROTOCOL</h1>
-      <p class="mast__role">cybersec-iq &middot; arcade build</p>
-    </div>
-    <p class="mast__status"><span class="dot"></span>SYSTEM ONLINE</p>
-  </header>
+  </span>
+  <span class="topbar__path">~/cybersec-iq/snake</span>
+  <span class="topbar__badge">SNAKE PROTOCOL</span>
+  <span class="topbar__state"><span class="dot"></span>SYSTEM ONLINE</span>
+</header>
+
+<div class="game">
+
+  <div class="sec__head">
+    <span class="sec__glyph" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="2.4" stroke-linecap="square"><path d="M3 18 h5 v-5 h5 v-5 h5"/></svg></span>
+    <span class="sec__titles">
+      <h1 class="sec__path">~/snake</h1>
+      <p class="sec__sub">INTERACTIVE CONSOLE &middot; ORIGINAL BUILD</p>
+    </span>
+    <span class="sec__right"><span class="dot" style="color:#39FF14"></span>LIVE</span>
+  </div>
 
   <main>
-
     <!-- HUD -->
     <section class="hud" aria-label="Game status">
-      <div class="hud__cell">
-        <span class="hud__k">Score</span>
-        <span class="hud__v" id="score">0000</span>
+      <div class="hud__cell" style="--accent:#FFE600">
+        <span class="hud__k">Score</span><span class="hud__v" id="score">0000</span>
       </div>
-      <div class="hud__cell">
-        <span class="hud__k">High</span>
-        <span class="hud__v hud__v--lime" id="high">0000</span>
+      <div class="hud__cell" style="--accent:#DFFF00">
+        <span class="hud__k">High</span><span class="hud__v" id="high">0000</span>
       </div>
-      <div class="hud__cell">
-        <span class="hud__k">Length</span>
-        <span class="hud__v hud__v--cyan" id="length">003</span>
+      <div class="hud__cell" style="--accent:#00E5FF">
+        <span class="hud__k">Length</span><span class="hud__v" id="length">003</span>
       </div>
-      <div class="hud__cell">
-        <span class="hud__k">Status</span>
-        <span class="hud__v hud__v--status" id="status">READY</span>
+      <div class="hud__cell" style="--accent:#39FF14">
+        <span class="hud__k">Status</span><span class="hud__v hud__v--status" id="status">READY</span>
       </div>
     </section>
 
     <p class="sr-live" id="live" role="status" aria-live="polite"></p>
 
     <!-- Board -->
-    <div class="board" id="board">
+    <div class="board panel panel--brackets panel--green" id="board">
       <canvas id="canvas" width="640" height="640" role="img"
               aria-label="Snake game board. Use arrow keys or W A S D to steer."></canvas>
 
@@ -64,7 +67,7 @@
           <p class="overlay__k" id="ov-k">SNAKE PROTOCOL</p>
           <p class="overlay__t" id="ov-t">READY TO EXECUTE</p>
           <p class="overlay__d" id="ov-d">Steer with arrow keys, W A S D, swipe, or the pad below.</p>
-          <button class="btn btn--primary" id="ov-btn" type="button">START</button>
+          <button class="btn btn--sm" id="ov-btn" type="button">START</button>
         </div>
       </div>
     </div>
@@ -72,8 +75,8 @@
     <!-- Controls -->
     <div class="controls">
       <div class="controls__btns">
-        <button class="btn" id="btn-toggle" type="button" aria-describedby="hint">START</button>
-        <button class="btn btn--ghost" id="btn-restart" type="button">RESTART</button>
+        <button class="btn btn--sm" id="btn-toggle" type="button" aria-describedby="hint">START</button>
+        <button class="btn btn--sm btn--ghost" id="btn-restart" type="button">RESTART</button>
       </div>
 
       <div class="pad" role="group" aria-label="Directional pad">
@@ -92,28 +95,26 @@
       <span class="hint__k">RESTART</span> R
     </p>
 
-    <nav class="backnav" aria-label="Return links">
-      <a class="card card--gh" href="../">
-        <span class="card__k">Return</span>
-        <span class="card__v">COMMAND CENTER</span>
-        <span class="card__d">Interactive console</span>
+    <nav class="tiles backnav" aria-label="Return links">
+      <a class="tile" style="--accent:#39FF14" href="../">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#39FF14" stroke-width="1.8" aria-hidden="true"><path d="M4 7 l5 5 l-5 5"/><path d="M13 17 h7"/></svg>
+        <p class="tile__title">COMMAND CENTER</p>
+        <p class="tile__value">Return to profile</p>
       </a>
-      <a class="card card--site" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
-        <span class="card__k">Return</span>
-        <span class="card__v">GITHUB PROFILE</span>
-        <span class="card__d">github.com/cybersec-iq</span>
+      <a class="tile" style="--accent:#00E5FF" href="https://github.com/cybersec-iq" target="_blank" rel="noopener noreferrer">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E5FF" stroke-width="1.6" aria-hidden="true"><path d="M12 2.2 a9.8 9.8 0 0 0-3.1 19.1 c.5.1.7-.2.7-.5 v-1.8 c-2.7.6-3.3-1.3-3.3-1.3 -.4-1.1-1.1-1.4-1.1-1.4 -.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8 .1-.6.3-1.1.6-1.3 -2.2-.2-4.5-1.1-4.5-4.9 0-1.1.4-2 1-2.7 -.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1 a9.4 9.4 0 0 1 4.9 0 c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7 .6.7 1 1.6 1 2.7 0 3.8-2.3 4.7-4.5 4.9 .4.3.7.9.7 1.9 v2.8 c0 .3.2.6.7.5 A9.8 9.8 0 0 0 12 2.2 Z"/></svg>
+        <p class="tile__title">GITHUB</p>
+        <p class="tile__value">@cybersec-iq</p>
       </a>
     </nav>
-
   </main>
-
-  <footer class="foot">
-    <span>&copy; ARYAN IQ</span>
-    <span>NO TRACKERS &middot; NO DEPENDENCIES</span>
-    <span class="foot__mission">NOTHING IS IMPOSSIBLE</span>
-  </footer>
-
 </div>
+
+<footer class="foot">
+  <span>&copy; ARYAN IQ</span>
+  <span>NO TRACKERS &middot; NO DEPENDENCIES &middot; HIGH SCORE STAYS IN YOUR BROWSER</span>
+  <span class="foot__mission">NOTHING IS IMPOSSIBLE.</span>
+</footer>
 
 <script src="./game.js" defer></script>
 </body>
