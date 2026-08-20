@@ -498,9 +498,15 @@ body::after {
 .who__name { overflow-wrap: anywhere; }
 
 @media (max-width: 420px) {
-  .fact { grid-template-columns: 18px 1fr; row-gap: 2px; }
-  .fact__v { grid-column: 2; }
   .summary { gap: 8px 18px; }
+}
+
+/* Facts stay on one line at phone widths — stacking the value under its label
+   at 390-420 was what made LOCATION look disconnected from MUSCAT, OMAN.
+   Only genuinely tiny screens fall back to two lines. */
+@media (max-width: 340px) {
+  .fact { grid-template-columns: 18px minmax(0, 1fr); row-gap: 2px; }
+  .fact__v { grid-column: 2; }
 }
 
 /* The activity and contribution-grid SVGs already carry their own framed
