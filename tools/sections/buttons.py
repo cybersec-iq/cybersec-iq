@@ -25,10 +25,16 @@ Every band below keeps at least 15px of slack on BOTH sides of that
 inequality, so a small difference in a real device's column cannot tip a row
 from two buttons to three — which is the defect being fixed.
 
-    <= 375px            xs    112   2 fit / 3 cannot     -> 2 x 2
-    376-480px           md    135   2 fit / 3 cannot     -> 2 x 2
-    481-900px           tab   175   2 fit / 3 cannot     -> 2 x 2
-    1001-1279px         md    135   4 fit                -> 4 x 1
+Each phone band is sized to FILL its column rather than sit in a narrow
+centred block: the width is (smallest column in the band - 10) / 2, so two
+cards occupy ~97-99% of the content width at the band's start and never less
+than ~88% at its end. Three can never fit in any band.
+
+    <= 359px            xs    114   2 up, ~97% of column
+    360-399px           md    134   2 up, ~98%
+    400-480px           lg    154   2 up, ~98%  (primary iPhone band)
+    481-900px           tab   175   2 up
+    1001-1279px         md    134   4 up
     901-1000, >=1280    wide  198   2 x 2 / 4 x 1
 
 The 198px desktop asset is emitted byte-identically to the accepted version.
@@ -116,15 +122,22 @@ def button_tab(title, sub, color, icon):
 
 
 def button_md(title, sub, color, icon):
-    """376-480px (2 up) and 1001-1279px (4 up): one line each, comfortably."""
-    return _stacked(135, 80, title, sub, color, icon,
-                    icon_px=16, title_px=11, sub_px=8, pad=10,
-                    title_y=46, sub_y=64, lh=10)
+    """360-399px (2 up, ~99% of the column) and 1001-1279px (4 up)."""
+    return _stacked(134, 92, title, sub, color, icon,
+                    icon_px=16, title_px=11.5, sub_px=8.4, pad=11,
+                    title_y=48, sub_y=68, lh=11)
+
+
+def button_lg(title, sub, color, icon):
+    """400-480px: the primary iPhone band, filling ~90-99% of the column."""
+    return _stacked(154, 92, title, sub, color, icon,
+                    icon_px=17, title_px=12.5, sub_px=9, pad=12,
+                    title_y=49, sub_y=69, lh=11)
 
 
 def button_xs(title, sub, color, icon):
-    """<=375px: the tightest phone card. Title and subtitle both wrap in-card."""
-    return _stacked(112, 98, title, sub, color, icon,
+    """<=359px: the tightest phone card. Title and subtitle both wrap in-card."""
+    return _stacked(114, 98, title, sub, color, icon,
                     icon_px=15, title_px=10.5, sub_px=7.8, pad=9,
                     title_y=45, sub_y=74, lh=11)
 
@@ -135,5 +148,6 @@ def all_buttons():
         out[name] = button(title, sub, color, icon)
         out[name + '-xs'] = button_xs(title, sub, color, icon)
         out[name + '-md'] = button_md(title, sub, color, icon)
+        out[name + '-lg'] = button_lg(title, sub, color, icon)
         out[name + '-tab'] = button_tab(title, sub, color, icon)
     return out

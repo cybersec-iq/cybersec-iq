@@ -111,11 +111,13 @@ def wide():
 
 def narrow():
     W = 440
-    px, py, pw = 10, 58, W - 20
+    # The subtitle baseline sits 26px under the title baseline, so the panel
+    # has to start below that or the frame draws straight through the words.
+    px, py, pw = 10, 82, W - 20
     cx = px + 16
     inner = pw - 32
 
-    o = D.section_header(px + 8, 34, '~/stack', 'TECHNOLOGY STACK & TOOLING')
+    o = D.section_header(px + 8, 32, '~/stack', 'TECHNOLOGY STACK & TOOLING')
 
     y = py + 22
     groups = CATEGORIES + WIDE_ROW2

@@ -169,14 +169,17 @@ def narrow():
     o += D.rule(cx, 266, 272, h=1.3)
 
     for i, (_, key, val, col) in enumerate(ROWS):
-        ry = 300 + i * 32
+        ry = 292 + i * 34
+        # Compact label track: the longest label ("LOCATION") is ~67px at this
+        # size, so the colon sits just after it and the value right after that,
+        # instead of the value drifting to a far column.
         o += D.text(cx, ry, key, size=11.8, fill=D.CYAN, tracking=1.3)
-        o += D.text(cx + 90, ry, ':', size=11.8, fill=D.FAINT)
-        o += D.text(cx + 108, ry, val, size=11.8, fill=col,
-                    weight='600', tracking=.45)
+        o += D.text(cx + 74, ry, ':', size=11.8, fill=D.FAINT)
+        runs = [(val, col)]
         if key == 'STATUS':
-            o += D.status_dot(cx + 108 + D.tw(val, 11.8, .45) + 13,
-                              ry - 4, D.YELLOW, 3.5)
+            runs.append(('  ●', D.YELLOW))
+        o += D.rich(cx + 88, ry, runs, size=11.8, tracking=.45,
+                    weight_for=lambda c: '600')
 
     o += _bottom_divider(cx, 419, pw - 36)
     return D.doc(W, H, TITLE, DESC, o, extra_defs=typing_defs)

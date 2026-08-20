@@ -223,55 +223,77 @@ def wide(m, user, stamp, header=True):
 
 
 def narrow(m, user, stamp, header=True):
-    """Narrow activity card. See wide() for what `header` controls."""
-    W = 440
-    px, pw = 10, W - 20
-    py = 58 if header else 16
-    cx = px + 14
-    inner = pw - 28
+    """Phone composition for the activity card.
+
+    Designed on a 340-unit canvas rather than 440. README images are capped at
+    the column width, so a 440 canvas was being shrunk to ~0.70 on a 390px
+    phone and every label lost a third of its size. At 340 the same card
+    renders near 1:1 between 390 and 440, and scales UP on wider phones, which
+    is lossless for SVG.
+
+    This is a real recomposition, not the wide card scaled: 2-column metric
+    grid, insights full width beneath it, and scope/sync stacked below rather
+    than squeezed alongside.
+    """
+    W = 340
+    px, pw = 8, W - 16
+    # 66, not 46: the subtitle baseline sits 26px below the title, so a panel
+    # starting at 46 would be drawn straight through "PUBLIC GITHUB ACTIVITY".
+    py = 66 if header else 12
+    cx = px + 11
+    inner = pw - 22
 
     o = ''
     if header:
-        o += D.section_header(px + 8, 34, '~/activity', 'PUBLIC GITHUB ACTIVITY')
-        top = py + 16
+        o += D.section_header(px + 4, 30, '~/activity', 'PUBLIC GITHUB ACTIVITY')
+        top = py + 14
     else:
-        o += D.text(cx, py + 26, 'PUBLIC GITHUB ACTIVITY', size=11.5, fill=D.CYAN,
-                    weight='700', tracking=2.2)
-        o += D.status_dot(cx + inner - 42, py + 22, D.GREEN, 4)
-        o += D.label(cx + inner, py + 26, 'LIVE', size=10.5, fill=D.GREEN,
-                     tracking=2, anchor='end')
-        o += D.text(cx, py + 43, '@' + user, size=10.5, fill=D.MUTED, tracking=1.2)
-        o += D.hline(cx, py + 54, inner, D.LINE_2)
-        top = py + 68
+        o += D.text(cx, py + 22, 'PUBLIC GITHUB ACTIVITY', size=11, fill=D.CYAN,
+                    weight='700', tracking=1.8)
+        o += D.status_dot(cx + inner - 38, py + 18, D.GREEN, 3.5)
+        o += D.label(cx + inner, py + 22, 'LIVE', size=9.5, fill=D.GREEN,
+                     tracking=1.6, anchor='end')
+        o += D.text(cx, py + 38, '@' + user, size=9.5, fill=D.MUTED, tracking=1)
+        o += D.hline(cx, py + 48, inner, D.LINE_2)
+        top = py + 60
 
-    gap = 10
+    # ---- 2-column metric grid ----
+    gap = 8
     tw_ = (inner - gap) / 2
-    th = 84
+    th = 82
     for i, (lab, val, note, col, icon) in enumerate(tiles(m)):
         c, r = i % 2, i // 2
         o += D.metric_tile(cx + c * (tw_ + gap), top + r * (th + gap),
-                           tw_, th, lab, val, note, col, icon)
+                           tw_, th, lab, val, note, col, icon,
+                           pad=11, icon_px=13, label_px=8.6, value_px=27,
+                           note_px=8.2, glow=None)
 
-    iy = top + 3 * (th + gap) + 6
+    # ---- insights, full width ----
+    iy = top + 3 * (th + gap) + 8
     rows = insights(m)
-    ih = 30 + len(rows) * 22
+    ih = 26 + len(rows) * 20
     o += D.panel(cx, iy, inner, ih, fill=D.SURFACE_2, stroke=D.LINE)
-    o += D.label(cx + 14, iy + 20, 'ACTIVITY INSIGHTS', size=10.5, fill=D.CYAN, tracking=2.2)
+    o += D.label(cx + 12, iy + 18, 'ACTIVITY INSIGHTS', size=9.5, fill=D.CYAN, tracking=2)
     for i, (icon, k, v, col) in enumerate(rows):
-        ry = iy + 44 + i * 22
-        o += icon(cx + 14, ry - 11, 14, D.CYAN_DIM)
-        o += D.text(cx + 36, ry, k, size=11.5, fill=D.TEXT)
-        o += D.text(cx + inner - 14, ry, v, size=11.5, fill=col, weight='600', anchor='end')
+        ry = iy + 38 + i * 20
+        o += icon(cx + 12, ry - 10, 12, D.CYAN_DIM)
+        o += D.text(cx + 30, ry, k, size=10.5, fill=D.TEXT)
+        o += D.text(cx + inner - 12, ry, v, size=10.5, fill=col, weight='600', anchor='end')
 
-    ny = iy + ih + 20
-    o += D.text(cx, ny, 'Public activity only. Private', size=10.5, fill=D.FAINT)
-    o += D.text(cx, ny + 14, 'contributions are not counted.', size=10.5, fill=D.FAINT)
-    o += D.text(cx, ny + 30, 'LAST SYNC  ' + stamp, size=10.5, fill=D.FAINT, tracking=1)
+    # ---- scope + sync, stacked below (never beside on a phone) ----
+    sy = iy + ih + 10
+    sh = 62
+    o += D.panel(cx, sy, inner, sh, fill=D.SURFACE_2, stroke=D.LINE)
+    o += D.label(cx + 12, sy + 17, 'SCOPE', size=9.5, fill=D.CYAN, tracking=2)
+    o += D.text(cx + 12, sy + 32, 'Public activity only. Private', size=9.5, fill=D.MUTED)
+    o += D.text(cx + 12, sy + 44, 'contributions are not counted.', size=9.5, fill=D.MUTED)
+    o += D.i_clock(cx + 12, sy + 50, 11, D.CYAN_DIM)
+    o += D.text(cx + 28, sy + 59, 'LAST SYNC  ' + stamp, size=8.6, fill=D.FAINT, tracking=.8)
 
-    ph = ny + 42 - py
-    H = py + ph + 12
+    ph = sy + sh + 12 - py
+    H = py + ph + 10
     frame = (D.panel(px, py, pw, ph, fill=D.SURFACE, stroke=D.LINE_2, rx=4)
-             + D.brackets(px, py, pw, ph, color=D.CYAN, arm=14, sw=1.8,
+             + D.brackets(px, py, pw, ph, color=D.CYAN, arm=12, sw=1.6,
                           corners='tl,tr,bl,br', opacity=0.55))
     return D.doc(W, H, 'Public GitHub activity for ' + user, desc(m, stamp), frame + o)
 
@@ -293,7 +315,8 @@ def main():
     # the wide card responsively, so no narrow embed variant is emitted.
     for name, svg in (('activity.svg', wide(m, user, stamp)),
                       ('activity-narrow.svg', narrow(m, user, stamp)),
-                      ('activity-embed.svg', wide(m, user, stamp, header=False))):
+                      ('activity-embed.svg', wide(m, user, stamp, header=False)),
+                      ('activity-embed-narrow.svg', narrow(m, user, stamp, header=False))):
         ET.fromstring(svg)
         with open(os.path.join(out, name), 'w', encoding='utf-8', newline='\n') as fh:
             fh.write(svg)

@@ -372,18 +372,31 @@ def section_header(x, y, path_label, sub, right=None, right_icon=None,
     return out
 
 
-def metric_tile(x, y, w, h, label_s, value, note, color, icon=None):
-    """Activity metric tile (ref 04)."""
+def metric_tile(x, y, w, h, label_s, value, note, color, icon=None,
+                pad=16, icon_px=16, label_px=10.5, value_px=34, note_px=10,
+                glow=None):
+    """Activity metric tile (ref 04), laid out as a fixed vertical rhythm:
+
+        pad -> icon + label row -> gap -> number -> gap -> meta -> pad
+
+    `glow` is None by default. A Gaussian halo behind a numeral survives fine
+    at desktop size, but these tiles are downscaled on a phone, where the halo
+    compresses into the glyph and reads as blur. Crisp fill on a dark tile is
+    already bright enough.
+    """
     out = panel(x, y, w, h, fill=SURFACE_2, stroke=color, sw=1.2)
     out += f'    <rect x="{x}" y="{y}" width="{w}" height="2.5" fill="{color}" opacity="0.85"/>\n'
-    ix = x + 16
+
+    row_y = y + pad + icon_px * 0.78          # baseline of the label row
+    ix = x + pad
     if icon:
-        out += icon(ix, y + 18, 16, color)
-        ix += 24
-    out += label(ix, y + 30, label_s, size=10.5, fill=MUTED, tracking=1.9)
-    out += text(x + 16, y + h - 30, str(value), size=34, fill=color, weight='700',
-                tracking=0.5, filt='glowSm')
-    out += label(x + 16, y + h - 11, note, size=10, fill=FAINT, tracking=1.7)
+        out += icon(ix, y + pad, icon_px, color)
+        ix += icon_px + 8
+    out += label(ix, row_y, label_s, size=label_px, fill=MUTED, tracking=1.6)
+
+    out += text(x + pad, row_y + 10 + value_px * 0.74, str(value), size=value_px,
+                fill=color, weight='700', tracking=0.5, filt=glow)
+    out += label(x + pad, h + y - pad + 2, note, size=note_px, fill=FAINT, tracking=1.5)
     return out
 
 
