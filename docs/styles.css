@@ -242,10 +242,10 @@ body::after {
              background: linear-gradient(90deg, var(--green), rgba(0,229,255,.35), transparent); }
 
 .who__facts { margin-top: 18px; padding: 6px 0; display: grid; gap: 13px; max-width: 760px; }
-.fact { display: grid; grid-template-columns: 20px minmax(0, 150px) 1fr; align-items: center;
+.fact { display: grid; grid-template-columns: 20px 150px max-content minmax(0, 1fr); align-items: center;
         gap: 12px; font-size: clamp(12px, 2.2vw, 15px); }
 .fact__k { color: var(--cyan); letter-spacing: 2px; }
-.fact__k::after { content: " :"; color: var(--faint); }
+.fact__sep { color: var(--faint); }
 .fact__v { color: var(--text-hi); letter-spacing: 1.2px; font-weight: 600; }
 .fact__v--yellow { color: var(--yellow); }
 .fact__v--green { color: var(--green); }
@@ -501,12 +501,10 @@ body::after {
   .summary { gap: 8px 18px; }
 }
 
-/* Facts stay on one line at phone widths — stacking the value under its label
-   at 390-420 was what made LOCATION look disconnected from MUSCAT, OMAN.
-   Only genuinely tiny screens fall back to two lines. */
-@media (max-width: 340px) {
-  .fact { grid-template-columns: 18px minmax(0, 1fr); row-gap: 2px; }
-  .fact__v { grid-column: 2; }
+/* Compact, explicit LABEL | : | VALUE tracks. The fixed label track is sized
+   to LOCATION, while the 8px gap keeps every value visually attached. */
+@media (max-width: 640px) {
+  .fact { grid-template-columns: 18px 76px max-content minmax(0, 1fr); gap: 8px; }
 }
 
 /* The activity and contribution-grid SVGs already carry their own framed

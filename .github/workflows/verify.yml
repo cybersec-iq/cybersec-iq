@@ -56,3 +56,6 @@ jobs:
 
       - name: Assets, links and outbound-link hygiene
         run: python3 tests/validate.py
+
+      - name: Mobile layout geometry
+        run: python3 tests/mobile_geometry.py

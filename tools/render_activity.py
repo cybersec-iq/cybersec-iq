@@ -311,8 +311,8 @@ def main():
     os.makedirs(out, exist_ok=True)
     # `activity*` carries its own section header, because the README embeds it
     # bare. `activity-embed` omits it: the Pages site renders `~/activity`
-    # above the card, and printing it twice reads as a mistake. Pages scales
-    # the wide card responsively, so no narrow embed variant is emitted.
+    # above the card, and printing it twice reads as a mistake. Pages selects
+    # the dedicated narrow embed rather than shrinking the wide dashboard.
     for name, svg in (('activity.svg', wide(m, user, stamp)),
                       ('activity-narrow.svg', narrow(m, user, stamp)),
                       ('activity-embed.svg', wide(m, user, stamp, header=False)),

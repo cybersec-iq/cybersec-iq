@@ -25,14 +25,18 @@ Every band below keeps at least 15px of slack on BOTH sides of that
 inequality, so a small difference in a real device's column cannot tip a row
 from two buttons to three — which is the defect being fixed.
 
-Each phone band is sized to FILL its column rather than sit in a narrow
-centred block: the width is (smallest column in the band - 10) / 2, so two
-cards occupy ~97-99% of the content width at the band's start and never less
-than ~88% at its end. Three can never fit in any band.
+Each phone band is sized to fill at least 92% of the measured rail while still
+leaving enough room for exactly two cards. The bands overlap geometrically, so
+every integer viewport from 320 through 480 remains two-up rather than only
+the named acceptance widths.
 
-    <= 359px            xs    114   2 up, ~97% of column
-    360-399px           md    134   2 up, ~98%
-    400-480px           lg    154   2 up, ~98%  (primary iPhone band)
+    <= 334px            xs         114
+    335-355px           phone-sm   124
+    356-379px           md         135
+    380-405px           phone      147
+    406-434px           lg         160
+    435-464px           phone-xl   174
+    465-480px           phone-xxl  189
     481-900px           tab   175   2 up
     1001-1279px         md    134   4 up
     901-1000, >=1280    wide  198   2 x 2 / 4 x 1
@@ -122,16 +126,44 @@ def button_tab(title, sub, color, icon):
 
 
 def button_md(title, sub, color, icon):
-    """360-399px (2 up, ~99% of the column) and 1001-1279px (4 up)."""
-    return _stacked(134, 92, title, sub, color, icon,
+    """356-379px (two-up) and 1001-1279px (four-up)."""
+    return _stacked(135, 92, title, sub, color, icon,
                     icon_px=16, title_px=11.5, sub_px=8.4, pad=11,
                     title_y=48, sub_y=68, lh=11)
 
 
 def button_lg(title, sub, color, icon):
-    """400-480px: the primary iPhone band, filling ~90-99% of the column."""
-    return _stacked(154, 92, title, sub, color, icon,
+    """406-434px: fills the 414/430px rails without wrapping."""
+    return _stacked(160, 92, title, sub, color, icon,
                     icon_px=17, title_px=12.5, sub_px=9, pad=12,
+                    title_y=49, sub_y=69, lh=11)
+
+
+def button_phone(title, sub, color, icon):
+    """380-405px: dedicated 390/393px card, close to the full rail."""
+    return _stacked(147, 92, title, sub, color, icon,
+                    icon_px=17, title_px=12.2, sub_px=8.8, pad=12,
+                    title_y=49, sub_y=69, lh=11)
+
+
+def button_phone_xl(title, sub, color, icon):
+    """435-464px: dedicated 440px card, close to the full rail."""
+    return _stacked(174, 92, title, sub, color, icon,
+                    icon_px=17, title_px=12.5, sub_px=9, pad=12,
+                    title_y=49, sub_y=69, lh=11)
+
+
+def button_phone_sm(title, sub, color, icon):
+    """335-355px: bridges the smallest phone rails without a weak gutter."""
+    return _stacked(124, 96, title, sub, color, icon,
+                    icon_px=15, title_px=10.8, sub_px=8, pad=10,
+                    title_y=46, sub_y=73, lh=11)
+
+
+def button_phone_xxl(title, sub, color, icon):
+    """465-480px: completes continuous two-up coverage through 480px."""
+    return _stacked(189, 92, title, sub, color, icon,
+                    icon_px=18, title_px=12.8, sub_px=9.2, pad=13,
                     title_y=49, sub_y=69, lh=11)
 
 
@@ -147,7 +179,11 @@ def all_buttons():
     for name, title, sub, color, icon in BUTTONS:
         out[name] = button(title, sub, color, icon)
         out[name + '-xs'] = button_xs(title, sub, color, icon)
+        out[name + '-phone-sm'] = button_phone_sm(title, sub, color, icon)
         out[name + '-md'] = button_md(title, sub, color, icon)
+        out[name + '-phone'] = button_phone(title, sub, color, icon)
         out[name + '-lg'] = button_lg(title, sub, color, icon)
+        out[name + '-phone-xl'] = button_phone_xl(title, sub, color, icon)
+        out[name + '-phone-xxl'] = button_phone_xxl(title, sub, color, icon)
         out[name + '-tab'] = button_tab(title, sub, color, icon)
     return out
