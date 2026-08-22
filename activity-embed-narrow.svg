@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 570" width="340" height="570" role="img" aria-labelledby="t d" preserveAspectRatio="xMidYMid meet">
+  <title id="t">Public GitHub activity for cybersec-iq</title>
+  <desc id="d">Public GitHub activity. CONTRIBUTIONS: 34. COMMITS: 32. PULL REQUESTS: 0. ISSUES: 0. PUBLIC REPOS: 1. FOLLOWERS: 1. Longest streak 2 days. Current streak 0 days. Best day 30 contributions. Active on 3 of 371 days. Public activity only, generated 2026-08-22 03:59 UTC.</desc>
+  <defs>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#12242E" stroke-width="1"/>
+    </pattern>
+    <pattern id="grid-fine" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M10 0H0V10" fill="none" stroke="#0B1820" stroke-width="0.7"/>
+    </pattern>
+    <pattern id="scan" width="3" height="3" patternUnits="userSpaceOnUse">
+      <rect width="3" height="1" fill="#00E5FF" opacity="0.035"/>
+    </pattern>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0B1A23"/><stop offset="100%" stop-color="#050D13"/>
+    </linearGradient>
+    <linearGradient id="ruleGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#39FF14" stop-opacity="0.95"/>
+      <stop offset="55%" stop-color="#00E5FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="ruleCyan" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSm" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="1.6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowMd" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowLg" x="-35%" y="-70%" width="170%" height="240%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .m { font-family: ui-monospace, "JetBrains Mono", "IBM Plex Mono", "Space Mono", "SFMono-Regular", Menlo, Consolas, monospace; }
+      .blink { animation: blink 1.15s steps(1) infinite; }
+      .live  { animation: live 2.8s ease-in-out infinite; }
+      .flow  { stroke-dasharray: 4 8; animation: flow 3.2s linear infinite; }
+      .rise  { animation: rise .55s ease-out both; }
+      @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+      @keyframes live  { 0%,100% { opacity: .38; } 50% { opacity: 1; } }
+      @keyframes flow  { to { stroke-dashoffset: -24; } }
+      @keyframes rise  { from { opacity: 0; transform: translateY(7px); }
+                          to { opacity: 1; transform: translateY(0); } }
+      @media (prefers-reduced-motion: reduce) {
+        .blink, .live, .flow, .rise { animation: none; }
+      }
+    </style>
+  </defs>
+  <g class="m">
+    <rect width="340" height="570" fill="#03070A"/>
+    <rect width="340" height="570" fill="url(#grid)" opacity="0.5"/>
+    <rect width="340" height="570" fill="url(#scan)"/>
+    <rect x="8" y="12" width="324" height="548" rx="4" fill="#050D13" fill-opacity="1.0" stroke="#1B3541" stroke-width="1.2"/>
+    <g stroke="#00E5FF" stroke-width="1.6" fill="none" opacity="0.55"><path d="M8 24 V12 H20"/><path d="M320 12 H332 V24"/><path d="M8 548 V560 H20"/><path d="M320 560 H332 V548"/></g>
+    <text x="19" y="34" font-size="11" fill="#00E5FF" font-weight="700" letter-spacing="1.8">PUBLIC GITHUB ACTIVITY</text>
+    <circle cx="283" cy="30" r="3.5" fill="#39FF14" class="live"/>
+    <text x="321" y="34" font-size="9.5" fill="#39FF14" letter-spacing="1.6" text-anchor="end">LIVE</text>
+    <text x="19" y="50" font-size="9.5" fill="#6E828F" letter-spacing="1">@cybersec-iq</text>
+    <rect x="19" y="60" width="302" height="1" fill="#1B3541"/>
+    <rect x="19.0" y="72" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#FFE600" stroke-width="1.2"/>
+    <rect x="19.0" y="72" width="147.0" height="2.5" fill="#FFE600" opacity="0.85"/>
+    <g transform="translate(30.0 83) scale(0.5417)" fill="none" stroke="#FFE600" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><rect x="3.5" y="5" width="17" height="16" rx="1"/><path d="M3.5 10 h17M8 3 v4M16 3 v4"/></g>
+    <text x="51.0" y="93.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">CONTRIBUTIONS</text>
+    <text x="30.0" y="123.12" font-size="27" fill="#FFE600" font-weight="700" letter-spacing="0.5">34</text>
+    <text x="30.0" y="145" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">12 MONTHS</text>
+    <rect x="174.0" y="72" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#00E5FF" stroke-width="1.2"/>
+    <rect x="174.0" y="72" width="147.0" height="2.5" fill="#00E5FF" opacity="0.85"/>
+    <g transform="translate(185.0 83) scale(0.5417)" fill="none" stroke="#00E5FF" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="3.6"/><path d="M2.5 12 h5.9M15.6 12 h5.9"/></g>
+    <text x="206.0" y="93.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">COMMITS</text>
+    <text x="185.0" y="123.12" font-size="27" fill="#00E5FF" font-weight="700" letter-spacing="0.5">32</text>
+    <text x="185.0" y="145" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">12 MONTHS</text>
+    <rect x="19.0" y="162" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#39FF14" stroke-width="1.2"/>
+    <rect x="19.0" y="162" width="147.0" height="2.5" fill="#39FF14" opacity="0.85"/>
+    <g transform="translate(30.0 173) scale(0.5417)" fill="none" stroke="#39FF14" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="6.5" cy="5.5" r="2.6"/><circle cx="6.5" cy="18.5" r="2.6"/><path d="M6.5 8.1 v7.8"/><circle cx="17.5" cy="18.5" r="2.6"/><path d="M17.5 15.9 V9 a3 3 0 0 0-3-3 h-3"/></g>
+    <text x="51.0" y="183.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">PULL REQUESTS</text>
+    <text x="30.0" y="213.11999999999998" font-size="27" fill="#39FF14" font-weight="700" letter-spacing="0.5">0</text>
+    <text x="30.0" y="235" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">12 MONTHS</text>
+    <rect x="174.0" y="162" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#00E5FF" stroke-width="1.2"/>
+    <rect x="174.0" y="162" width="147.0" height="2.5" fill="#00E5FF" opacity="0.85"/>
+    <g transform="translate(185.0 173) scale(0.5417)" fill="none" stroke="#00E5FF" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/></g>
+    <text x="206.0" y="183.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">ISSUES</text>
+    <text x="185.0" y="213.11999999999998" font-size="27" fill="#00E5FF" font-weight="700" letter-spacing="0.5">0</text>
+    <text x="185.0" y="235" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">12 MONTHS</text>
+    <rect x="19.0" y="252" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#FFE600" stroke-width="1.2"/>
+    <rect x="19.0" y="252" width="147.0" height="2.5" fill="#FFE600" opacity="0.85"/>
+    <g transform="translate(30.0 263) scale(0.5417)" fill="none" stroke="#FFE600" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M4 3.5 h13.5 v17 H6 a2 2 0 0 1-2-2 Z"/><path d="M4 17 h13.5"/><path d="M7.5 7 h6"/></g>
+    <text x="51.0" y="273.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">PUBLIC REPOS</text>
+    <text x="30.0" y="303.12" font-size="27" fill="#FFE600" font-weight="700" letter-spacing="0.5">1</text>
+    <text x="30.0" y="325" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">OWNED</text>
+    <rect x="174.0" y="252" width="147.0" height="82" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#39FF14" stroke-width="1.2"/>
+    <rect x="174.0" y="252" width="147.0" height="2.5" fill="#39FF14" opacity="0.85"/>
+    <g transform="translate(185.0 263) scale(0.5417)" fill="none" stroke="#39FF14" stroke-width="3.51" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20 c0-3.6 2.9-6 6.5-6 s6.5 2.4 6.5 6"/><path d="M17 5.2 a3.4 3.4 0 0 1 0 6.4M18.5 14.6 c2.1.7 3.5 2.6 3.5 5.4"/></g>
+    <text x="206.0" y="273.14" font-size="8.6" fill="#6E828F" letter-spacing="1.6">FOLLOWERS</text>
+    <text x="185.0" y="303.12" font-size="27" fill="#39FF14" font-weight="700" letter-spacing="0.5">1</text>
+    <text x="185.0" y="325" font-size="8.2" fill="#3A4C58" letter-spacing="1.5">TOTAL</text>
+    <rect x="19" y="350" width="302" height="126" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#12242E" stroke-width="1.2"/>
+    <text x="31" y="368" font-size="9.5" fill="#00E5FF" letter-spacing="2">ACTIVITY INSIGHTS</text>
+    <g transform="translate(31 378) scale(0.5000)" fill="none" stroke="#0A6C7C" stroke-width="3.80" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 2.5 c3.5 4 6.5 6.5 6.5 11 a6.5 6.5 0 0 1-13 0 c0-2.6 1.4-4.2 2.8-6 .4 1.6 1.2 2.4 2.2 2.8 -.6-3 .2-5.6 1.5-7.8 Z"/></g>
+    <text x="49" y="388" font-size="10.5" fill="#C3CDD6">Longest streak</text>
+    <text x="309" y="388" font-size="10.5" fill="#39FF14" font-weight="600" text-anchor="end">2 days</text>
+    <g transform="translate(31 398) scale(0.5000)" fill="none" stroke="#0A6C7C" stroke-width="3.80" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M2 12 h4 l3-7.5 l4.5 15 l3-7.5 h5.5"/></g>
+    <text x="49" y="408" font-size="10.5" fill="#C3CDD6">Current streak</text>
+    <text x="309" y="408" font-size="10.5" fill="#00E5FF" font-weight="600" text-anchor="end">0 days</text>
+    <g transform="translate(31 418) scale(0.5000)" fill="none" stroke="#0A6C7C" stroke-width="3.80" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M7 4 h10 v5 a5 5 0 0 1-10 0 Z"/><path d="M7 5.5 H4 v2 a3 3 0 0 0 3 3M17 5.5 h3 v2 a3 3 0 0 1-3 3"/><path d="M12 14 v3.5M8.5 20.5 h7"/></g>
+    <text x="49" y="428" font-size="10.5" fill="#C3CDD6">Best day</text>
+    <text x="309" y="428" font-size="10.5" fill="#FFE600" font-weight="600" text-anchor="end">30</text>
+    <g transform="translate(31 438) scale(0.5000)" fill="none" stroke="#0A6C7C" stroke-width="3.80" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M3 20 h18"/><rect x="5" y="12" width="3.4" height="6"/><rect x="10.3" y="7.5" width="3.4" height="10.5"/><rect x="15.6" y="4" width="3.4" height="14"/></g>
+    <text x="49" y="448" font-size="10.5" fill="#C3CDD6">Active days</text>
+    <text x="309" y="448" font-size="10.5" fill="#00E5FF" font-weight="600" text-anchor="end">3 of 371</text>
+    <g transform="translate(31 458) scale(0.5000)" fill="none" stroke="#0A6C7C" stroke-width="3.80" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><path d="M12 3 l2.8 6 6.2.7 -4.6 4.2 1.3 6.1 -5.7-3.2 -5.7 3.2 1.3-6.1 -4.6-4.2 6.2-.7 Z"/></g>
+    <text x="49" y="468" font-size="10.5" fill="#C3CDD6">Repos contributed</text>
+    <text x="309" y="468" font-size="10.5" fill="#39FF14" font-weight="600" text-anchor="end">1</text>
+    <rect x="19" y="486" width="302" height="62" rx="3" fill="#08141C" fill-opacity="1.0" stroke="#12242E" stroke-width="1.2"/>
+    <text x="31" y="503" font-size="9.5" fill="#00E5FF" letter-spacing="2">SCOPE</text>
+    <text x="31" y="518" font-size="9.5" fill="#6E828F">Public activity only. Private</text>
+    <text x="31" y="530" font-size="9.5" fill="#6E828F">contributions are not counted.</text>
+    <g transform="translate(31 536) scale(0.4583)" fill="none" stroke="#0A6C7C" stroke-width="4.15" stroke-linecap="square" stroke-linejoin="miter" vector-effect="non-scaling-stroke"><circle cx="12" cy="12" r="9"/><path d="M12 6.6 V12 l4 2.4"/></g>
+    <text x="47" y="545" font-size="8.6" fill="#3A4C58" letter-spacing="0.8">LAST SYNC  2026-08-22 03:59 UTC</text>
+  </g>
+</svg>
